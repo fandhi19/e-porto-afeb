@@ -1,0 +1,604 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Artefak Pembelajaran | E-Portofolio PPG Calon Guru</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Oswald:wght@500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="Css/artefak.css" />
+    <link rel="shortcut icon" href="logo.png" type="image/x-icon" />
+  </head>
+  <body>
+    <nav class="navbar" id="navbar">
+      <div class="nav-container">
+        <a href="index.html" class="nav-left">
+          <img src="logo.png" alt="Logo Universitas" class="univ-logo-img" />
+          <span class="brand-name"> E-Portofolio <span class="text-accent">PPG.</span> </span>
+        </a>
+
+        <div class="menu-toggle" id="mobile-menu">
+          <i class="fa-solid fa-bars-staggered"></i>
+        </div>
+
+        <ul class="nav-menu" id="nav-menu">
+          <li><a href="index.html" class="nav-link">BERANDA</a></li>
+          <li class="dropdown">
+            <a href="#" class="nav-link active">PORTFOLIO 1 <i class="fa-solid fa-caret-down"></i></a>
+            <ul class="dropdown-menu">
+              <li>
+                <a href="profil.html" class="dropdown-active">Profil Mahasiswa</a>
+              </li>
+              <li>
+                <a href="artefak.html" style="color: var(--accent); padding-left: 25px; background: #222">Artefak Produk</a>
+              </li>
+              <li><a href="penilaian.html">Penilaian GP</a></li>
+              <li><a href="modelguru.html">Model Guru</a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="#" class="nav-link">PORTFOLIO 2 <i class="fa-solid fa-caret-down"></i></a>
+            <ul class="dropdown-menu">
+              <li><a href="refleksi.html">Refleksi Akhir</a></li>
+              <li><a href="filosofi.html">Filosofi Mengajar</a></li>
+            </ul>
+          </li>
+          <li><a href="dokumentasi.html" class="nav-link">DOKUMENTASI</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <main class="artefak-main">
+      <section class="hero-artefak">
+        <div class="hero-glow-blob blob-1"></div>
+        <div class="hero-glow-blob blob-2"></div>
+        <div class="hero-grid-overlay"></div>
+
+        <div class="container text-center relative-z">
+          <div class="sport-badge reveal"><i class="fa-solid fa-layer-group"></i> RUANG KARYA E-PORTOFOLIO 1</div>
+          <h1 class="hero-title reveal">
+            ARTEFAK & <br />
+            <span class="text-accent text-glow">PERANGKAT PEMBELAJARAN</span>
+          </h1>
+          <p class="hero-desc mx-auto reveal">Eksplorasi dokumen rancangan pembelajaran PJOK beserta analisis reflektif mengenai kendala, landasan teori, faktor keberhasilan, dan adaptabilitas ruang kelas berbasis digital.</p>
+        </div>
+      </section>
+
+      <section class="document-section">
+        <div class="container relative-z">
+          <div class="doc-identity-bar reveal">
+            <div class="identity-item">
+              <div class="id-icon"><i class="fa-solid fa-book"></i></div>
+              <div class="id-text">
+                <label>Mata Pelajaran</label>
+                <h4>PJOK (Penjasorkes)</h4>
+              </div>
+            </div>
+            <div class="identity-item">
+              <div class="id-icon"><i class="fa-solid fa-school"></i></div>
+              <div class="id-text">
+                <label>Sekolah Mitra (PPL)</label>
+                <h4>SMA Negeri 4 Surakarta</h4>
+              </div>
+            </div>
+            <div class="identity-item">
+              <div class="id-icon">
+                <i class="fa-solid fa-users-viewfinder"></i>
+              </div>
+              <div class="id-text">
+                <label>Fase / Kelas</label>
+                <h4>Fase E / Kelas X</h4>
+              </div>
+            </div>
+            <div class="identity-item">
+              <div class="id-icon"><i class="fa-solid fa-laptop-code"></i></div>
+              <div class="id-text">
+                <label>Topik Materi</label>
+                <h4>Kebugaran Jasmani</h4>
+              </div>
+            </div>
+          </div>
+
+          <div class="pdf-container reveal">
+            <div class="tab-buttons">
+              <button class="tab-btn active" onclick="openPdfTab(event, 'tab-modul')"><i class="fa-solid fa-book-open"></i> MODUL AJAR</button>
+              <button class="tab-btn" onclick="openPdfTab(event, 'tab-lkpd')"><i class="fa-solid fa-clipboard-list"></i> LKPD</button>
+              <button class="tab-btn" onclick="openPdfTab(event, 'tab-rubrik')"><i class="fa-solid fa-spell-check"></i> OBSERVASI</button>
+            </div>
+
+            <div id="tab-modul" class="tab-content active" style="display: block">
+              <div class="pdf-wrapper">
+                <iframe src="Dokumen/Modul Ajar Gateball Kelas X .pdf" title="Modul Ajar Gateball" loading="lazy"></iframe>
+              </div>
+              <div class="doc-actions">
+                <a href="Dokumen/Modul Ajar Gateball Kelas X .pdf" target="_blank" class="btn-primary"> <i class="fa-solid fa-up-right-from-square"></i> BUKA FULLSCREEN </a>
+                <a href="Dokumen/Modul Ajar Gateball Kelas X .pdf" download="Modul_Ajar_Gateball_Kelas_X.pdf" class="btn-secondary"> <i class="fa-solid fa-download"></i> UNDUH BERKAS </a>
+              </div>
+
+              <div class="pdf-wrapper" style="margin-top: 70px">
+                <iframe src="Dokumen/Modul Ajar Bola Basket Kelas X.pdf" title="Modul Ajar Bola Basket" loading="lazy"></iframe>
+              </div>
+              <div class="doc-actions">
+                <a href="Dokumen/Modul Ajar Bola Basket Kelas X.pdf" target="_blank" class="btn-primary"> <i class="fa-solid fa-up-right-from-square"></i> BUKA FULLSCREEN </a>
+                <a href="Dokumen/Modul Ajar Bola Basket Kelas X.pdf" download="Modul_Ajar_Bola_Basket_Kelas_X.pdf" class="btn-secondary"> <i class="fa-solid fa-download"></i> UNDUH BERKAS </a>
+              </div>
+
+              <div class="pdf-wrapper" style="margin-top: 70px">
+                <iframe src="Dokumen/Modul Ajar Bola Voli Kelas X.pdf" title="Modul Ajar Bola Voli" loading="lazy"></iframe>
+              </div>
+              <div class="doc-actions">
+                <a href="Dokumen/Modul Ajar Bola Voli Kelas X.pdf" target="_blank" class="btn-primary"> <i class="fa-solid fa-up-right-from-square"></i> BUKA FULLSCREEN </a>
+                <a href="Dokumen/Modul Ajar Bola Voli Kelas X.pdf" download="Modul_Ajar_Bola_Voli_Kelas_X.pdf" class="btn-secondary"> <i class="fa-solid fa-download"></i> UNDUH BERKAS </a>
+              </div>
+            </div>
+
+            <div id="tab-lkpd" class="tab-content">
+              <div class="pdf-wrapper">
+                <iframe src="Dokumen/LKPD Gateball Kelas X.pdf" title="LKPD Gateball" loading="lazy"></iframe>
+              </div>
+              <div class="doc-actions">
+                <a href="Dokumen/LKPD Gateball Kelas X.pdf" target="_blank" class="btn-primary"> <i class="fa-solid fa-up-right-from-square"></i> BUKA FULLSCREEN </a>
+                <a href="Dokumen/LKPD Gateball Kelas X.pdf" download="LKPD_Gateball_Kelas_X.pdf" class="btn-secondary"> <i class="fa-solid fa-download"></i> UNDUH BERKAS </a>
+              </div>
+
+              <div class="pdf-wrapper" style="margin-top: 70px">
+                <iframe src="Dokumen/LKPD Bola Basket Kelas X.pdf" title="LKPD Bola Basket" loading="lazy"></iframe>
+              </div>
+              <div class="doc-actions">
+                <a href="Dokumen/LKPD Bola Basket Kelas X.pdf" target="_blank" class="btn-primary"> <i class="fa-solid fa-up-right-from-square"></i> BUKA FULLSCREEN </a>
+                <a href="Dokumen/LKPD Bola Basket Kelas X.pdf" download="LKPD_Bola_Basket_Kelas_X.pdf" class="btn-secondary"> <i class="fa-solid fa-download"></i> UNDUH BERKAS </a>
+              </div>
+
+              <div class="pdf-wrapper" style="margin-top: 70px">
+                <iframe src="Dokumen/LKPD Bola Voli Kelas X.pdf" title="LKPD Bola Voli" loading="lazy"></iframe>
+              </div>
+              <div class="doc-actions">
+                <a href="Dokumen/LKPD Bola Voli Kelas X.pdf" target="_blank" class="btn-primary"> <i class="fa-solid fa-up-right-from-square"></i> BUKA FULLSCREEN </a>
+                <a href="Dokumen/LKPD Bola Voli Kelas X.pdf" download="LKPD_Bola_Voli_Kelas_X.pdf" class="btn-secondary"> <i class="fa-solid fa-download"></i> UNDUH BERKAS </a>
+              </div>
+            </div>
+
+            <div id="tab-rubrik" class="tab-content">
+              <div class="pdf-wrapper">
+                <iframe src="Dokumen/Observasi 1.pdf" title="Observasi Manajemen Sekolah" loading="lazy"></iframe>
+              </div>
+              <div class="doc-actions">
+                <a href="Dokumen/Observasi 1.pdf" target="_blank" class="btn-primary"> <i class="fa-solid fa-up-right-from-square"></i> BUKA FULLSCREEN </a>
+                <a href="Dokumen/Observasi 1.pdf" download="Observasi_Manajemen_Sekolah.pdf" class="btn-secondary"> <i class="fa-solid fa-download"></i> UNDUH BERKAS </a>
+              </div>
+
+              <div class="pdf-wrapper" style="margin-top: 70px">
+                <iframe src="Dokumen/Observasi 2.pdf" title="Observasi Lingkungan Belajar" loading="lazy"></iframe>
+              </div>
+              <div class="doc-actions">
+                <a href="Dokumen/Observasi 2.pdf" target="_blank" class="btn-primary"> <i class="fa-solid fa-up-right-from-square"></i> BUKA FULLSCREEN </a>
+                <a href="Dokumen/Observasi 2.pdf" download="Observasi_Lingkungan_Belajar.pdf" class="btn-secondary"> <i class="fa-solid fa-download"></i> UNDUH BERKAS </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="analysis-section">
+        <div class="container relative-z">
+          <div class="section-title reveal">
+            <h2>
+              ANALISIS
+              <span class="text-accent text-glow">MODUL AJAR GATEBALL</span>
+            </h2>
+            <p>Tinjauan analitis mendalam dari 4 aspek esensial selama penyusunan dan implementasi produk.</p>
+          </div>
+
+          <div class="zigzag-wrapper">
+            <!-- A: KENDALA -->
+            <div class="zigzag-row reveal">
+              <div class="zz-visual">
+                <div class="zz-number">A</div>
+                <i class="fa-solid fa-triangle-exclamation zz-icon"></i>
+              </div>
+              <div class="zz-content">
+                <h3>KENDALA PENYUSUNAN</h3>
+                <p>
+                  Dalam proses menyusun perangkat pembelajaran untuk olahraga yang belum populer seperti Gateball, terdapat beberapa kendala empiris yang dihadapi oleh mahasiswa PPL. Tantangan pertama muncul dalam
+                  <strong>merancang diferensiasi pembelajaran</strong> karena mayoritas peserta didik berada pada level pemula, sehingga penyusunan instrumen asesmen diagnostik harus dilakukan dengan sangat hati-hati agar tidak membebani
+                  mereka.
+                </p>
+                <p>
+                  Kendala kedua adalah <strong>kompleksitas regulasi resmi World Gateball Union (WGU)</strong>, seperti aturan taktik, sparking, dan perhitungan poin, yang menuntut guru untuk mampu menyederhanakannya menjadi bentuk
+                  permainan mini (<em>mini game</em>) yang mudah dipahami dalam alokasi waktu yang terbatas. Selain itu, <strong>merumuskan rubrik asesmen autentik</strong> yang mendetail untuk aspek psikomotorik—seperti sudut genggaman
+                  (grip) dan ayunan stik (swing)—namun tetap praktis digunakan di lapangan menjadi kesulitan tersendiri. Terakhir, penyusun juga harus mengantisipasi <strong>keterbatasan sarana dan prasarana</strong> dengan menyiapkan
+                  rencana cadangan (plan B) agar tidak terjadi penumpukan siswa yang pasif selama kegiatan praktik berlangsung.
+                </p>
+              </div>
+            </div>
+
+            <!-- B: TEORI -->
+            <div class="zigzag-row reverse reveal">
+              <div class="zz-visual">
+                <div class="zz-number">B</div>
+                <i class="fa-solid fa-brain zz-icon"></i>
+              </div>
+              <div class="zz-content">
+                <h3>TEORI & KONSEP PEDAGOGI</h3>
+                <p>
+                  Modul pembelajaran ini dikembangkan dengan landasan teori pedagogi modern yang kuat dan terintegrasi untuk mendukung implementasi Kurikulum Merdeka di lapangan. <strong>Teori Konstruktivisme</strong> dari Jean Piaget dan
+                  Lev Vygotsky diadopsi melalui pendekatan problem solving dan refleksi, di mana siswa secara aktif mengonstruksi pemahamannya sendiri dengan menganalisis kesalahan pukulan dan mencari solusinya secara mandiri.
+                </p>
+                <p>
+                  Sementara itu, <strong>Teori Kognitif Sosial</strong> dari Albert Bandura diterapkan pada fase awal melalui metode demonstrasi, sehingga siswa dapat mengobservasi dan meniru gerakan grip serta swing dari model yang
+                  diperagakan. Untuk mematangkan keterampilan gerak, modul ini bersandar pada <strong>Teori Belajar Motorik</strong> dari Fitts dan Posner dengan mendesain latihan bertahap menggunakan sistem stasiun yang menekankan
+                  pentingnya umpan balik (<em>feedback</em>) untuk transisi dari fase kognitif ke fase otomatisasi gerak. Seluruh aktivitas tersebut dibingkai dalam pendekatan <strong>Deep Learning</strong> untuk menciptakan pengalaman
+                  belajar yang bermakna (<em>meaningful</em>) dan menyenangkan (<em>joyful</em>) melalui modifikasi permainan kelompok, serta mengintegrasikan <strong>Pedagogi Berdiferensiasi</strong> untuk merespons keberagaman tingkat
+                  kesiapan belajar siswa.
+                </p>
+              </div>
+            </div>
+
+            <!-- C: KEBERHASILAN -->
+            <div class="zigzag-row reveal">
+              <div class="zz-visual">
+                <div class="zz-number">C</div>
+                <i class="fa-solid fa-ranking-star zz-icon"></i>
+              </div>
+              <div class="zz-content">
+                <h3>FAKTOR KEBERHASILAN</h3>
+                <p>
+                  Eksekusi modul ajar Gateball di lapangan saat kegiatan PPL akan sangat dipengaruhi oleh beberapa determinan kunci keberhasilan. Faktor utama adalah <strong>kompetensi demonstrasi guru</strong>, di mana kemampuan
+                  memperagakan teknik dasar seperti grip, swing, dan center style secara biomekanika yang benar akan menjadi visualisasi awal yang sangat krusial bagi siswa yang belum familiar dengan olahraga ini.
+                </p>
+                <p>
+                  <strong>Manajemen kelas dan waktu</strong> yang efektif juga memegang peranan penting melalui pengaturan rotasi latihan bersistem stasiun atau sirkuit demi memaksimalkan Active Learning Time (ALT) dan mencegah siswa
+                  menganggur terlalu lama. Selain itu, faktor <strong>ketersediaan dan kreativitas dalam memodifikasi alat</strong>—seperti memanfaatkan pipa PVC sebagai gate pengganti atau botol air mineral sebagai goal pole jika alat
+                  standar kurang—menjadi penentu kelancaran sesi praktik. Terakhir, keberhasilan ini juga didukung oleh berjalannya <strong>dinamika peer coaching</strong> yang sehat, di mana siswa mampu bertindak sebagai tutor sebaya yang
+                  saling mengamati dan memberikan masukan positif tanpa rasa takut dihakimi oleh sesama rekan kelompok.
+                </p>
+              </div>
+            </div>
+
+            <!-- D: ADAPTABILITAS -->
+            <div class="zigzag-row reverse reveal">
+              <div class="zz-visual">
+                <div class="zz-number">D</div>
+                <i class="fa-solid fa-sliders zz-icon"></i>
+              </div>
+              <div class="zz-content">
+                <h3>ADAPTABILITAS & PERUBAHAN</h3>
+                <p>
+                  Sebagai perangkat pembelajaran yang dinamis, komponen dalam modul ini sangat fleksibel untuk diubah atau disesuaikan apabila dihadapkan pada situasi kelas dan lingkungan sekolah yang berbeda di lapangan. Apabila sekolah
+                  menghadapi <strong>kendala fasilitas atau alat yang sangat terbatas</strong>, komponen media pembelajaran dapat disesuaikan melalui modifikasi alat menggunakan tongkat kayu, paralon, dan kawat atau botol bekas sebagai
+                  pengganti stik dan gate resmi.
+                </p>
+                <p>
+                  Jika <strong>lahan sekolah sempit</strong> dan tidak memiliki lapangan rumput yang luas, komponen lapangan dan aturan permainan dapat diubah dengan memperkecil dimensi area permainan serta memfokuskan latihan pada akurasi
+                  pukulan jarak dekat di atas permukaan keras seperti paving atau semen. Untuk mengatasi situasi di mana <strong>mayoritas siswa pasif atau memiliki motivasi olahraga rendah</strong>, porsi drill teknik yang monoton dapat
+                  dikurangi dan digantikan dengan pendekatan games berupa kompetisi poin individu (<em>target games</em>) yang ringan sebelum masuk ke permainan beregu. Terakhir, jika terjadi
+                  <strong>kesenjangan keterampilan yang sangat ekstrem</strong> atau heterogen di dalam kelas, komponen manajemen kelompok dapat diubah melalui skenario cooperative learning, dengan mengangkat siswa yang memiliki adaptasi
+                  motorik cepat menjadi kapten regu atau peer tutor bagi temannya yang masih kesulitan di fase awal.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="analysis-section">
+        <div class="container relative-z">
+          <div class="section-title reveal">
+            <h2>
+              ANALISIS
+              <span class="text-accent text-glow">MODUL AJAR BOLA BASKET</span>
+            </h2>
+            <p>Tinjauan analitis mendalam dari 4 aspek esensial selama penyusunan dan implementasi produk.</p>
+          </div>
+
+          <div class="zigzag-wrapper">
+            <!-- A: KENDALA -->
+            <div class="zigzag-row reveal">
+              <div class="zz-visual">
+                <div class="zz-number">A</div>
+                <i class="fa-solid fa-triangle-exclamation zz-icon"></i>
+              </div>
+              <div class="zz-content">
+                <h3>KENDALA PENYUSUNAN & PELAKSANAAN</h3>
+                <p>
+                  Dalam merancang dan melaksanakan modul ajar bola basket ini, salah satu kendala utama yang dihadapi adalah <strong>keterbatasan sarana dan prasarana</strong>, seperti ketersediaan bola, jumlah ring, dan kondisi lapangan.
+                  Keterbatasan ini menuntut guru untuk memiliki kemampuan manajemen kelas yang sangat baik agar waktu tunggu siswa tidak terlalu lama dan kesempatan praktik tetap merata.
+                </p>
+                <p>
+                  Selain itu, <strong>faktor cuaca</strong> juga menjadi hambatan signifikan apabila pembelajaran dilakukan di lapangan terbuka. Dari segi materi, mengajarkan koordinasi gerak yang spesifik seperti <em>lay-up</em> sisi kiri
+                  kepada siswa dengan kemampuan dasar rendah membutuhkan waktu dan pendampingan ekstra yang sulit dicapai hanya dalam satu kali pertemuan berdurasi 135 menit. Terdapat pula kendala dalam penyusunan dokumen, di mana terlihat
+                  adanya <strong>ketidakselarasan antara fokus materi pokok</strong> pada konteks modul (fokus pada lay-up shoot) dengan tujuan pembelajaran yang justru meluas ke teknik pivot, screen, serta strategi 5 vs 5.
+                </p>
+              </div>
+            </div>
+
+            <!-- B: TEORI -->
+            <div class="zigzag-row reverse reveal">
+              <div class="zz-visual">
+                <div class="zz-number">B</div>
+                <i class="fa-solid fa-brain zz-icon"></i>
+              </div>
+              <div class="zz-content">
+                <h3>TEORI & KONSEP PEDAGOGI</h3>
+                <p>
+                  Modul pembelajaran ini sangat kaya akan landasan teoretis yang mendukung implementasi Kurikulum Merdeka. Konsep utama yang diadopsi adalah <strong>Teori Konstruktivisme</strong> dari Piaget dan Vygotsky, di mana siswa
+                  secara aktif membangun pemahaman mereka sendiri melalui observasi, diskusi, dan peer assessment, alih-alih sekadar menerima instruksi pasif.
+                </p>
+                <p>
+                  Pendekatan <strong>Deep Learning</strong> juga diterapkan untuk memastikan siswa belajar secara sadar (<em>mindful</em>), bermakna (<em>meaningful</em>), dan menyenangkan (<em>joyful</em>) sehingga mereka memahami alasan
+                  logis di balik penggunaan teknik lay-up dalam situasi nyata. Selain itu, modul ini mengintegrasikan <strong>Teori Belajar Motorik</strong> melalui skenario latihan yang bertahap—dari langkah tanpa bola hingga praktik
+                  langsung—serta <strong>Teori Kognitif Sosial</strong> dari Albert Bandura yang menitikberatkan pada proses peniruan gerak melalui demonstrasi guru maupun rekan sejawat. Pembelajaran ini juga dibingkai dengan
+                  <strong>Pendekatan Berdiferensiasi</strong> untuk mengakomodasi keberagaman tingkat kemahiran siswa.
+                </p>
+              </div>
+            </div>
+
+            <!-- C: KEBERHASILAN -->
+            <div class="zigzag-row reveal">
+              <div class="zz-visual">
+                <div class="zz-number">C</div>
+                <i class="fa-solid fa-ranking-star zz-icon"></i>
+              </div>
+              <div class="zz-content">
+                <h3>FAKTOR KEBERHASILAN</h3>
+                <p>
+                  Keberhasilan penerapan modul bola basket ini sangat bergantung pada <strong>efektivitas pengelolaan kelas</strong> oleh guru, terutama dalam menyiasati keterbatasan fasilitas melalui rekayasa latihan yang dinamis. Kesiapan
+                  guru dalam memberikan demonstrasi gerakan lay-up yang benar secara biomekanika, serta kemampuannya memberikan umpan balik langsung, menjadi kunci transisi siswa dari tahap pemahaman kognitif ke otomatisasi gerak.
+                </p>
+                <p>
+                  Penggunaan <strong>Lembar Kerja Peserta Didik (LKPD)</strong> dan instrumen <strong>peer assessment</strong> yang terstruktur juga menjadi faktor penentu yang membuat siswa tetap fokus dan kritis saat mengamati temannya.
+                  Lebih jauh, keberhasilan modul ini sangat dipengaruhi oleh eksekusi program <strong>remedial dan pengayaan</strong> yang tepat sasaran, sehingga siswa pemula tidak merasa frustrasi dan siswa mahir tetap merasa tertantang.
+                </p>
+              </div>
+            </div>
+
+            <!-- D: ADAPTABILITAS -->
+            <div class="zigzag-row reverse reveal">
+              <div class="zz-visual">
+                <div class="zz-number">D</div>
+                <i class="fa-solid fa-sliders zz-icon"></i>
+              </div>
+              <div class="zz-content">
+                <h3>ADAPTABILITAS & PERUBAHAN</h3>
+                <p>
+                  Sebagai perangkat pembelajaran yang dinamis, beberapa penyesuaian sangat direkomendasikan bergantung pada situasi lapangan. Apabila sekolah memiliki <strong>fasilitas ring dan bola yang sangat minim</strong>, guru dapat
+                  mengubah strategi dengan memperbanyak pos latihan gerak kaki (<em>footwork</em>) tanpa bola atau menggunakan sasaran modifikasi di dinding sebelum siswa berotasi menggunakan ring asli.
+                </p>
+                <p>
+                  Jika <strong>kondisi cuaca tidak memungkinkan</strong> untuk praktik di luar ruangan, pembelajaran dapat dialihkan ke dalam kelas dengan mengubah aktivitas menjadi analisis video pertandingan untuk mengamati mekanika gerak
+                  lay-up para pemain profesional. Selain itu, untuk menjaga fokus pada durasi 135 menit, <strong>komponen tujuan pembelajaran perlu direvisi</strong> dengan menghapus target taktik screen, pivot, dan permainan 5 vs 5, lalu
+                  memfokuskan seluruh indikator murni pada penguasaan mekanika dan akurasi lay-up shoot beserta modifikasi permainannya.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="analysis-section">
+        <div class="container relative-z">
+          <div class="section-title reveal">
+            <h2>
+              ANALISIS
+              <span class="text-accent text-glow">MODUL AJAR BOLA VOLI</span>
+            </h2>
+            <p>Tinjauan analitis mendalam dari 4 aspek esensial selama penyusunan dan implementasi produk.</p>
+          </div>
+
+          <div class="zigzag-wrapper">
+            <!-- A: KENDALA -->
+            <div class="zigzag-row reveal">
+              <div class="zz-visual">
+                <div class="zz-number">A</div>
+                <i class="fa-solid fa-triangle-exclamation zz-icon"></i>
+              </div>
+              <div class="zz-content">
+                <h3>KENDALA PENYUSUNAN & PELAKSANAAN</h3>
+                <p>
+                  Dalam merancang dan memproyeksikan pelaksanaan modul ajar bola voli ini, terdapat beberapa kendala manajerial, teknis, dan lingkungan yang harus diantisipasi. Secara <strong>manajerial</strong>, jumlah peserta didik yang
+                  banyak sering kali berbenturan dengan keterbatasan sarana seperti jumlah bola, net, dan luas area praktik, sehingga berisiko mengurangi waktu aktif bergerak (<em>active learning time</em>) siswa di lapangan.
+                </p>
+                <p>
+                  Secara <strong>teknis</strong>, tantangan terbesar terletak pada hambatan psikomotorik berupa kesulitan koordinasi gerak passing atas dan bawah, yang diperparah oleh aspek afektif di mana beberapa siswa merasa ragu atau
+                  kurang percaya diri ketika harus mempraktikkan gerakan di hadapan teman-temannya. Selain itu, guru juga dihadapkan pada tuntutan <strong>asesmen autentik</strong> yang membutuhkan fokus tinggi untuk mengobservasi detail
+                  gerakan setiap siswa secara objektif dalam waktu yang terbatas, serta risiko faktor eksternal berupa cuaca yang tidak menentu mengingat kegiatan ini dominan dilakukan di lapangan terbuka.
+                </p>
+              </div>
+            </div>
+
+            <!-- B: TEORI -->
+            <div class="zigzag-row reverse reveal">
+              <div class="zz-visual">
+                <div class="zz-number">B</div>
+                <i class="fa-solid fa-brain zz-icon"></i>
+              </div>
+              <div class="zz-content">
+                <h3>TEORI & KONSEP PEDAGOGI</h3>
+                <p>
+                  Modul ini dikembangkan dengan mengadopsi berbagai landasan teori pedagogi modern yang sangat selaras dengan prinsip implementasi Kurikulum Merdeka. <strong>Teori Konstruktivisme</strong> dari Jean Piaget dan Lev Vygotsky
+                  diwujudkan melalui aktivitas berpusat pada siswa (<em>student-centered</em>), seperti observasi video dan diskusi kelompok untuk memecahkan masalah terkait mekanika passing.
+                </p>
+                <p>
+                  Pendekatan <strong>Deep Learning</strong> diintegrasikan untuk menciptakan pengalaman belajar yang bermakna (<em>meaningful</em>), sadar (<em>mindful</em>), dan menyenangkan (<em>joyful</em>) melalui modifikasi permainan
+                  estafet bola agar siswa memahami esensi teknik dalam situasi nyata. Penguasaan keterampilan gerak siswa dijembatani oleh <strong>Teori Belajar Motorik</strong> melalui skenario latihan yang bertahap, pengulangan yang
+                  sistematis, serta pemberian umpan balik (<em>feedback</em>) yang konsisten untuk mematangkan koordinasi. Terakhir, modul ini juga mengintegrasikan <strong>Teori Kognitif Sosial</strong> dari Albert Bandura lewat metode
+                  pemodelan visual, serta menerapkan prinsip <strong>Pembelajaran Berdiferensiasi</strong> untuk melayani keberagaman tingkat kesiapan belajar siswa melalui penyediaan program remedial dan pengayaan.
+                </p>
+              </div>
+            </div>
+
+            <!-- C: KEBERHASILAN -->
+            <div class="zigzag-row reveal">
+              <div class="zz-visual">
+                <div class="zz-number">C</div>
+                <i class="fa-solid fa-ranking-star zz-icon"></i>
+              </div>
+              <div class="zz-content">
+                <h3>FAKTOR KEBERHASILAN</h3>
+                <p>
+                  Faktor penentu keberhasilan implementasi modul ajar ini di lapangan sangat bergantung pada <strong>kompetensi manajerial guru</strong> dalam mengorganisasi kelas secara dinamis. Guru dituntut mampu membagi area lapangan
+                  dan mengatur rotasi penggunaan bola secara efisien agar seluruh peserta didik mendapatkan porsi praktik yang adil dan meminimalisir waktu tunggu.
+                </p>
+                <p>
+                  Kunci keberhasilan lainnya adalah <strong>ketajaman guru dalam menganalisis biomekanika gerak siswa</strong> secara real-time untuk memberikan umpan balik korektif yang solutif dan mudah dipahami ketika terjadi kesalahan
+                  teknik. Selain itu, penciptaan <strong>iklim belajar yang aman secara psikologis</strong> sangat krusial untuk mendongkrak rasa percaya diri siswa yang masih ragu-ragu, di mana suasana kelompok harus dibangun secara
+                  suportif, inklusif, dan bebas dari ejekan. Eksekusi aktivitas <strong>modifikasi permainan yang menyenangkan</strong> juga menjadi determinan penting agar motivasi dan keterlibatan aktif siswa tetap terjaga sepanjang sesi
+                  pembelajaran.
+                </p>
+              </div>
+            </div>
+
+            <!-- D: ADAPTABILITAS -->
+            <div class="zigzag-row reverse reveal">
+              <div class="zz-visual">
+                <div class="zz-number">D</div>
+                <i class="fa-solid fa-sliders zz-icon"></i>
+              </div>
+              <div class="zz-content">
+                <h3>ADAPTABILITAS & PERUBAHAN</h3>
+                <p>
+                  Sebagai perangkat pembelajaran yang dinamis, komponen dalam modul ini sangat adaptif untuk diubah menyesuaikan situasi riil di lapangan sekolah. Jika sekolah menghadapi kendala
+                  <strong>minimnya bola voli standar</strong> atau siswa perempuan merasa takut dan sakit saat melakukan pukulan, komponen media pembelajaran dapat dimodifikasi menggunakan bola spons, bola plastik berlapis karet, atau balon
+                  untuk menumbuhkan kenyamanan di fase awal.
+                </p>
+                <p>
+                  Apabila <strong>faktor cuaca buruk</strong> seperti hujan memaksa pembelajaran pindah ke area indoor seperti selasar kelas atau aula, skenario aktivitas dapat dialihkan menjadi latihan <em>wall-passing</em> ke dinding atau
+                  gerakan bayangan (<em>shadow movement</em>) tanpa bola untuk mematangkan postur kaki. Jika dijumpai <strong>kesenjangan kemampuan yang ekstrem</strong>, komponen pengorganisasian kelas dapat diubah menjadi sistem tutor
+                  sebaya dengan memberdayakan siswa yang sudah mahir sebagai asisten kelompok. Sementara itu, jika <strong>alokasi waktu 135 menit</strong> dirasa terlalu sempit, komponen tujuan pembelajaran dapat dipersempit dengan
+                  memfokuskan pertemuan pertama murni pada penguasaan passing bawah terlebih dahulu.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer-premium">
+      <div class="footer-glow-line"></div>
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand-col">
+            <a href="index.html" class="nav-left" style="margin-bottom: 20px">
+              <img src="logo.png" alt="Logo UNY" class="univ-logo-img" />
+              <span class="brand-name" style="font-size: 1.6rem"> PPG <span class="text-accent">UNY.</span> </span>
+            </a>
+            <p class="footer-desc">Portal resmi rekaman jejak akademik dan profesional mahasiswa PPG Prajabatan rumpun Pendidikan Jasmani, Olahraga, dan Kesehatan. Mendidik dengan hati, bergerak dengan inovasi.</p>
+            <div class="social-icons">
+              <a href="https://www.instagram.com/rwll.afsariant/"><i class="fa-brands fa-instagram"></i></a>
+              <a href="mailto:afsariant.chesa@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+            </div>
+          </div>
+
+          <div class="footer-links-col">
+            <h3>Portofolio 1</h3>
+            <ul>
+              <li>
+                <a href="profil.html"><i class="fa-solid fa-angle-right"></i> Profil Mahasiswa</a>
+              </li>
+              <li>
+                <a href="artefak.html"><i class="fa-solid fa-angle-right"></i> Artefak Produk</a>
+              </li>
+              <li>
+                <a href="penilaian.html"><i class="fa-solid fa-angle-right"></i> Penilaian GP</a>
+              </li>
+              <li>
+                <a href="modelguru.html"><i class="fa-solid fa-angle-right"></i> Model Guru</a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="footer-links-col">
+            <h3>Portofolio 2</h3>
+            <ul>
+              <li>
+                <a href="refleksi.html"><i class="fa-solid fa-angle-right"></i> Refleksi Akhir</a>
+              </li>
+              <li>
+                <a href="filosofi.html"><i class="fa-solid fa-angle-right"></i> Filosofi Mengajar</a>
+              </li>
+              <li>
+                <a href="dokumentasi.html"><i class="fa-solid fa-angle-right"></i> Galeri Dokumentasi</a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="footer-contact-col">
+            <h3>Hubungi Saya</h3>
+            <div class="contact-card">
+              <i class="fa-solid fa-envelope text-accent"></i>
+              <div>
+                <span>Email Akademik</span>
+                <p>afsariant.chesa@gmail.com</p>
+              </div>
+            </div>
+            <div class="contact-card">
+              <i class="fa-solid fa-location-dot text-accent"></i>
+              <div>
+                <span>Lokasi Kampus</span>
+                <p>Universitas Negeri Yogyakarta</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-copyright">
+          <p>© 2026 Afeb Chesa Arianto | - PPG Prajabatan PJOK UNY. Semua hak dilindungi. Dilarang menyalin atau mendistribusikan konten tanpa izin tertulis.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      function openPdfTab(evt, tabName) {
+        let i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tab-content");
+        for (i = 0; i < tabcontent.length; i++) {
+          tabcontent[i].style.display = "none";
+          tabcontent[i].classList.remove("active");
+        }
+        tablinks = document.getElementsByClassName("tab-btn");
+        for (i = 0; i < tablinks.length; i++) {
+          tablinks[i].classList.remove("active");
+        }
+        const activeTab = document.getElementById(tabName);
+        activeTab.style.display = "block";
+        setTimeout(() => activeTab.classList.add("active"), 10);
+        evt.currentTarget.classList.add("active");
+      }
+
+      window.addEventListener("scroll", () => {
+        const nav = document.getElementById("navbar");
+        if (window.scrollY > 50) {
+          nav.classList.add("scrolled");
+        } else {
+          nav.classList.remove("scrolled");
+        }
+      });
+
+      const mobileMenu = document.getElementById("mobile-menu");
+      const navMenu = document.getElementById("nav-menu");
+      mobileMenu.addEventListener("click", () => {
+        navMenu.classList.toggle("active");
+        const icon = mobileMenu.querySelector("i");
+        if (navMenu.classList.contains("active")) {
+          icon.className = "fa-solid fa-xmark";
+        } else {
+          icon.className = "fa-solid fa-bars-staggered";
+        }
+      });
+
+      function triggerReveal() {
+        const reveals = document.querySelectorAll(".reveal");
+        reveals.forEach((element) => {
+          const windowHeight = window.innerHeight;
+          const elementTop = element.getBoundingClientRect().top;
+          if (elementTop < windowHeight - 80) {
+            element.classList.add("active");
+          }
+        });
+      }
+      window.addEventListener("scroll", triggerReveal);
+      window.addEventListener("load", triggerReveal);
+    </script>
+  </body>
+</html>
