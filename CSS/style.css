@@ -798,7 +798,7 @@ body {
   inset: 0;
   border-radius: 50px;
   padding: 1px;
-  background: linear-gradient(135deg, rgba(255, 215, 0, 0.5), rgba(255, 140, 0, 0.3));
+  background: linear-gradient(135deg, #00d4ff, rgba(0, 212, 255, 0.4));
   -webkit-mask:
     linear-gradient(#fff 0 0) content-box,
     linear-gradient(#fff 0 0);
@@ -813,8 +813,8 @@ body {
 
 .btn-gallery-more:hover {
   background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 215, 0, 0.5);
-  color: #ffd700;
+  border-color: rgba(0, 98, 255, 0.5);
+  color: #f0f0f0;
   box-shadow:
     0 0 22px rgba(255, 215, 0, 0.25),
     0 8px 24px rgba(0, 0, 0, 0.3);
@@ -831,7 +831,7 @@ body {
 
 .btn-gallery-more:hover svg {
   transform: translateY(3px);
-  color: #ffd700;
+  color: #f0f0f0;
 }
 
 .btn-gallery-more:active {
