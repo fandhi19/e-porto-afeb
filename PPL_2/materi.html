@@ -1,0 +1,1455 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Materi Pembelajaran (UTS & UAS) | PPL 2 - PPG Calon Guru</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="../CSS/artefak.css" />
+    <link rel="shortcut icon" href="../logo.png" type="image/x-icon" />
+    <style>
+      .rancangan-hero {
+        position: relative;
+        padding: 140px 0 60px;
+        background: radial-gradient(circle at 50% 20%, rgba(0, 212, 255, 0.08) 0%, rgba(13, 13, 13, 0) 70%);
+        overflow: hidden;
+      }
+      .exam-tag-uts {
+        display: inline-block;
+        padding: 4px 12px;
+        background: rgba(255, 170, 0, 0.15);
+        border: 1px solid rgba(255, 170, 0, 0.4);
+        color: #ffb833;
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 1px;
+        border-radius: 4px;
+        margin-right: 8px;
+        text-transform: uppercase;
+      }
+      .exam-tag-uas {
+        display: inline-block;
+        padding: 4px 12px;
+        background: rgba(0, 212, 255, 0.15);
+        border: 1px solid rgba(0, 212, 255, 0.4);
+        color: var(--accent);
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 1px;
+        border-radius: 4px;
+        margin-right: 8px;
+        text-transform: uppercase;
+      }
+      .cycle-tabs-container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 12px;
+        margin-bottom: 40px;
+      }
+      .cycle-tab-btn {
+        background: rgba(22, 22, 22, 0.8);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        color: var(--text-muted);
+        padding: 16px 14px;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: var(--transition-bounce);
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+        text-align: left;
+        position: relative;
+        overflow: hidden;
+      }
+      .cycle-tab-btn::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: transparent;
+        transition: var(--transition);
+      }
+      .cycle-tab-btn:hover {
+        background: rgba(30, 30, 30, 0.9);
+        border-color: rgba(0, 212, 255, 0.3);
+        transform: translateY(-3px);
+        color: #fff;
+      }
+      .cycle-tab-btn.active {
+        background: rgba(0, 212, 255, 0.08);
+        border-color: var(--accent);
+        color: #ffffff;
+        box-shadow: 0 8px 25px rgba(0, 212, 255, 0.12);
+      }
+      .cycle-tab-btn.active::before {
+        background: var(--accent);
+      }
+      .cycle-tab-btn .tab-badge-row {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 2px;
+      }
+      .cycle-tab-btn .tab-title {
+        font-family: var(--font-heading);
+        font-size: 1.05rem;
+        letter-spacing: 0.5px;
+        line-height: 1.25;
+        color: #fff;
+      }
+      .cycle-tab-btn .tab-topic {
+        font-size: 0.85rem;
+        color: var(--text-muted);
+      }
+      .cycle-tab-btn.active .tab-topic {
+        color: var(--accent);
+      }
+      .cycle-panel {
+        display: none;
+        opacity: 0;
+        transition: opacity 0.4s ease;
+      }
+      .cycle-panel.active {
+        display: block;
+        opacity: 1;
+      }
+      .cycle-header-card {
+        background: rgba(22, 22, 22, 0.6);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-left: 4px solid var(--accent);
+        border-radius: 10px;
+        padding: 24px 30px;
+        margin-bottom: 25px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 15px;
+      }
+      .cycle-header-text h3 {
+        font-family: var(--font-heading);
+        font-size: 1.6rem;
+        color: #fff;
+        margin-bottom: 6px;
+      }
+      .cycle-header-text p {
+        color: var(--text-muted);
+        font-size: 0.95rem;
+        line-height: 1.5;
+        max-width: 750px;
+      }
+      .meta-pills {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+      .meta-pill {
+        padding: 6px 14px;
+        border-radius: 20px;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        font-size: 0.82rem;
+        color: #ddd;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .meta-pill i {
+        color: var(--accent);
+      }
+
+      /* Triad Analysis Cards */
+      .triad-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+        margin-top: 35px;
+        margin-bottom: 70px;
+      }
+      .triad-card {
+        background: rgba(22, 22, 22, 0.7);
+        border: 1px solid rgba(255, 255, 255, 0.07);
+        border-radius: 12px;
+        padding: 30px 24px;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        transition: var(--transition-bounce);
+      }
+      .triad-card:hover {
+        transform: translateY(-6px);
+        border-color: rgba(0, 212, 255, 0.35);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+      }
+      .triad-card-top {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 20px;
+        padding-bottom: 15px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+      }
+      .triad-icon-box {
+        width: 48px;
+        height: 48px;
+        border-radius: 10px;
+        background: rgba(0, 212, 255, 0.08);
+        border: 1px solid rgba(0, 212, 255, 0.2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.3rem;
+        color: var(--accent);
+        flex-shrink: 0;
+      }
+      .triad-card:hover .triad-icon-box {
+        background: var(--accent);
+        color: #0d0d0d;
+        transform: rotate(-6deg);
+      }
+      .triad-badge-num {
+        font-family: var(--font-heading);
+        font-size: 0.85rem;
+        letter-spacing: 1.5px;
+        color: var(--accent);
+        text-transform: uppercase;
+      }
+      .triad-title {
+        font-family: var(--font-heading);
+        font-size: 1.25rem;
+        color: #fff;
+        line-height: 1.2;
+      }
+      .triad-content {
+        color: #b5b5b5;
+        font-size: 0.93rem;
+        line-height: 1.68;
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        flex-grow: 1;
+      }
+      .triad-content strong {
+        color: #f0f0f0;
+      }
+      .triad-content ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .triad-content ul li {
+        position: relative;
+        padding-left: 20px;
+      }
+      .triad-content ul li::before {
+        content: '▹';
+        position: absolute;
+        left: 0;
+        color: var(--accent);
+        font-size: 1.1rem;
+        line-height: 1;
+      }
+
+      @media (max-width: 1024px) {
+        .cycle-tabs-container {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .triad-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+      @media (max-width: 600px) {
+        .cycle-tabs-container {
+          grid-template-columns: 1fr;
+        }
+        .cycle-header-card {
+          padding: 20px;
+        }
+      }
+    
+      /* ==========================================================================
+         ADVANCED CYBER-SPORT ANALYSIS DASHBOARD (V2 UPGRADE)
+         ========================================================================== */
+      .analysis-dashboard {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 26px;
+        margin-top: 35px;
+        margin-bottom: 75px;
+        position: relative;
+      }
+      .analysis-col-card {
+        background: linear-gradient(165deg, rgba(24, 25, 32, 0.92) 0%, rgba(14, 15, 20, 0.98) 100%);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 18px;
+        padding: 28px 22px;
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        box-shadow: 0 12px 35px rgba(0, 0, 0, 0.55);
+        backdrop-filter: blur(16px);
+      }
+      .analysis-col-card .watermark-icon {
+        position: absolute;
+        right: -15px;
+        bottom: -20px;
+        font-size: 11rem;
+        opacity: 0.035;
+        color: var(--accent);
+        pointer-events: none;
+        transition: all 0.5s ease;
+        z-index: 1;
+      }
+      .analysis-col-card:hover .watermark-icon {
+        opacity: 0.07;
+        transform: rotate(-10deg) scale(1.1);
+      }
+      .card-theme-tujuan {
+        border-top: 4px solid #00d4ff;
+      }
+      .card-theme-tujuan:hover {
+        border-color: rgba(0, 212, 255, 0.5);
+        box-shadow: 0 18px 45px rgba(0, 212, 255, 0.18);
+        transform: translateY(-8px);
+      }
+      .card-theme-kelebihan {
+        border-top: 4px solid #00e676;
+      }
+      .card-theme-kelebihan:hover {
+        border-color: rgba(0, 230, 118, 0.5);
+        box-shadow: 0 18px 45px rgba(0, 230, 118, 0.16);
+        transform: translateY(-8px);
+      }
+      .card-theme-teori {
+        border-top: 4px solid #b388ff;
+      }
+      .card-theme-teori:hover {
+        border-color: rgba(179, 136, 255, 0.5);
+        box-shadow: 0 18px 45px rgba(179, 136, 255, 0.18);
+        transform: translateY(-8px);
+      }
+      .analysis-card-header {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        margin-bottom: 22px;
+        padding-bottom: 16px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+        position: relative;
+        z-index: 2;
+      }
+      .card-icon-halo {
+        width: 50px;
+        height: 50px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.4rem;
+        flex-shrink: 0;
+        transition: var(--transition-bounce);
+      }
+      .card-theme-tujuan .card-icon-halo {
+        background: rgba(0, 212, 255, 0.1);
+        color: #00d4ff;
+        border: 1px solid rgba(0, 212, 255, 0.25);
+      }
+      .card-theme-kelebihan .card-icon-halo {
+        background: rgba(0, 230, 118, 0.1);
+        color: #00e676;
+        border: 1px solid rgba(0, 230, 118, 0.25);
+      }
+      .card-theme-teori .card-icon-halo {
+        background: rgba(179, 136, 255, 0.1);
+        color: #b388ff;
+        border: 1px solid rgba(179, 136, 255, 0.25);
+      }
+      .analysis-col-card:hover .card-icon-halo {
+        transform: scale(1.1) rotate(-6deg);
+      }
+      .card-theme-tujuan:hover .card-icon-halo {
+        background: #00d4ff;
+        color: #0d0d0d;
+      }
+      .card-theme-kelebihan:hover .card-icon-halo {
+        background: #00e676;
+        color: #0d0d0d;
+      }
+      .card-theme-teori:hover .card-icon-halo {
+        background: #b388ff;
+        color: #0d0d0d;
+      }
+      .card-header-titles {
+        display: flex;
+        flex-direction: column;
+      }
+      .card-pillar-tag {
+        font-family: var(--font-heading);
+        font-size: 0.8rem;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        margin-bottom: 3px;
+      }
+      .card-theme-tujuan .card-pillar-tag { color: #00d4ff; }
+      .card-theme-kelebihan .card-pillar-tag { color: #00e676; }
+      .card-theme-teori .card-pillar-tag { color: #b388ff; }
+      .card-main-title {
+        font-family: var(--font-heading);
+        font-size: 1.35rem;
+        color: #ffffff;
+        line-height: 1.2;
+        letter-spacing: 0.5px;
+      }
+      .analysis-sub-pod {
+        background: rgba(0, 0, 0, 0.35);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        border-radius: 12px;
+        padding: 16px;
+        margin-bottom: 14px;
+        position: relative;
+        z-index: 2;
+        transition: all 0.3s ease;
+      }
+      .analysis-sub-pod:last-child {
+        margin-bottom: 0;
+      }
+      .analysis-sub-pod:hover {
+        background: rgba(0, 0, 0, 0.5);
+        border-color: rgba(255, 255, 255, 0.12);
+        transform: translateY(-2px);
+      }
+      .pod-header-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        padding: 4px 10px;
+        border-radius: 6px;
+        font-size: 0.76rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.8px;
+        margin-bottom: 10px;
+      }
+      .pill-cyan {
+        background: rgba(0, 212, 255, 0.12);
+        color: #00d4ff;
+        border: 1px solid rgba(0, 212, 255, 0.25);
+      }
+      .pill-emerald {
+        background: rgba(0, 230, 118, 0.12);
+        color: #00e676;
+        border: 1px solid rgba(0, 230, 118, 0.25);
+      }
+      .pill-amber {
+        background: rgba(255, 171, 0, 0.12);
+        color: #ffab00;
+        border: 1px solid rgba(255, 171, 0, 0.25);
+      }
+      .pill-purple {
+        background: rgba(179, 136, 255, 0.12);
+        color: #b388ff;
+        border: 1px solid rgba(179, 136, 255, 0.25);
+      }
+      .pod-body-text {
+        font-size: 0.91rem;
+        color: #b8b8b8;
+        line-height: 1.65;
+        margin: 0;
+      }
+      .pod-body-text strong {
+        color: #ffffff;
+      }
+      .pod-bullet-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .pod-bullet-list li {
+        position: relative;
+        padding-left: 20px;
+        font-size: 0.9rem;
+        color: #bbb;
+        line-height: 1.6;
+      }
+      .pod-bullet-list.list-green li::before {
+        content: '✓';
+        position: absolute;
+        left: 0;
+        color: #00e676;
+        font-weight: bold;
+      }
+      .pod-bullet-list.list-amber li::before {
+        content: '⚠';
+        position: absolute;
+        left: 0;
+        color: #ffab00;
+        font-size: 0.9rem;
+      }
+      .solution-callout-pod {
+        background: linear-gradient(135deg, rgba(0, 212, 255, 0.08) 0%, rgba(0, 230, 118, 0.05) 100%);
+        border: 1px solid rgba(0, 212, 255, 0.25);
+        border-left: 4px solid #00d4ff;
+        border-radius: 12px;
+        padding: 15px 18px;
+        margin-top: 14px;
+        position: relative;
+        z-index: 2;
+        transition: all 0.3s ease;
+      }
+      .solution-callout-pod:hover {
+        border-color: rgba(0, 212, 255, 0.45);
+        transform: translateY(-2px);
+      }
+      .solution-callout-header {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        font-size: 0.8rem;
+        font-weight: 700;
+        color: #00d4ff;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        margin-bottom: 6px;
+      }
+      .solution-callout-text {
+        font-size: 0.89rem;
+        color: #e0e0e0;
+        line-height: 1.6;
+        margin: 0;
+      }
+      @media (max-width: 1024px) {
+        .analysis-dashboard {
+          grid-template-columns: 1fr;
+        }
+      }
+
+    
+      /* PDF Viewer Enhancement for Optimal Document Reading */
+      .pdf-wrapper {
+        width: 100% !important;
+        height: 850px !important;
+        min-height: 750px !important;
+        border: 1px solid rgba(0, 212, 255, 0.2) !important;
+        background: #141416 !important;
+        margin-bottom: 25px !important;
+        border-radius: 12px !important;
+        overflow: hidden !important;
+        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6) !important;
+      }
+      .pdf-wrapper iframe {
+        width: 100% !important;
+        height: 100% !important;
+        min-height: 750px !important;
+        display: block !important;
+        border: none !important;
+      }
+      @media (max-width: 768px) {
+        .pdf-wrapper {
+          height: 550px !important;
+          min-height: 500px !important;
+        }
+        .pdf-wrapper iframe {
+          min-height: 500px !important;
+        }
+      }
+
+    </style>
+  </head>
+  <body>
+    <!-- Unified Navbar -->
+    <nav class="navbar" id="navbar">
+      <div class="nav-container">
+        <a href="../index.html" class="nav-left">
+          <img src="../logo.png" alt="Logo Universitas" class="univ-logo-img" />
+          <span class="brand-name"> E-Portofolio <span class="text-accent">PPG.</span> </span>
+        </a>
+
+        <div class="menu-toggle" id="mobile-menu">
+          <i class="fa-solid fa-bars-staggered"></i>
+        </div>
+
+        <ul class="nav-menu" id="nav-menu">
+          <li><a href="../index.html" class="nav-link">BERANDA</a></li>
+          <li><a href="../profil.html" class="nav-link">PROFIL</a></li>
+          <li class="dropdown">
+            <a href="#" class="nav-link">PPL 1 <i class="fa-solid fa-caret-down"></i></a>
+            <ul class="dropdown-menu">
+              <li><a href="../PPL_1/artefak.html">Artefak Produk</a></li>
+              <li><a href="../PPL_1/penilaian.html">Penilaian GP</a></li>
+              <li><a href="../PPL_1/modelguru.html">Model Guru</a></li>
+              <li><a href="../PPL_1/filosofi.html">Filosofi Mengajar</a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="#" class="nav-link active">PPL 2 <i class="fa-solid fa-caret-down"></i></a>
+            <ul class="dropdown-menu">
+              <li><a href="rancangan.html">Rancangan Pembelajaran</a></li>
+              <li><a href="materi.html" style="color: var(--accent); padding-left: 25px; background: #222">Materi Pembelajaran</a></li>
+              <li><a href="media.html">Media Pembelajaran</a></li>
+              <li><a href="video.html">Video Mengajar</a></li>
+              <li><a href="instrumen.html">Instrumen Penilaian</a></li>
+              <li><a href="non-mengajar.html">Kegiatan Non-Mengajar</a></li>
+            </ul>
+          </li>
+          <li><a href="../refleksi.html" class="nav-link">REFLEKSI</a></li>
+          <li><a href="../dokumentasi.html" class="nav-link">DOKUMENTASI</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <main class="artefak-main">
+      <section class="hero-artefak rancangan-hero">
+        <div class="hero-glow-blob blob-1"></div>
+        <div class="hero-glow-blob blob-2"></div>
+        <div class="hero-grid-overlay"></div>
+
+        <div class="container text-center relative-z">
+          <div class="sport-badge reveal"><i class="fa-solid fa-book-bookmark"></i> PPL 2 - MATERI & BAHAN AJAR</div>
+          <h1 class="hero-title reveal">
+            Materi Pembelajaran <br />
+            <span class="text-accent text-glow">(UTS & UAS)</span>
+          </h1>
+          <p class="hero-desc mx-auto reveal">
+            Kumpulan bahan ajar materi instruksional dan diktat pengayaan PJOK Siklus 1 hingga 4, dilengkapi tinjauan analitis tujuan konteks, kelebihan-kekurangan, serta landasan teori kognisi gerak.
+          </p>
+        </div>
+      </section>
+
+      <!-- Identity Bar -->
+      <section class="document-section" style="padding-top: 10px;">
+        <div class="container relative-z">
+          <div class="doc-identity-bar reveal">
+            <div class="identity-item">
+              <div class="id-icon"><i class="fa-solid fa-user-graduate"></i></div>
+              <div class="id-text">
+                <label>Mahasiswa PPL 2</label>
+                <h4>Afeb Chesa Arianto, M.Or</h4>
+              </div>
+            </div>
+            <div class="identity-item">
+              <div class="id-icon"><i class="fa-solid fa-volleyball"></i></div>
+              <div class="id-text">
+                <label>Mata Pelajaran</label>
+                <h4>PJOK (Pendidikan Jasmani)</h4>
+              </div>
+            </div>
+            <div class="identity-item">
+              <div class="id-icon"><i class="fa-solid fa-school"></i></div>
+              <div class="id-text">
+                <label>Sekolah Praktik Mitra</label>
+                <h4>SMA N 1 Seyegan</h4>
+              </div>
+            </div>
+            <div class="identity-item">
+              <div class="id-icon"><i class="fa-solid fa-clipboard-list"></i></div>
+              <div class="id-text">
+                <label>Fase / Target Kelas</label>
+                <h4>Fase F / Kelas XI/XII SMA</h4>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tab Selection Grid -->
+          <div class="cycle-tabs-container reveal">
+            
+            <button class="cycle-tab-btn active" onclick="switchCycleTab(event, 'panel-siklus-1')">
+              <div class="tab-badge-row">
+                <span class="exam-tag-uts">UTS</span>
+                <span class="tab-badge-num">SIKLUS 1</span>
+              </div>
+              <div class="tab-title">RENANG GAYA BEBAS</div>
+              <div class="tab-topic"><i class="fa-solid fa-water"></i> Aktivitas Akuatik</div>
+            </button>
+            <button class="cycle-tab-btn" onclick="switchCycleTab(event, 'panel-siklus-2')">
+              <div class="tab-badge-row">
+                <span class="exam-tag-uas">UAS</span>
+                <span class="tab-badge-num">SIKLUS 2</span>
+              </div>
+              <div class="tab-title">BOLA BASKET</div>
+              <div class="tab-topic"><i class="fa-solid fa-basketball"></i> Permainan Bola Besar</div>
+            </button>
+            <button class="cycle-tab-btn" onclick="switchCycleTab(event, 'panel-siklus-3')">
+              <div class="tab-badge-row">
+                <span class="exam-tag-uas">UAS</span>
+                <span class="tab-badge-num">SIKLUS 3</span>
+              </div>
+              <div class="tab-title">BULUTANGKIS</div>
+              <div class="tab-topic"><i class="fa-solid fa-feather"></i> Permainan Net / Raket</div>
+            </button>
+            <button class="cycle-tab-btn" onclick="switchCycleTab(event, 'panel-siklus-4')">
+              <div class="tab-badge-row">
+                <span class="exam-tag-uas">UAS</span>
+                <span class="tab-badge-num">SIKLUS 4</span>
+              </div>
+              <div class="tab-title">GATEBALL</div>
+              <div class="tab-topic"><i class="fa-solid fa-bullseye"></i> Olahraga Presisi & Taktik</div>
+            </button>
+          </div>
+
+          <!-- Panels for Cycles 1-4 -->
+          
+          <!-- ========================================================
+               PANEL SIKLUS 1 : RENANG GAYA BEBAS (UTS)
+               ======================================================== -->
+          <div id="panel-siklus-1" class="cycle-panel active">
+            <div class="cycle-header-card reveal">
+              <div class="cycle-header-text">
+                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
+                  <span class="exam-tag-uts">UJIAN TENGAH SEMESTER (UTS)</span>
+                  <span style="color: var(--accent); font-weight: 600; font-size: 0.85rem;">PRAKTIK PEMBELAJARAN LAPANGAN 2</span>
+                </div>
+                <h3>MATERI PEMBELAJARAN SIKLUS 1: RENANG GAYA BEBAS</h3>
+                <p>
+                  Bahan ajar komprehensif aktivitas akuatik yang membedah konsep hidrodinamika posisi tubuh horizontal (*streamlining*), mekanika kayuhan lengan berkesinambungan (*catch, pull, recovery*), dorongan tungkai ritmis, dan teknik pertukaran pernapasan di air.
+                </p>
+              </div>
+              <div class="meta-pills">
+                <span class="meta-pill"><i class="fa-solid fa-clock"></i> 3 JP (3 x 45 Menit)</span>
+                <span class="meta-pill"><i class="fa-solid fa-location-dot"></i> Kolam Renang Mitra</span>
+                <span class="meta-pill"><i class="fa-solid fa-tag"></i> Bahan Ajar Akuatik</span>
+              </div>
+            </div>
+
+            <!-- PDF Viewer -->
+            <div class="pdf-container reveal">
+              <div class="pdf-wrapper">
+                <iframe src="../Dokumen/PPL_2/Materi Siklus 1.pdf" title="Materi Pembelajaran RENANG GAYA BEBAS Siklus 1" loading="lazy"></iframe>
+              </div>
+              <div class="doc-actions">
+                <a href="../Dokumen/PPL_2/Materi Siklus 1.pdf" target="_blank" class="btn-primary">
+                  <i class="fa-solid fa-up-right-from-square"></i> BUKA FULLSCREEN
+                </a>
+                <a href="../Dokumen/PPL_2/Materi Siklus 1.pdf" download="Materi_Siklus_1_RENANG_GAYA_BEBAS.pdf" class="btn-secondary">
+                  <i class="fa-solid fa-download"></i> UNDUH BERKAS MATERI PEMBELAJARAN
+                </a>
+              </div>
+            </div>
+
+            <!-- Analisis Triad -->
+            <div class="section-title reveal" style="margin-top: 50px;">
+              <h2>
+                ANALISIS MATERI PEMBELAJARAN <span class="text-accent text-glow">SIKLUS 1: RENANG GAYA BEBAS</span>
+              </h2>
+              <p>Tinjauan analitis komprehensif materi pembelajaran Siklus 1 berdasarkan 3 pilar akademik.</p>
+            </div>
+
+            <div class="analysis-dashboard">
+              <!-- Pilar 1: Tujuan dan Konteks -->
+              <div class="analysis-col-card card-theme-tujuan reveal">
+                <i class="fa-solid fa-bullseye watermark-icon"></i>
+                <div class="analysis-card-header">
+                  <div class="card-icon-halo"><i class="fa-solid fa-bullseye"></i></div>
+                  <div class="card-header-titles">
+                    <span class="card-pillar-tag">PILAR ANALISIS 01</span>
+                    <h4 class="card-main-title">TUJUAN & KONTEKS</h4>
+                  </div>
+                </div>
+                <div class="analysis-sub-pod">
+                  <div class="pod-header-pill pill-cyan">
+                    <i class="fa-solid fa-graduation-cap"></i> KESESUAIAN CAPAIAN PEMBELAJARAN
+                  </div>
+                  <p class="pod-body-text">Materi disusun selaras dengan CP Fase F PJOK untuk membangun literasi dan pemahaman kognitif peserta didik mengenai prinsip mekanika gerak akuatik sebelum melakukan praktik di dalam air.</p>
+                </div>
+
+                <div class="analysis-sub-pod">
+                  <div class="pod-header-pill pill-cyan">
+                    <i class="fa-solid fa-users"></i> KARAKTERISTIK SISWA SMA
+                  </div>
+                  <p class="pod-body-text">Peserta didik kelas XI/XII SMA N 1 Seyegan membutuhkan materi ajar yang visual, ringkas, dan aplikatif—terutama untuk menurunkan hambatan mental dan rasa cemas bagi siswa yang belum terbiasa dengan lingkungan kolam renang.</p>
+                </div>
+
+                <div class="analysis-sub-pod">
+                  <div class="pod-header-pill pill-cyan">
+                    <i class="fa-solid fa-shield-halved"></i> KONTEKS KESELAMATAN & SOP
+                  </div>
+                  <p class="pod-body-text">Materi menekankan bab khusus mengenai edukasi keselamatan di air, etika di kolam renang, pencegahan kram otot melalui pemanasan adaptif, serta protokol kerja sama berpasangan (*buddy system*).</p>
+                </div>
+              </div>
+
+              <!-- Pilar 2: Kelebihan dan Kekurangan -->
+              <div class="analysis-col-card card-theme-kelebihan reveal">
+                <i class="fa-solid fa-scale-balanced watermark-icon"></i>
+                <div class="analysis-card-header">
+                  <div class="card-icon-halo"><i class="fa-solid fa-scale-balanced"></i></div>
+                  <div class="card-header-titles">
+                    <span class="card-pillar-tag">PILAR ANALISIS 02</span>
+                    <h4 class="card-main-title">KELEBIHAN & KEKURANGAN</h4>
+                  </div>
+                </div>
+                <div class="analysis-sub-pod">
+                  <div class="pod-header-pill pill-emerald">
+                    <i class="fa-solid fa-circle-check"></i> KELEBIHAN & KEUNGGULAN
+                  </div>
+                  <ul class="pod-bullet-list list-green">
+                    <li><strong>Ilustrasi Tahapan Gerak Rinci:</strong> Materi dilengkapi diagram visual sudut siku tinggi (*high-elbow recovery*) dan perbandingan posisi tubuh sejajar air vs posisi tenggelam untuk mempermudah pemahaman mandiri.</li>
+                    <li><strong>Struktur Pembelajaran Bertingkat:</strong> Materi memisahkan latihan gerak statis, gerak dinamis berbantuan alat, hingga koordinasi penuh sehingga siswa dapat belajar sesuai kecepatan masing-masing.</li>
+                  </ul>
+                </div>
+
+                <div class="analysis-sub-pod">
+                  <div class="pod-header-pill pill-amber">
+                    <i class="fa-solid fa-triangle-exclamation"></i> KEKURANGAN & TANTANGAN
+                  </div>
+                  <ul class="pod-bullet-list list-amber">
+                    <li><strong>Keterbatasan Media Teks Statis:</strong> Sensasi kinestetik daya apung air (*feel for water*) sulit direfleksikan hanya melalui teks tanpa pengalaman fisik nyata.</li>
+                    <li><strong>Disparitas Kesiapan Awal:</strong> Siswa yang sudah mahir cenderung melompati teori dasar, sementara pemula membutuhkan pengulangan instruksi berkali-kali.</li>
+                  </ul>
+                </div>
+
+                <div class="solution-callout-pod">
+                  <div class="solution-callout-header">
+                    <i class="fa-solid fa-lightbulb"></i> SOLUSI TAKTIS & MITIGASI
+                  </div>
+                  <p class="solution-callout-text">Menyisipkan panduan ringkas tips mengatasi kepanikan air dan menyediakan kode QR tautan video demonstrasi teknik renang lambat (*slow motion*).</p>
+                </div>
+              </div>
+
+              <!-- Pilar 3: Teori -->
+              <div class="analysis-col-card card-theme-teori reveal">
+                <i class="fa-solid fa-brain watermark-icon"></i>
+                <div class="analysis-card-header">
+                  <div class="card-icon-halo"><i class="fa-solid fa-brain"></i></div>
+                  <div class="card-header-titles">
+                    <span class="card-pillar-tag">PILAR ANALISIS 03</span>
+                    <h4 class="card-main-title">LANDASAN TEORI</h4>
+                  </div>
+                </div>
+                <div class="analysis-sub-pod">
+                  <div class="pod-header-pill pill-purple">
+                    <i class="fa-solid fa-atom"></i> COGNITIVE LOAD THEORY (JOHN SWELLER)
+                  </div>
+                  <p class="pod-body-text">Penyusunan materi membagi instruksi menjadi segmen-segmen kecil (*chunking*): pernapasan mandiri, dorongan tungkai, kayuhan lengan, dan integrasi gerak guna mencegah kelebihan beban kerja memori kognitif siswa.</p>
+                </div>
+
+                <div class="analysis-sub-pod">
+                  <div class="pod-header-pill pill-purple">
+                    <i class="fa-solid fa-chart-line"></i> DUAL CODING THEORY (ALLAN PAIVIO)
+                  </div>
+                  <p class="pod-body-text">Memadukan kode verbal (istilah teknis seperti *streamline* dan *catch*) dengan representasi visual grafis untuk mengoptimalkan pemrosesan informasi dan daya ingat jangka panjang siswa.</p>
+                </div>
+
+                <div class="analysis-sub-pod">
+                  <div class="pod-header-pill pill-purple">
+                    <i class="fa-solid fa-book-bookmark"></i> PRINSIP PEMBELAJARAN BERDIFERENSIASI (TOMLINSON)
+                  </div>
+                  <p class="pod-body-text">Menyediakan variasi materi pengayaan bagi siswa mahir (analisis efisiensi kayuhan per lap) dan materi remedial adaptif bagi siswa pemula yang masih takut air.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- ========================================================
+               PANEL SIKLUS 2 : BOLA BASKET (UAS)
+               ======================================================== -->
+          <div id="panel-siklus-2" class="cycle-panel">
+            <div class="cycle-header-card reveal">
+              <div class="cycle-header-text">
+                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
+                  <span class="exam-tag-uas">UJIAN AKHIR SEMESTER (UAS)</span>
+                  <span style="color: var(--accent); font-weight: 600; font-size: 0.85rem;">PRAKTIK PEMBELAJARAN LAPANGAN 2</span>
+                </div>
+                <h3>MATERI PEMBELAJARAN SIKLUS 2: BOLA BASKET</h3>
+                <p>
+                  Bahan ajar taktis bola basket yang menguraikan konsep variasi operan dinamis (*chest, bounce, overhead*), teknik dribble protektif berirama, mekanika langkah tembakan melayang (*lay-up shoot*) dua sisi, serta prinsip kerja sama bermain 3 vs 3.
+                </p>
+              </div>
+              <div class="meta-pills">
+                <span class="meta-pill"><i class="fa-solid fa-clock"></i> 3 JP (3 x 45 Menit)</span>
+                <span class="meta-pill"><i class="fa-solid fa-location-dot"></i> Lapangan Basket SMA N 1 Seyegan</span>
+                <span class="meta-pill"><i class="fa-solid fa-tag"></i> Bahan Ajar Taktis</span>
+              </div>
+            </div>
+
+            <!-- PDF Viewer -->
+            <div class="pdf-container reveal">
+              <div class="pdf-wrapper">
+                <iframe src="../Dokumen/PPL_2/Materi Siklus 2.pdf" title="Materi Pembelajaran BOLA BASKET Siklus 2" loading="lazy"></iframe>
+              </div>
+              <div class="doc-actions">
+                <a href="../Dokumen/PPL_2/Materi Siklus 2.pdf" target="_blank" class="btn-primary">
+                  <i class="fa-solid fa-up-right-from-square"></i> BUKA FULLSCREEN
+                </a>
+                <a href="../Dokumen/PPL_2/Materi Siklus 2.pdf" download="Materi_Siklus_2_BOLA_BASKET.pdf" class="btn-secondary">
+                  <i class="fa-solid fa-download"></i> UNDUH BERKAS MATERI PEMBELAJARAN
+                </a>
+              </div>
+            </div>
+
+            <!-- Analisis Triad -->
+            <div class="section-title reveal" style="margin-top: 50px;">
+              <h2>
+                ANALISIS MATERI PEMBELAJARAN <span class="text-accent text-glow">SIKLUS 2: BOLA BASKET</span>
+              </h2>
+              <p>Tinjauan analitis komprehensif materi pembelajaran Siklus 2 berdasarkan 3 pilar akademik.</p>
+            </div>
+
+            <div class="analysis-dashboard">
+              <!-- Pilar 1: Tujuan dan Konteks -->
+              <div class="analysis-col-card card-theme-tujuan reveal">
+                <i class="fa-solid fa-bullseye watermark-icon"></i>
+                <div class="analysis-card-header">
+                  <div class="card-icon-halo"><i class="fa-solid fa-bullseye"></i></div>
+                  <div class="card-header-titles">
+                    <span class="card-pillar-tag">PILAR ANALISIS 01</span>
+                    <h4 class="card-main-title">TUJUAN & KONTEKS</h4>
+                  </div>
+                </div>
+                <div class="analysis-sub-pod">
+                  <div class="pod-header-pill pill-cyan">
+                    <i class="fa-solid fa-graduation-cap"></i> KESESUAIAN CAPAIAN PEMBELAJARAN
+                  </div>
+                  <p class="pod-body-text">Materi ditujukan untuk mengintegrasikan penguasaan keterampilan gerak spesifik penyerangan dengan pemahaman situasi taktis pertandingan mini (*small-sided games*) bola basket pada Fase F.</p>
+                </div>
+
+                <div class="analysis-sub-pod">
+                  <div class="pod-header-pill pill-cyan">
+                    <i class="fa-solid fa-users"></i> KARAKTERISTIK SISWA SMA
+                  </div>
+                  <p class="pod-body-text">Siswa SMA menyukai materi yang berorientasi pada aksi nyata dan kompetisi. Bahan ajar menyajikan skema formasi lapangan dan studi kasus permainan yang merangsang daya nalar kritis siswa dalam mengambil keputusan operan.</p>
+                </div>
+
+                <div class="analysis-sub-pod">
+                  <div class="pod-header-pill pill-cyan">
+                    <i class="fa-solid fa-map-location-dot"></i> KONTEKS SARANA & MODIFIKASI
+                  </div>
+                  <p class="pod-body-text">Materi disesuaikan dengan kapasitas lapangan sekolah berlantai semen terbuka, mencakup panduan penempatan stasiun sirkuit latihan agar tidak terjadi penumpukan siswa di area ring.</p>
+                </div>
+              </div>
+
+              <!-- Pilar 2: Kelebihan dan Kekurangan -->
+              <div class="analysis-col-card card-theme-kelebihan reveal">
+                <i class="fa-solid fa-scale-balanced watermark-icon"></i>
+                <div class="analysis-card-header">
+                  <div class="card-icon-halo"><i class="fa-solid fa-scale-balanced"></i></div>
+                  <div class="card-header-titles">
+                    <span class="card-pillar-tag">PILAR ANALISIS 02</span>
+                    <h4 class="card-main-title">KELEBIHAN & KEKURANGAN</h4>
+                  </div>
+                </div>
+                <div class="analysis-sub-pod">
+                  <div class="pod-header-pill pill-emerald">
+                    <i class="fa-solid fa-circle-check"></i> KELEBIHAN & KEUNGGULAN
+                  </div>
+                  <ul class="pod-bullet-list list-green">
+                    <li><strong>Panduan Analisis Kesalahan Umum:</strong> Menampilkan tabel komparasi kesalahan umum saat lay-up (misalnya lompat mendatar alih-alih vertikal) beserta solusi mekanika koreksinya.</li>
+                    <li><strong>Integrasi Matriks Langkah Kaki:</strong> Diagram pola langkah 1-2 di lantai disajikan dengan visualisasi jelas untuk pendekatan lay-up dari sayap kanan maupun sayap kiri.</li>
+                  </ul>
+                </div>
+
+                <div class="analysis-sub-pod">
+                  <div class="pod-header-pill pill-amber">
+                    <i class="fa-solid fa-triangle-exclamation"></i> KEKURANGAN & TANTANGAN
+                  </div>
+                  <ul class="pod-bullet-list list-amber">
+                    <li><strong>Kompleksitas Taktik Bertahan-Menyerang:</strong> Siswa pemula sering kesulitan mengonseptualisasikan rotasi posisi tanpa bola hanya dari gambar 2 dimensi.</li>
+                    <li><strong>Perbedaan Literasi Olahraga:</strong> Istilah asing (*pivot, screen, give-and-go*) terkadang membingungkan bagi peserta didik yang jarang bermain basket.</li>
+                  </ul>
+                </div>
+
+                <div class="solution-callout-pod">
+                  <div class="solution-callout-header">
+                    <i class="fa-solid fa-lightbulb"></i> SOLUSI TAKTIS & MITIGASI
+                  </div>
+                  <p class="solution-callout-text">Menggunakan glosarium istilah sederhana dan menambahkan skema tanda panah alur gerak pemain bernomor.</p>
+                </div>
+              </div>
+
+              <!-- Pilar 3: Teori -->
+              <div class="analysis-col-card card-theme-teori reveal">
+                <i class="fa-solid fa-brain watermark-icon"></i>
+                <div class="analysis-card-header">
+                  <div class="card-icon-halo"><i class="fa-solid fa-brain"></i></div>
+                  <div class="card-header-titles">
+                    <span class="card-pillar-tag">PILAR ANALISIS 03</span>
+                    <h4 class="card-main-title">LANDASAN TEORI</h4>
+                  </div>
+                </div>
+                <div class="analysis-sub-pod">
+                  <div class="pod-header-pill pill-purple">
+                    <i class="fa-solid fa-atom"></i> TEACHING GAMES FOR UNDERSTANDING (TGFU - BUNKER & THORPE)
+                  </div>
+                  <p class="pod-body-text">Materi disusun tidak berfokus pada drill mekanis terisolasi, melainkan mengaitkan setiap teknik dengan fungsinya dalam penyelesaian masalah taktis (*game-centered learning*).</p>
+                </div>
+
+                <div class="analysis-sub-pod">
+                  <div class="pod-header-pill pill-purple">
+                    <i class="fa-solid fa-chart-line"></i> SCHEMA THEORY (RICHARD SCHMIDT)
+                  </div>
+                  <p class="pod-body-text">Materi memberikan variasi parameter latihan (kecepatan, jarak lemparan, tinggi pantulan) untuk membentuk program motorik umum yang fleksibel dalam situasi bermain dinamis.</p>
+                </div>
+
+                <div class="analysis-sub-pod">
+                  <div class="pod-header-pill pill-purple">
+                    <i class="fa-solid fa-book-bookmark"></i> KONSTRUKTIVISME SOSIAL VYGOTSKY
+                  </div>
+                  <p class="pod-body-text">Menyediakan pertanyaan pemantik reflektif di setiap akhir bab materi untuk didiskusikan secara kolaboratif antaranggota tim bermain.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- ========================================================
+               PANEL SIKLUS 3 : BULUTANGKIS (UAS)
+               ======================================================== -->
+          <div id="panel-siklus-3" class="cycle-panel">
+            <div class="cycle-header-card reveal">
+              <div class="cycle-header-text">
+                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
+                  <span class="exam-tag-uas">UJIAN AKHIR SEMESTER (UAS)</span>
+                  <span style="color: var(--accent); font-weight: 600; font-size: 0.85rem;">PRAKTIK PEMBELAJARAN LAPANGAN 2</span>
+                </div>
+                <h3>MATERI PEMBELAJARAN SIKLUS 3: BULUTANGKIS</h3>
+                <p>
+                  Bahan ajar materi pembelajaran bulutangkis yang memfokuskan pada dekonstruksi pegangan raket otodidak menuju *handshake grip*, kelincahan pergerakan langkah kaki (*footwork 6 penjuru*), servis pendek presisi, serta taktik pukulan lob serang.
+                </p>
+              </div>
+              <div class="meta-pills">
+                <span class="meta-pill"><i class="fa-solid fa-clock"></i> 3 JP (3 x 45 Menit)</span>
+                <span class="meta-pill"><i class="fa-solid fa-location-dot"></i> Hall / Lapangan Badminton</span>
+                <span class="meta-pill"><i class="fa-solid fa-tag"></i> Bahan Ajar Raket</span>
+              </div>
+            </div>
+
+            <!-- PDF Viewer -->
+            <div class="pdf-container reveal">
+              <div class="pdf-wrapper">
+                <iframe src="../Dokumen/PPL_2/Materi Siklus 3.pdf" title="Materi Pembelajaran BULUTANGKIS Siklus 3" loading="lazy"></iframe>
+              </div>
+              <div class="doc-actions">
+                <a href="../Dokumen/PPL_2/Materi Siklus 3.pdf" target="_blank" class="btn-primary">
+                  <i class="fa-solid fa-up-right-from-square"></i> BUKA FULLSCREEN
+                </a>
+                <a href="../Dokumen/PPL_2/Materi Siklus 3.pdf" download="Materi_Siklus_3_BULUTANGKIS.pdf" class="btn-secondary">
+                  <i class="fa-solid fa-download"></i> UNDUH BERKAS MATERI PEMBELAJARAN
+                </a>
+              </div>
+            </div>
+
+            <!-- Analisis Triad -->
+            <div class="section-title reveal" style="margin-top: 50px;">
+              <h2>
+                ANALISIS MATERI PEMBELAJARAN <span class="text-accent text-glow">SIKLUS 3: BULUTANGKIS</span>
+              </h2>
+              <p>Tinjauan analitis komprehensif materi pembelajaran Siklus 3 berdasarkan 3 pilar akademik.</p>
+            </div>
+
+            <div class="analysis-dashboard">
+              <!-- Pilar 1: Tujuan dan Konteks -->
+              <div class="analysis-col-card card-theme-tujuan reveal">
+                <i class="fa-solid fa-bullseye watermark-icon"></i>
+                <div class="analysis-card-header">
+                  <div class="card-icon-halo"><i class="fa-solid fa-bullseye"></i></div>
+                  <div class="card-header-titles">
+                    <span class="card-pillar-tag">PILAR ANALISIS 01</span>
+                    <h4 class="card-main-title">TUJUAN & KONTEKS</h4>
+                  </div>
+                </div>
+                <div class="analysis-sub-pod">
+                  <div class="pod-header-pill pill-cyan">
+                    <i class="fa-solid fa-graduation-cap"></i> KESESUAIAN CAPAIAN PEMBELAJARAN
+                  </div>
+                  <p class="pod-body-text">Materi disusun untuk membekali peserta didik dengan pemahaman ilmiah mengenai efisiensi biomekanika pukulan raket, rantai kinetik lecutan lengan (*kinetic chain*), serta penempatan shuttlecock ke ruang kosong lawan.</p>
+                </div>
+
+                <div class="analysis-sub-pod">
+                  <div class="pod-header-pill pill-cyan">
+                    <i class="fa-solid fa-users"></i> KARAKTERISTIK SISWA SMA
+                  </div>
+                  <p class="pod-body-text">Mengingat siswa sudah sering bermain bulutangkis secara non-formal, materi dirancang khusus untuk merehabilitasi kebiasaan pegangan martil yang kaku menjadi pegangan universal yang ergonomis dan fleksibel.</p>
+                </div>
+
+                <div class="analysis-sub-pod">
+                  <div class="pod-header-pill pill-cyan">
+                    <i class="fa-solid fa-map-location-dot"></i> KONTEKS SARANA SEKOLAH
+                  </div>
+                  <p class="pod-body-text">Materi menyertakan panduan latihan mandiri di dinding (*wall-practice*) dan modifikasi lapangan mini ganda untuk mengoptimalkan penggunaan ruang aula sekolah.</p>
+                </div>
+              </div>
+
+              <!-- Pilar 2: Kelebihan dan Kekurangan -->
+              <div class="analysis-col-card card-theme-kelebihan reveal">
+                <i class="fa-solid fa-scale-balanced watermark-icon"></i>
+                <div class="analysis-card-header">
+                  <div class="card-icon-halo"><i class="fa-solid fa-scale-balanced"></i></div>
+                  <div class="card-header-titles">
+                    <span class="card-pillar-tag">PILAR ANALISIS 02</span>
+                    <h4 class="card-main-title">KELEBIHAN & KEKURANGAN</h4>
+                  </div>
+                </div>
+                <div class="analysis-sub-pod">
+                  <div class="pod-header-pill pill-emerald">
+                    <i class="fa-solid fa-circle-check"></i> KELEBIHAN & KEUNGGULAN
+                  </div>
+                  <ul class="pod-bullet-list list-green">
+                    <li><strong>Visualisasi Bidang Pegangan Raket:</strong> Menjelaskan 8 bidang oktagonal pada pegangan raket secara rinci untuk memastikan penempatan bantalan jempol dan jari telunjuk tepat.</li>
+                    <li><strong>Diagram Footwork 6 Arah:</strong> Menyajikan pola nomor langkah kaki dari titik tengah lapangan ke sudut depan net, tengah, dan baseline belakang.</li>
+                  </ul>
+                </div>
+
+                <div class="analysis-sub-pod">
+                  <div class="pod-header-pill pill-amber">
+                    <i class="fa-solid fa-triangle-exclamation"></i> KEKURANGAN & TANTANGAN
+                  </div>
+                  <ul class="pod-bullet-list list-amber">
+                    <li><strong>Resistensi Kebiasaan Lama:</strong> Mengubah memori otot yang sudah bertahun-tahun terbentuk membutuhkan penguatan penjelasan logis mengapa teknik baru lebih menguntungkan dan minim cedera.</li>
+                  </ul>
+                </div>
+
+                <div class="solution-callout-pod">
+                  <div class="solution-callout-header">
+                    <i class="fa-solid fa-lightbulb"></i> SOLUSI TAKTIS & MITIGASI
+                  </div>
+                  <p class="solution-callout-text">Memasukkan penjelasan ilmiah risiko cedera pergelangan tangan (*tennis/golfer elbow*) jika memukul kok dengan pegangan kaku.</p>
+                </div>
+              </div>
+
+              <!-- Pilar 3: Teori -->
+              <div class="analysis-col-card card-theme-teori reveal">
+                <i class="fa-solid fa-brain watermark-icon"></i>
+                <div class="analysis-card-header">
+                  <div class="card-icon-halo"><i class="fa-solid fa-brain"></i></div>
+                  <div class="card-header-titles">
+                    <span class="card-pillar-tag">PILAR ANALISIS 03</span>
+                    <h4 class="card-main-title">LANDASAN TEORI</h4>
+                  </div>
+                </div>
+                <div class="analysis-sub-pod">
+                  <div class="pod-header-pill pill-purple">
+                    <i class="fa-solid fa-atom"></i> DYNAMIC SYSTEMS THEORY (THELEN & SMITH)
+                  </div>
+                  <p class="pod-body-text">Materi membedah interaksi antara batasan fisik tubuh siswa, sifat aerodinamika kok yang unik, dan batasan net lapangan dalam menentukan keputusan jenis pukulan.</p>
+                </div>
+
+                <div class="analysis-sub-pod">
+                  <div class="pod-header-pill pill-purple">
+                    <i class="fa-solid fa-chart-line"></i> TRANSFER OF LEARNING THEORY
+                  </div>
+                  <p class="pod-body-text">Membantu siswa mengenali perbedaan esensial antara pukulan ayunan bahu penuh (seperti kasti) dengan lecutan pronasi-supinasi lengan bawah khas bulutangkis untuk mengeliminasi transfer gerak negatif.</p>
+                </div>
+
+                <div class="analysis-sub-pod">
+                  <div class="pod-header-pill pill-purple">
+                    <i class="fa-solid fa-book-bookmark"></i> MEANINGFUL LEARNING (DAVID AUSUBEL)
+                  </div>
+                  <p class="pod-body-text">Mengaitkan materi baru (teknik footwork berirama) dengan konsep dasar yang sudah diketahui siswa (kelincahan bermain bola) agar materi lebih bermakna.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- ========================================================
+               PANEL SIKLUS 4 : GATEBALL (UAS)
+               ======================================================== -->
+          <div id="panel-siklus-4" class="cycle-panel">
+            <div class="cycle-header-card reveal">
+              <div class="cycle-header-text">
+                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
+                  <span class="exam-tag-uas">UJIAN AKHIR SEMESTER (UAS)</span>
+                  <span style="color: var(--accent); font-weight: 600; font-size: 0.85rem;">PRAKTIK PEMBELAJARAN LAPANGAN 2</span>
+                </div>
+                <h3>MATERI PEMBELAJARAN SIKLUS 4: GATEBALL</h3>
+                <p>
+                  Bahan ajar materi olahraga presisi Gateball yang mengulas pengenalan stik dan bola nomor 1-10, teknik ayunan pendulum, ketepatan stroking Gate 1-2-3, manuver benturan bola *touch*, teknik jepit ganda *sparking*, dan strategi kemenangan kapten regu.
+                </p>
+              </div>
+              <div class="meta-pills">
+                <span class="meta-pill"><i class="fa-solid fa-clock"></i> 3 JP (3 x 45 Menit)</span>
+                <span class="meta-pill"><i class="fa-solid fa-location-dot"></i> Lapangan Rumput SMA N 1 Seyegan</span>
+                <span class="meta-pill"><i class="fa-solid fa-tag"></i> Bahan Ajar Taktis WGU</span>
+              </div>
+            </div>
+
+            <!-- PDF Viewer -->
+            <div class="pdf-container reveal">
+              <div class="pdf-wrapper">
+                <iframe src="../Dokumen/PPL_2/Materi Siklus 4.pdf" title="Materi Pembelajaran GATEBALL Siklus 4" loading="lazy"></iframe>
+              </div>
+              <div class="doc-actions">
+                <a href="../Dokumen/PPL_2/Materi Siklus 4.pdf" target="_blank" class="btn-primary">
+                  <i class="fa-solid fa-up-right-from-square"></i> BUKA FULLSCREEN
+                </a>
+                <a href="../Dokumen/PPL_2/Materi Siklus 4.pdf" download="Materi_Siklus_4_GATEBALL.pdf" class="btn-secondary">
+                  <i class="fa-solid fa-download"></i> UNDUH BERKAS MATERI PEMBELAJARAN
+                </a>
+              </div>
+            </div>
+
+            <!-- Analisis Triad -->
+            <div class="section-title reveal" style="margin-top: 50px;">
+              <h2>
+                ANALISIS MATERI PEMBELAJARAN <span class="text-accent text-glow">SIKLUS 4: GATEBALL</span>
+              </h2>
+              <p>Tinjauan analitis komprehensif materi pembelajaran Siklus 4 berdasarkan 3 pilar akademik.</p>
+            </div>
+
+            <div class="analysis-dashboard">
+              <!-- Pilar 1: Tujuan dan Konteks -->
+              <div class="analysis-col-card card-theme-tujuan reveal">
+                <i class="fa-solid fa-bullseye watermark-icon"></i>
+                <div class="analysis-card-header">
+                  <div class="card-icon-halo"><i class="fa-solid fa-bullseye"></i></div>
+                  <div class="card-header-titles">
+                    <span class="card-pillar-tag">PILAR ANALISIS 01</span>
+                    <h4 class="card-main-title">TUJUAN & KONTEKS</h4>
+                  </div>
+                </div>
+                <div class="analysis-sub-pod">
+                  <div class="pod-header-pill pill-cyan">
+                    <i class="fa-solid fa-graduation-cap"></i> KESESUAIAN CAPAIAN PEMBELAJARAN
+                  </div>
+                  <p class="pod-body-text">Memberikan sumber belajar rujukan utama yang komprehensif bagi siswa Fase F mengenai aturan resmi World Gateball Union (WGU) yang disederhanakan untuk konteks pembelajaran penjas di SMA.</p>
+                </div>
+
+                <div class="analysis-sub-pod">
+                  <div class="pod-header-pill pill-cyan">
+                    <i class="fa-solid fa-users"></i> KARAKTERISTIK SISWA SMA
+                  </div>
+                  <p class="pod-body-text">Gateball adalah olahraga baru bagi mayoritas peserta didik. Materi dirancang dengan analogi permainan catur beraksi fisik (*moving chess*) guna membangkitkan rasa ingin tahu dan minat kompetitif siswa.</p>
+                </div>
+
+                <div class="analysis-sub-pod">
+                  <div class="pod-header-pill pill-cyan">
+                    <i class="fa-solid fa-map-location-dot"></i> KONTEKS INKLUSIVITAS
+                  </div>
+                  <p class="pod-body-text">Materi menegaskan prinsip kesetaraan di mana keberhasilan tidak bergantung pada tinggi badan atau kekuatan fisik, melainkan kalkulasi sudut, kerja sama tim, dan kepatuhan arahan strategi.</p>
+                </div>
+              </div>
+
+              <!-- Pilar 2: Kelebihan dan Kekurangan -->
+              <div class="analysis-col-card card-theme-kelebihan reveal">
+                <i class="fa-solid fa-scale-balanced watermark-icon"></i>
+                <div class="analysis-card-header">
+                  <div class="card-icon-halo"><i class="fa-solid fa-scale-balanced"></i></div>
+                  <div class="card-header-titles">
+                    <span class="card-pillar-tag">PILAR ANALISIS 02</span>
+                    <h4 class="card-main-title">KELEBIHAN & KEKURANGAN</h4>
+                  </div>
+                </div>
+                <div class="analysis-sub-pod">
+                  <div class="pod-header-pill pill-emerald">
+                    <i class="fa-solid fa-circle-check"></i> KELEBIHAN & KEUNGGULAN
+                  </div>
+                  <ul class="pod-bullet-list list-green">
+                    <li><strong>Lembar Ringkasan Saku (Pocket Cheat-Sheet):</strong> Merangkum urutan giliran bermain (Bola Merah Ganjil 1,3,5,7,9 vs Bola Putih Genap 2,4,6,8,10) dan sistem poin dalam format kartu ringkas.</li>
+                    <li><strong>Visualisasi Manuver Taktis Sparking:</strong> Ilustrasi visual langkah demi langkah menginjak bola sendiri, menyentuhkan bola lawan, dan memukul dengan sudut deviasi yang diinginkan.</li>
+                  </ul>
+                </div>
+
+                <div class="analysis-sub-pod">
+                  <div class="pod-header-pill pill-amber">
+                    <i class="fa-solid fa-triangle-exclamation"></i> KEKURANGAN & TANTANGAN
+                  </div>
+                  <ul class="pod-bullet-list list-amber">
+                    <li><strong>Kepadatan Regulasi Pertandingan:</strong> Banyaknya pasal pelanggaran resmi (misal out-ball, touching line, double touch) yang dapat membingungkan jika tidak dibatasi pada aturan esensial.</li>
+                  </ul>
+                </div>
+
+                <div class="solution-callout-pod">
+                  <div class="solution-callout-header">
+                    <i class="fa-solid fa-lightbulb"></i> SOLUSI TAKTIS & MITIGASI
+                  </div>
+                  <p class="solution-callout-text">Memfokuskan materi pada 4 aturan utama: Lolos Gawang, Touch, Sparking, dan Tiang Goal Pole.</p>
+                </div>
+              </div>
+
+              <!-- Pilar 3: Teori -->
+              <div class="analysis-col-card card-theme-teori reveal">
+                <i class="fa-solid fa-brain watermark-icon"></i>
+                <div class="analysis-card-header">
+                  <div class="card-icon-halo"><i class="fa-solid fa-brain"></i></div>
+                  <div class="card-header-titles">
+                    <span class="card-pillar-tag">PILAR ANALISIS 03</span>
+                    <h4 class="card-main-title">LANDASAN TEORI</h4>
+                  </div>
+                </div>
+                <div class="analysis-sub-pod">
+                  <div class="pod-header-pill pill-purple">
+                    <i class="fa-solid fa-atom"></i> SPORT EDUCATION MODEL (DARYL SIEDENTOP)
+                  </div>
+                  <p class="pod-body-text">Materi tidak hanya mengajarkan teknik bermain, tetapi membekali siswa pengetahuan tentang tata kelola pertandingan, tugas wasit (*refereeing*), dan kepemimpinan kapten.</p>
+                </div>
+
+                <div class="analysis-sub-pod">
+                  <div class="pod-header-pill pill-purple">
+                    <i class="fa-solid fa-chart-line"></i> CLOSED-LOOP MOTOR CONTROL (ADAMS)
+                  </div>
+                  <p class="pod-body-text">Materi menguraikan pemanfaatan umpan balik visual terhadap garis bidik target sebelum stik diayunkan secara terkontrol.</p>
+                </div>
+
+                <div class="analysis-sub-pod">
+                  <div class="pod-header-pill pill-purple">
+                    <i class="fa-solid fa-book-bookmark"></i> INQUIRY-BASED LEARNING
+                  </div>
+                  <p class="pod-body-text">Menyajikan skenario posisi bola di lapangan dan meminta siswa menganalisis manuver terbaik yang harus diambil oleh kapten regu.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Unified Footer -->
+    <footer class="footer-premium">
+      <div class="footer-glow-line"></div>
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand-col">
+            <a href="../index.html" class="nav-left" style="margin-bottom: 20px">
+              <img src="../logo.png" alt="Logo UNY" class="univ-logo-img" />
+              <span class="brand-name" style="font-size: 1.6rem"> PPG <span class="text-accent">UNY.</span> </span>
+            </a>
+            <p class="footer-desc">Portal resmi rekaman jejak akademik dan profesional mahasiswa PPG Prajabatan rumpun Pendidikan Jasmani, Olahraga, dan Kesehatan. Mendidik dengan hati, bergerak dengan inovasi.</p>
+            <div class="social-icons">
+              <a href="https://www.instagram.com/rwll.afsariant/"><i class="fa-brands fa-instagram"></i></a>
+              <a href="mailto:afsariant.chesa@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+              <a href="https://www.youtube.com/@maingateball_afebchesaa"><i class="fa-brands fa-youtube"></i></a>
+            </div>
+          </div>
+
+          <div class="footer-links-col">
+            <h3>PPL 1</h3>
+            <ul>
+              <li>
+                <a href="../PPL_1/artefak.html"><i class="fa-solid fa-angle-right"></i> Artefak Produk</a>
+              </li>
+              <li>
+                <a href="../PPL_1/penilaian.html"><i class="fa-solid fa-angle-right"></i> Penilaian GP</a>
+              </li>
+              <li>
+                <a href="../PPL_1/modelguru.html"><i class="fa-solid fa-angle-right"></i> Model Guru</a>
+              </li>
+              <li>
+                <a href="../PPL_1/filosofi.html"><i class="fa-solid fa-angle-right"></i> Filosofi Mengajar</a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="footer-links-col">
+            <h3>PPL 2</h3>
+            <ul>
+              <li>
+                <a href="rancangan.html"><i class="fa-solid fa-angle-right"></i> Rancangan Pembelajaran</a>
+              </li>
+              <li>
+                <a href="materi.html"><i class="fa-solid fa-angle-right"></i> Materi Pembelajaran</a>
+              </li>
+              <li>
+                <a href="media.html"><i class="fa-solid fa-angle-right"></i> Media Pembelajaran</a>
+              </li>
+              <li>
+                <a href="video.html"><i class="fa-solid fa-angle-right"></i> Video Mengajar</a>
+              </li>
+              <li>
+                <a href="instrumen.html"><i class="fa-solid fa-angle-right"></i> Instrumen Penilaian</a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="footer-contact-col">
+            <h3>Hubungi Saya</h3>
+            <div class="contact-card">
+              <i class="fa-solid fa-envelope text-accent"></i>
+              <div>
+                <span>Email Pribadi</span>
+                <p>afsariant.chesa@gmail.com</p>
+              </div>
+            </div>
+            <div class="contact-card">
+              <i class="fa-solid fa-envelope text-accent"></i>
+              <div>
+                <span>Email Akademik</span>
+                <p>afeb985.2025@student.uny.ac.id </p>
+              </div>
+            </div>
+            <div class="contact-card">
+              <i class="fa-solid fa-location-dot text-accent"></i>
+              <div>
+                <span>Lokasi Kampus</span>
+                <p>Universitas Negeri Yogyakarta</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-copyright">
+          <p>© 2026 Afeb Chesa Arianto | - PPG Prajabatan PJOK UNY. Semua hak dilindungi. Dilarang menyalin atau mendistribusikan konten tanpa izin tertulis.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Interactive Script -->
+    <script>
+      function switchCycleTab(evt, panelId) {
+        const panels = document.querySelectorAll(".cycle-panel");
+        panels.forEach((panel) => {
+          panel.classList.remove("active");
+          panel.style.display = "none";
+        });
+
+        const tabBtns = document.querySelectorAll(".cycle-tab-btn");
+        tabBtns.forEach((btn) => {
+          btn.classList.remove("active");
+        });
+
+        const selectedPanel = document.getElementById(panelId);
+        if (selectedPanel) {
+          selectedPanel.style.display = "block";
+          setTimeout(() => {
+            selectedPanel.classList.add("active");
+            triggerReveal();
+          }, 15);
+        }
+
+        if (evt && evt.currentTarget) {
+          evt.currentTarget.classList.add("active");
+        }
+      }
+
+      window.addEventListener("scroll", () => {
+        const nav = document.getElementById("navbar");
+        if (window.scrollY > 50) {
+          nav.classList.add("scrolled");
+        } else {
+          nav.classList.remove("scrolled");
+        }
+      });
+
+      const mobileMenu = document.getElementById("mobile-menu");
+      const navMenu = document.getElementById("nav-menu");
+      mobileMenu.addEventListener("click", () => {
+        navMenu.classList.toggle("active");
+        const icon = mobileMenu.querySelector("i");
+        if (navMenu.classList.contains("active")) {
+          icon.className = "fa-solid fa-xmark";
+        } else {
+          icon.className = "fa-solid fa-bars-staggered";
+        }
+      });
+
+      function triggerReveal() {
+        const reveals = document.querySelectorAll(".reveal");
+        reveals.forEach((element) => {
+          const windowHeight = window.innerHeight;
+          const elementTop = element.getBoundingClientRect().top;
+          if (elementTop < windowHeight - 60) {
+            element.classList.add("active");
+          }
+        });
+      }
+      window.addEventListener("scroll", triggerReveal);
+      window.addEventListener("load", triggerReveal);
+      document.addEventListener("DOMContentLoaded", triggerReveal);
+    </script>
+  </body>
+</html>

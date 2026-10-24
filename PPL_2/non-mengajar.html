@@ -1,0 +1,515 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kegiatan Non-Mengajar | PPL 2 - PPG Calon Guru</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="../CSS/artefak.css" />
+    <link rel="shortcut icon" href="../logo.png" type="image/x-icon" />
+    <style>
+      .non-mengajar-hero {
+        position: relative;
+        padding: 140px 0 60px;
+        background: radial-gradient(circle at 50% 20%, rgba(0, 212, 255, 0.08) 0%, rgba(13, 13, 13, 0) 70%);
+        overflow: hidden;
+      }
+      .activity-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 25px;
+        margin-top: 40px;
+        margin-bottom: 60px;
+      }
+      .activity-card {
+        background: rgba(22, 22, 22, 0.7);
+        border: 1px solid rgba(255, 255, 255, 0.07);
+        border-radius: 14px;
+        padding: 30px 24px;
+        display: flex;
+        flex-direction: column;
+        transition: var(--transition-bounce);
+        position: relative;
+        overflow: hidden;
+      }
+      .activity-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: transparent;
+        transition: var(--transition);
+      }
+      .activity-card:hover {
+        transform: translateY(-6px);
+        border-color: rgba(0, 212, 255, 0.35);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+      }
+      .activity-card:hover::before {
+        background: var(--accent);
+      }
+      .activity-card-header {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        margin-bottom: 20px;
+      }
+      .activity-icon-box {
+        width: 52px;
+        height: 52px;
+        border-radius: 12px;
+        background: rgba(0, 212, 255, 0.08);
+        border: 1px solid rgba(0, 212, 255, 0.2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.4rem;
+        color: var(--accent);
+        flex-shrink: 0;
+        transition: var(--transition-bounce);
+      }
+      .activity-card:hover .activity-icon-box {
+        background: var(--accent);
+        color: #0d0d0d;
+        transform: rotate(-6deg) scale(1.05);
+      }
+      .activity-cat {
+        font-family: var(--font-heading);
+        font-size: 0.82rem;
+        letter-spacing: 1.5px;
+        color: var(--accent);
+        text-transform: uppercase;
+      }
+      .activity-card-title {
+        font-family: var(--font-heading);
+        font-size: 1.3rem;
+        color: #fff;
+        line-height: 1.25;
+      }
+      .activity-desc {
+        color: #b5b5b5;
+        font-size: 0.93rem;
+        line-height: 1.68;
+        margin-bottom: 20px;
+        flex-grow: 1;
+      }
+      .activity-meta {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        border-radius: 8px;
+        padding: 12px 14px;
+        font-size: 0.82rem;
+        color: #ccc;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+      .activity-meta span {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .activity-meta span i {
+        color: var(--accent);
+        font-size: 0.85rem;
+      }
+
+      .summary-banner {
+        background: rgba(22, 22, 22, 0.6);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-left: 4px solid var(--accent);
+        border-radius: 12px;
+        padding: 35px 30px;
+        margin-bottom: 60px;
+      }
+      .summary-banner h3 {
+        font-family: var(--font-heading);
+        font-size: 1.6rem;
+        color: #fff;
+        margin-bottom: 12px;
+      }
+      .summary-banner p {
+        color: #b5b5b5;
+        font-size: 0.96rem;
+        line-height: 1.7;
+      }
+
+      @media (max-width: 1024px) {
+        .activity-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media (max-width: 650px) {
+        .activity-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Unified Navbar -->
+    <nav class="navbar" id="navbar">
+      <div class="nav-container">
+        <a href="../index.html" class="nav-left">
+          <img src="../logo.png" alt="Logo Universitas" class="univ-logo-img" />
+          <span class="brand-name"> E-Portofolio <span class="text-accent">PPG.</span> </span>
+        </a>
+
+        <div class="menu-toggle" id="mobile-menu">
+          <i class="fa-solid fa-bars-staggered"></i>
+        </div>
+
+        <ul class="nav-menu" id="nav-menu">
+          <li><a href="../index.html" class="nav-link">BERANDA</a></li>
+          <li><a href="../profil.html" class="nav-link">PROFIL</a></li>
+          <li class="dropdown">
+            <a href="#" class="nav-link">PPL 1 <i class="fa-solid fa-caret-down"></i></a>
+            <ul class="dropdown-menu">
+              <li><a href="../PPL_1/artefak.html">Artefak Produk</a></li>
+              <li><a href="../PPL_1/penilaian.html">Penilaian GP</a></li>
+              <li><a href="../PPL_1/modelguru.html">Model Guru</a></li>
+              <li><a href="../PPL_1/filosofi.html">Filosofi Mengajar</a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="#" class="nav-link active">PPL 2 <i class="fa-solid fa-caret-down"></i></a>
+            <ul class="dropdown-menu">
+              <li><a href="rancangan.html">Rancangan Pembelajaran</a></li>
+              <li><a href="materi.html">Materi Pembelajaran</a></li>
+              <li><a href="media.html">Media Pembelajaran</a></li>
+              <li><a href="video.html">Video Mengajar</a></li>
+              <li><a href="instrumen.html">Instrumen Penilaian</a></li>
+              <li><a href="non-mengajar.html" style="color: var(--accent); padding-left: 25px; background: #222">Kegiatan Non-Mengajar</a></li>
+            </ul>
+          </li>
+          <li><a href="../refleksi.html" class="nav-link">REFLEKSI</a></li>
+          <li><a href="../dokumentasi.html" class="nav-link">DOKUMENTASI</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <main class="artefak-main">
+      <section class="hero-artefak non-mengajar-hero">
+        <div class="hero-glow-blob blob-1"></div>
+        <div class="hero-glow-blob blob-2"></div>
+        <div class="hero-grid-overlay"></div>
+
+        <div class="container text-center relative-z">
+          <div class="sport-badge reveal"><i class="fa-solid fa-users-gear"></i> KELENGKAPAN PORTOFOLIO PPL 2</div>
+          <h1 class="hero-title reveal">
+            KEGIATAN <br />
+            <span class="text-accent text-glow">NON-MENGAJAR</span>
+          </h1>
+          <p class="hero-desc mx-auto reveal">Dokumentasi kontribusi manajerial, pembinaan karakter peserta didik, tata kelola sarana prasarana olahraga, serta partisipasi aktif dalam kultur ekosistem sekolah di SMK Negeri 3 Yogyakarta.</p>
+        </div>
+      </section>
+
+      <!-- Identity Bar -->
+      <section class="document-section" style="padding-top: 10px">
+        <div class="container relative-z">
+          <div class="doc-identity-bar reveal">
+            <div class="identity-item">
+              <div class="id-icon"><i class="fa-solid fa-user-graduate"></i></div>
+              <div class="id-text">
+                <label>Mahasiswa PPL 2</label>
+                <h4>Afeb Chesa Arianto, M.Or</h4>
+              </div>
+            </div>
+            <div class="identity-item">
+              <div class="id-icon"><i class="fa-solid fa-school"></i></div>
+              <div class="id-text">
+                <label>Sekolah Praktik Mitra</label>
+                <h4>SMK Negeri 3 Yogyakarta</h4>
+              </div>
+            </div>
+            <div class="identity-item">
+              <div class="id-icon"><i class="fa-solid fa-calendar-check"></i></div>
+              <div class="id-text">
+                <label>Program Kegiatan</label>
+                <h4>Manajerial & Ekstrakurikuler</h4>
+              </div>
+            </div>
+            <div class="identity-item">
+              <div class="id-icon"><i class="fa-solid fa-medal"></i></div>
+              <div class="id-text">
+                <label>Fokus Kompetensi</label>
+                <h4>Sosial & Kepribadian Guru</h4>
+              </div>
+            </div>
+          </div>
+
+          <!-- Section Title -->
+          <div class="section-title reveal" style="margin-top: 30px">
+            <h2>PORTFOLIO <span class="text-accent text-glow">KEGIATAN DI LUAR KELAS</span></h2>
+            <p>Rekam jejak keterlibatan nyata mahasiswa PPG dalam mendukung operasional dan pembudayaan sekolah secara holistik.</p>
+          </div>
+
+          <!-- Activity Cards Grid -->
+          <div class="activity-grid">
+            <!-- Card 1 -->
+            <div class="activity-card reveal">
+              <div class="activity-card-header">
+                <div class="activity-icon-box"><i class="fa-solid fa-door-open"></i></div>
+                <div>
+                  <div class="activity-cat">LAYANAN PESERTA DIDIK</div>
+                  <h4 class="activity-card-title">Piket Gerbang & Kedisiplinan 5S</h4>
+                </div>
+              </div>
+              <div class="activity-desc">
+                Melaksanakan tugas piket pagi di gerbang utama sekolah untuk menyambut kehadiran siswa dengan budaya 5S (Senyum, Sapa, Salam, Sopan, Santun), memeriksa kerapian seragam atribut kejuruan, serta memonitor ketertiban presensi
+                kedatangan tepat waktu.
+              </div>
+              <div class="activity-meta">
+                <span><i class="fa-solid fa-clock"></i> Pukul 06.30 - 07.15 WIB (Rutin Harian)</span>
+                <span><i class="fa-solid fa-bullseye"></i> Pembinaan Karakter & Keteladanan Positif</span>
+              </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="activity-card reveal">
+              <div class="activity-card-header">
+                <div class="activity-icon-box"><i class="fa-solid fa-flag"></i></div>
+                <div>
+                  <div class="activity-cat">UPACARA & KEBANGSAAN</div>
+                  <h4 class="activity-card-title">Pendampingan Upacara Bendera</h4>
+                </div>
+              </div>
+              <div class="activity-desc">
+                Berperan aktif dalam gladi resik persiapan upacara bendera hari Senin, mendampingi pleton barisan kelas binaan, membantu pengecekan kerapian protokol baris-berbaris (PBB), serta memfasilitasi penanganan siswa yang mengalami
+                kendala kesehatan saat upacara.
+              </div>
+              <div class="activity-meta">
+                <span><i class="fa-solid fa-calendar"></i> Setiap Hari Senin & Hari Besar Nasional</span>
+                <span><i class="fa-solid fa-bullseye"></i> Nilai Nasionalisme & Ketertiban Barisan</span>
+              </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="activity-card reveal">
+              <div class="activity-card-header">
+                <div class="activity-icon-box"><i class="fa-solid fa-dumbbell"></i></div>
+                <div>
+                  <div class="activity-cat">PENGEMBANGAN BAKAT</div>
+                  <h4 class="activity-card-title">Pembinaan Ekstrakurikuler Olahraga</h4>
+                </div>
+              </div>
+              <div class="activity-desc">
+                Memberikan pendampingan teknis dan motivasi mental bagi tim ekstrakurikuler cabang olahraga (Basket, Gateball, dan Bulutangkis), merancang program pemanasan pencegahan cedera, serta mendampingi persiapan seleksi kejuaraan
+                antarsekolah.
+              </div>
+              <div class="activity-meta">
+                <span><i class="fa-solid fa-clock"></i> Sore Hari (15.30 - 17.00 WIB)</span>
+                <span><i class="fa-solid fa-bullseye"></i> Peningkatan Prestasi & Sportivitas Atletik</span>
+              </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="activity-card reveal">
+              <div class="activity-card-header">
+                <div class="activity-icon-box"><i class="fa-solid fa-boxes-stacked"></i></div>
+                <div>
+                  <div class="activity-cat">SARANA & PRASARANA</div>
+                  <h4 class="activity-card-title">Inventarisasi & Tata Kelola Gudang</h4>
+                </div>
+              </div>
+              <div class="activity-desc">
+                Melakukan penataan, pencatatan inventaris, pemilahan kelayakan pakai alat olahraga (bola, raket, net, stik gateball), perbaikan jaring gawang, serta pemeliharaan standar kebersihan dan sirkulasi udara di ruang penyimpanan
+                alat olahraga SMK N 3 Yogyakarta.
+              </div>
+              <div class="activity-meta">
+                <span><i class="fa-solid fa-clipboard-check"></i> Audit Kondisi Sarpras Bulanan</span>
+                <span><i class="fa-solid fa-bullseye"></i> Manajemen Keselamatan & Efisiensi Alat</span>
+              </div>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="activity-card reveal">
+              <div class="activity-card-header">
+                <div class="activity-icon-box"><i class="fa-solid fa-heart-pulse"></i></div>
+                <div>
+                  <div class="activity-cat">KESEHATAN & KEBUGARAN</div>
+                  <h4 class="activity-card-title">Instruktur Senam Kebugaran Jasmani</h4>
+                </div>
+              </div>
+              <div class="activity-desc">
+                Bertindak sebagai instruktur pemandu senam aerobik dan Senam Kebugaran Jasmani (SKJ) massal yang diadakan setiap hari Jumat pagi di lapangan utama sekolah, menggerakkan seluruh dewan guru, karyawan, dan peserta didik untuk
+                aktif berolahraga bersama.
+              </div>
+              <div class="activity-meta">
+                <span><i class="fa-solid fa-calendar-days"></i> Kegiatan Jumat Krida Kebugaran</span>
+                <span><i class="fa-solid fa-bullseye"></i> Promosi Gaya Hidup Aktif & Sehat Komunitas</span>
+              </div>
+            </div>
+
+            <!-- Card 6 -->
+            <div class="activity-card reveal">
+              <div class="activity-card-header">
+                <div class="activity-icon-box"><i class="fa-solid fa-comments"></i></div>
+                <div>
+                  <div class="activity-cat">KOORDINASI PROFESIONAL</div>
+                  <h4 class="activity-card-title">Rapat Dewan Guru & MGMP Sekolah</h4>
+                </div>
+              </div>
+              <div class="activity-desc">
+                Menghadiri briefing koordinasi mingguan bersama kepala sekolah, guru pamong, dan dewan guru, berpartisipasi dalam diskusi kelompok kerja MGMP PJOK sekolah, serta berkontribusi dalam perencanaan pekan olahraga dan penilaian
+                akhir semester (PAS/SAS).
+              </div>
+              <div class="activity-meta">
+                <span><i class="fa-solid fa-handshake"></i> Koordinasi Periodik Sekolah</span>
+                <span><i class="fa-solid fa-bullseye"></i> Kolaborasi Profesional & Tata Kelola Kurikulum</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Summary Banner -->
+          <div class="summary-banner reveal">
+            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px">
+              <i class="fa-solid fa-quote-left text-accent" style="font-size: 1.5rem"></i>
+              <span style="color: var(--accent); font-weight: 600; font-size: 0.88rem; text-transform: uppercase; letter-spacing: 1px">Refleksi Pengalaman Manajerial</span>
+            </div>
+            <h3>Keterpaduan Kompetensi Pedagogik, Kepribadian, dan Sosial Guru Profesional</h3>
+            <p>
+              Keterlibatan dalam kegiatan non-mengajar membuktikan bahwa peran pendidik profesional tidak terbatas di dalam sekat-sekat ruang kelas atau lapangan olahraga saja. Melalui pengalaman memandu upacara, menjaga gerbang sekolah,
+              mengelola sarana prasarana, hingga memimpin senam kebugaran massal, mahasiswa PPG berkesempatan menyelami dinamika sosial sekolah secara utuh, membangun empati mendalam terhadap peserta didik, serta mematangkan kepemimpinan
+              keteladanan yang berintegritas tinggi.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Unified Footer -->
+    <footer class="footer-premium">
+      <div class="footer-glow-line"></div>
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand-col">
+            <a href="../index.html" class="nav-left" style="margin-bottom: 20px">
+              <img src="../logo.png" alt="Logo UNY" class="univ-logo-img" />
+              <span class="brand-name" style="font-size: 1.6rem"> PPG <span class="text-accent">UNY.</span> </span>
+            </a>
+            <p class="footer-desc">Portal resmi rekaman jejak akademik dan profesional mahasiswa PPG Prajabatan rumpun Pendidikan Jasmani, Olahraga, dan Kesehatan. Mendidik dengan hati, bergerak dengan inovasi.</p>
+            <div class="social-icons">
+              <a href="https://www.instagram.com/rwll.afsariant/"><i class="fa-brands fa-instagram"></i></a>
+              <a href="mailto:afsariant.chesa@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+              <a href="https://www.youtube.com/@maingateball_afebchesaa"><i class="fa-brands fa-youtube"></i></a>
+            </div>
+          </div>
+
+          <div class="footer-links-col">
+            <h3>PPL 1</h3>
+            <ul>
+              <li>
+                <a href="../PPL_1/artefak.html"><i class="fa-solid fa-angle-right"></i> Artefak Produk</a>
+              </li>
+              <li>
+                <a href="../PPL_1/penilaian.html"><i class="fa-solid fa-angle-right"></i> Penilaian GP</a>
+              </li>
+              <li>
+                <a href="../PPL_1/modelguru.html"><i class="fa-solid fa-angle-right"></i> Model Guru</a>
+              </li>
+              <li>
+                <a href="../PPL_1/filosofi.html"><i class="fa-solid fa-angle-right"></i> Filosofi Mengajar</a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="footer-links-col">
+            <h3>PPL 2</h3>
+            <ul>
+              <li>
+                <a href="rancangan.html"><i class="fa-solid fa-angle-right"></i> Rancangan Pembelajaran</a>
+              </li>
+              <li>
+                <a href="materi.html"><i class="fa-solid fa-angle-right"></i> Materi Pembelajaran</a>
+              </li>
+              <li>
+                <a href="media.html"><i class="fa-solid fa-angle-right"></i> Media Pembelajaran</a>
+              </li>
+              <li>
+                <a href="video.html"><i class="fa-solid fa-angle-right"></i> Video Mengajar</a>
+              </li>
+              <li>
+                <a href="instrumen.html"><i class="fa-solid fa-angle-right"></i> Instrumen Penilaian</a>
+              </li>
+              <li>
+                <a href="non-mengajar.html"><i class="fa-solid fa-angle-right"></i> Kegiatan Non-Mengajar</a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="footer-contact-col">
+            <h3>Hubungi Saya</h3>
+            <div class="contact-card">
+              <i class="fa-solid fa-envelope text-accent"></i>
+              <div>
+                <span>Email Pribadi</span>
+                <p>afsariant.chesa@gmail.com</p>
+              </div>
+            </div>
+            <div class="contact-card">
+              <i class="fa-solid fa-envelope text-accent"></i>
+              <div>
+                <span>Email Akademik</span>
+                <p>afeb985.2025@student.uny.ac.id</p>
+              </div>
+            </div>
+            <div class="contact-card">
+              <i class="fa-solid fa-location-dot text-accent"></i>
+              <div>
+                <span>Lokasi Kampus</span>
+                <p>Universitas Negeri Yogyakarta</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-copyright">
+          <p>© 2026 Afeb Chesa Arianto | - PPG Prajabatan PJOK UNY. Semua hak dilindungi. Dilarang menyalin atau mendistribusikan konten tanpa izin tertulis.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Interactive Script -->
+    <script>
+      window.addEventListener("scroll", () => {
+        const nav = document.getElementById("navbar");
+        if (window.scrollY > 50) {
+          nav.classList.add("scrolled");
+        } else {
+          nav.classList.remove("scrolled");
+        }
+      });
+
+      const mobileMenu = document.getElementById("mobile-menu");
+      const navMenu = document.getElementById("nav-menu");
+      mobileMenu.addEventListener("click", () => {
+        navMenu.classList.toggle("active");
+        const icon = mobileMenu.querySelector("i");
+        if (navMenu.classList.contains("active")) {
+          icon.className = "fa-solid fa-xmark";
+        } else {
+          icon.className = "fa-solid fa-bars-staggered";
+        }
+      });
+
+      function triggerReveal() {
+        const reveals = document.querySelectorAll(".reveal");
+        reveals.forEach((element) => {
+          const windowHeight = window.innerHeight;
+          const elementTop = element.getBoundingClientRect().top;
+          if (elementTop < windowHeight - 60) {
+            element.classList.add("active");
+          }
+        });
+      }
+      window.addEventListener("scroll", triggerReveal);
+      window.addEventListener("load", triggerReveal);
+      document.addEventListener("DOMContentLoaded", triggerReveal);
+    </script>
+  </body>
+</html>
