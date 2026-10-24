@@ -15,136 +15,382 @@
         background: radial-gradient(circle at 50% 20%, rgba(0, 212, 255, 0.08) 0%, rgba(13, 13, 13, 0) 70%);
         overflow: hidden;
       }
-      .activity-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 25px;
-        margin-top: 40px;
-        margin-bottom: 60px;
-      }
-      .activity-card {
-        background: rgba(22, 22, 22, 0.7);
-        border: 1px solid rgba(255, 255, 255, 0.07);
-        border-radius: 14px;
-        padding: 30px 24px;
+
+      /* Featured Showcase List (Alternating Editorial Rows) */
+      .showcase-wrapper {
         display: flex;
         flex-direction: column;
-        transition: var(--transition-bounce);
-        position: relative;
-        overflow: hidden;
+        gap: 55px;
+        margin-top: 45px;
+        margin-bottom: 70px;
       }
-      .activity-card::before {
+
+      .showcase-item {
+        background: linear-gradient(165deg, rgba(24, 25, 32, 0.95) 0%, rgba(14, 15, 20, 0.98) 100%);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 20px;
+        overflow: hidden;
+        display: grid;
+        grid-template-columns: 1.15fr 1.35fr;
+        align-items: stretch;
+        position: relative;
+        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
+        backdrop-filter: blur(16px);
+        transition: all 0.45s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      }
+
+      .showcase-item.reverse {
+        grid-template-columns: 1.35fr 1.15fr;
+      }
+      .showcase-item.reverse .showcase-media {
+        order: 2;
+      }
+      .showcase-item.reverse .showcase-content {
+        order: 1;
+      }
+
+      /* Border Accent & Glow */
+      .showcase-item::before {
         content: "";
         position: absolute;
         top: 0;
-        left: 0;
-        right: 0;
-        height: 3px;
-        background: transparent;
+        bottom: 0;
+        width: 4px;
+        z-index: 5;
         transition: var(--transition);
       }
-      .activity-card:hover {
-        transform: translateY(-6px);
-        border-color: rgba(0, 212, 255, 0.35);
-        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+      .item-sbo::before { left: 0; background: #00d4ff; }
+      .item-ri::before { right: 0; background: #ff4757; }
+      .item-mbg::before { left: 0; background: #00e676; }
+
+      .showcase-item:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 24px 50px rgba(0, 0, 0, 0.75);
       }
-      .activity-card:hover::before {
-        background: var(--accent);
+      .item-sbo:hover {
+        border-color: rgba(0, 212, 255, 0.45);
+        box-shadow: 0 24px 50px rgba(0, 212, 255, 0.16);
       }
-      .activity-card-header {
-        display: flex;
-        align-items: center;
-        gap: 16px;
-        margin-bottom: 20px;
+      .item-ri:hover {
+        border-color: rgba(255, 71, 87, 0.45);
+        box-shadow: 0 24px 50px rgba(255, 71, 87, 0.16);
       }
-      .activity-icon-box {
-        width: 52px;
-        height: 52px;
-        border-radius: 12px;
-        background: rgba(0, 212, 255, 0.08);
-        border: 1px solid rgba(0, 212, 255, 0.2);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 1.4rem;
-        color: var(--accent);
-        flex-shrink: 0;
+      .item-mbg:hover {
+        border-color: rgba(0, 230, 118, 0.45);
+        box-shadow: 0 24px 50px rgba(0, 230, 118, 0.16);
+      }
+
+      /* Media Frame */
+      .showcase-media {
+        position: relative;
+        min-height: 380px;
+        overflow: hidden;
+        background: #111;
+        cursor: pointer;
+      }
+      .showcase-media img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        transition: transform 0.65s cubic-bezier(0.25, 0.8, 0.25, 1);
+        display: block;
+      }
+      .showcase-item:hover .showcase-media img {
+        transform: scale(1.06);
+      }
+      .media-overlay-gradient {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, rgba(13, 13, 13, 0.15) 0%, rgba(13, 13, 13, 0.75) 100%);
+        pointer-events: none;
+        transition: var(--transition);
+      }
+      .showcase-item:hover .media-overlay-gradient {
+        opacity: 0.5;
+      }
+
+      /* Big Watermark Number */
+      .watermark-number {
+        position: absolute;
+        bottom: 10px;
+        right: 20px;
+        font-family: var(--font-heading);
+        font-size: 6.5rem;
+        font-weight: 700;
+        color: rgba(255, 255, 255, 0.08);
+        line-height: 1;
+        pointer-events: none;
+        user-select: none;
+        z-index: 2;
         transition: var(--transition-bounce);
       }
-      .activity-card:hover .activity-icon-box {
+      .showcase-item:hover .watermark-number {
+        color: rgba(255, 255, 255, 0.18);
+        transform: translateY(-6px) scale(1.04);
+      }
+
+      /* Category Badges */
+      .media-badge {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        z-index: 3;
+        padding: 6px 14px;
+        border-radius: 8px;
+        font-family: var(--font-heading);
+        font-size: 0.8rem;
+        letter-spacing: 1.2px;
+        font-weight: 700;
+        text-transform: uppercase;
+        backdrop-filter: blur(10px);
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+      }
+      .badge-sbo {
+        background: rgba(0, 212, 255, 0.22);
+        color: #00d4ff;
+        border: 1px solid rgba(0, 212, 255, 0.45);
+      }
+      .badge-ri {
+        background: rgba(255, 71, 87, 0.22);
+        color: #ff6b81;
+        border: 1px solid rgba(255, 71, 87, 0.45);
+      }
+      .badge-mbg {
+        background: rgba(0, 230, 118, 0.22);
+        color: #00e676;
+        border: 1px solid rgba(0, 230, 118, 0.45);
+      }
+
+      .zoom-hint {
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
+        z-index: 3;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 14px;
+        border-radius: 20px;
+        background: rgba(0, 0, 0, 0.65);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        color: #ddd;
+        font-size: 0.78rem;
+        letter-spacing: 0.5px;
+        transition: var(--transition);
+      }
+      .showcase-item:hover .zoom-hint {
         background: var(--accent);
         color: #0d0d0d;
-        transform: rotate(-6deg) scale(1.05);
+        border-color: var(--accent);
+        font-weight: 600;
       }
-      .activity-cat {
-        font-family: var(--font-heading);
-        font-size: 0.82rem;
-        letter-spacing: 1.5px;
-        color: var(--accent);
-        text-transform: uppercase;
-      }
-      .activity-card-title {
-        font-family: var(--font-heading);
-        font-size: 1.3rem;
-        color: #fff;
-        line-height: 1.25;
-      }
-      .activity-desc {
-        color: #b5b5b5;
-        font-size: 0.93rem;
-        line-height: 1.68;
-        margin-bottom: 20px;
-        flex-grow: 1;
-      }
-      .activity-meta {
-        background: rgba(255, 255, 255, 0.03);
-        border: 1px solid rgba(255, 255, 255, 0.06);
-        border-radius: 8px;
-        padding: 12px 14px;
-        font-size: 0.82rem;
-        color: #ccc;
+
+      /* Showcase Content */
+      .showcase-content {
+        padding: 36px 38px;
         display: flex;
         flex-direction: column;
-        gap: 6px;
+        justify-content: center;
       }
-      .activity-meta span {
+      .content-tag {
+        font-family: var(--font-heading);
+        font-size: 0.82rem;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        margin-bottom: 8px;
+        font-weight: 700;
         display: flex;
         align-items: center;
         gap: 8px;
       }
-      .activity-meta span i {
-        color: var(--accent);
-        font-size: 0.85rem;
+      .item-sbo .content-tag { color: #00d4ff; }
+      .item-ri .content-tag { color: #ff6b81; }
+      .item-mbg .content-tag { color: #00e676; }
+
+      .content-title {
+        font-family: var(--font-heading);
+        font-size: 1.75rem;
+        color: #ffffff;
+        line-height: 1.25;
+        margin-bottom: 16px;
+        letter-spacing: 0.5px;
       }
 
+      .content-desc {
+        color: #b5b5b5;
+        font-size: 0.94rem;
+        line-height: 1.72;
+        margin-bottom: 22px;
+      }
+      .content-desc p {
+        margin-bottom: 12px;
+      }
+      .content-desc p:last-child {
+        margin-bottom: 0;
+      }
+      .content-desc strong {
+        color: #ffffff;
+      }
+
+      /* Responsibilities Pod */
+      .responsibilities-box {
+        background: rgba(0, 0, 0, 0.38);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        border-radius: 12px;
+        padding: 16px 20px;
+        margin-bottom: 22px;
+      }
+      .box-label {
+        font-size: 0.78rem;
+        font-weight: 700;
+        letter-spacing: 1.2px;
+        text-transform: uppercase;
+        color: #ffffff;
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .box-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+      .box-list li {
+        font-size: 0.88rem;
+        color: #bbb;
+        line-height: 1.55;
+        position: relative;
+        padding-left: 20px;
+      }
+      .box-list li::before {
+        content: '✓';
+        position: absolute;
+        left: 0;
+        font-weight: bold;
+      }
+      .item-sbo .box-list li::before { color: #00d4ff; }
+      .item-ri .box-list li::before { color: #ff6b81; }
+      .item-mbg .box-list li::before { color: #00e676; }
+
+      /* Meta Info Bar */
+      .content-meta-bar {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+      .meta-chip {
+        padding: 6px 14px;
+        border-radius: 20px;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        font-size: 0.82rem;
+        color: #d0d0d0;
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+      }
+      .item-sbo .meta-chip i { color: #00d4ff; }
+      .item-ri .meta-chip i { color: #ff6b81; }
+      .item-mbg .meta-chip i { color: #00e676; }
+
+      /* Summary Banner */
       .summary-banner {
-        background: rgba(22, 22, 22, 0.6);
+        background: linear-gradient(145deg, rgba(22, 24, 30, 0.85) 0%, rgba(14, 15, 20, 0.95) 100%);
         border: 1px solid rgba(255, 255, 255, 0.08);
         border-left: 4px solid var(--accent);
-        border-radius: 12px;
+        border-radius: 14px;
         padding: 35px 30px;
         margin-bottom: 60px;
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
       }
       .summary-banner h3 {
         font-family: var(--font-heading);
         font-size: 1.6rem;
         color: #fff;
         margin-bottom: 12px;
+        letter-spacing: 0.5px;
       }
       .summary-banner p {
-        color: #b5b5b5;
+        color: #b8b8b8;
         font-size: 0.96rem;
         line-height: 1.7;
       }
 
-      @media (max-width: 1024px) {
-        .activity-grid {
-          grid-template-columns: repeat(2, 1fr);
-        }
+      /* Lightbox Modal */
+      .image-modal {
+        display: none;
+        position: fixed;
+        z-index: 9999;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.92);
+        backdrop-filter: blur(10px);
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding: 20px;
       }
-      @media (max-width: 650px) {
-        .activity-grid {
+      .image-modal.active {
+        display: flex;
+      }
+      .modal-content-img {
+        max-width: 90%;
+        max-height: 80vh;
+        border-radius: 12px;
+        border: 2px solid rgba(0, 212, 255, 0.35);
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.9);
+        object-fit: contain;
+      }
+      .modal-caption {
+        color: #fff;
+        font-family: var(--font-heading);
+        font-size: 1.25rem;
+        margin-top: 15px;
+        text-align: center;
+        letter-spacing: 1px;
+      }
+      .modal-close {
+        position: absolute;
+        top: 25px;
+        right: 30px;
+        color: #fff;
+        font-size: 2.2rem;
+        cursor: pointer;
+        transition: var(--transition);
+      }
+      .modal-close:hover {
+        color: var(--accent);
+        transform: rotate(90deg);
+      }
+
+      @media (max-width: 992px) {
+        .showcase-item,
+        .showcase-item.reverse {
           grid-template-columns: 1fr;
+        }
+        .showcase-item.reverse .showcase-media {
+          order: 1;
+        }
+        .showcase-item.reverse .showcase-content {
+          order: 2;
+        }
+        .showcase-media {
+          min-height: 280px;
+        }
+        .showcase-content {
+          padding: 28px 24px;
+        }
+        .content-title {
+          font-size: 1.5rem;
         }
       }
     </style>
@@ -191,7 +437,7 @@
       </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Main Content -->
     <main class="artefak-main">
       <section class="hero-artefak non-mengajar-hero">
         <div class="hero-glow-blob blob-1"></div>
@@ -199,12 +445,14 @@
         <div class="hero-grid-overlay"></div>
 
         <div class="container text-center relative-z">
-          <div class="sport-badge reveal"><i class="fa-solid fa-users-gear"></i> KELENGKAPAN PORTOFOLIO PPL 2</div>
+          <div class="sport-badge reveal"><i class="fa-solid fa-users-gear"></i> KELENGKAPAN PORTOFOLIO PPL MANDIRI</div>
           <h1 class="hero-title reveal">
             KEGIATAN <br />
             <span class="text-accent text-glow">NON-MENGAJAR</span>
           </h1>
-          <p class="hero-desc mx-auto reveal">Dokumentasi kontribusi manajerial, pembinaan karakter peserta didik, tata kelola sarana prasarana olahraga, serta partisipasi aktif dalam kultur ekosistem sekolah di SMK Negeri 3 Yogyakarta.</p>
+          <p class="hero-desc mx-auto reveal">
+            Dokumentasi kontribusi nyata mahasiswa PPG Prajabatan PJOK dalam pelaksanaan tugas manajerial, pelayanan kesejahteraan siswa, kepanitiaan hari besar nasional, serta pembinaan minat bakat di SMA Negeri 1 Seyegan.
+          </p>
         </div>
       </section>
 
@@ -215,7 +463,7 @@
             <div class="identity-item">
               <div class="id-icon"><i class="fa-solid fa-user-graduate"></i></div>
               <div class="id-text">
-                <label>Mahasiswa PPL 2</label>
+                <label>Mahasiswa PPL Mandiri</label>
                 <h4>Afeb Chesa Arianto, M.Or</h4>
               </div>
             </div>
@@ -223,14 +471,14 @@
               <div class="id-icon"><i class="fa-solid fa-school"></i></div>
               <div class="id-text">
                 <label>Sekolah Praktik Mitra</label>
-                <h4>SMK Negeri 3 Yogyakarta</h4>
+                <h4>SMA Negeri 1 Seyegan</h4>
               </div>
             </div>
             <div class="identity-item">
               <div class="id-icon"><i class="fa-solid fa-calendar-check"></i></div>
               <div class="id-text">
-                <label>Program Kegiatan</label>
-                <h4>Manajerial & Ekstrakurikuler</h4>
+                <label>Fokus Kegiatan</label>
+                <h4>Kepanitiaan & Layanan Sekolah</h4>
               </div>
             </div>
             <div class="identity-item">
@@ -243,144 +491,148 @@
           </div>
 
           <!-- Section Title -->
-          <div class="section-title reveal" style="margin-top: 30px">
-            <h2>PORTFOLIO <span class="text-accent text-glow">KEGIATAN DI LUAR KELAS</span></h2>
-            <p>Rekam jejak keterlibatan nyata mahasiswa PPG dalam mendukung operasional dan pembudayaan sekolah secara holistik.</p>
+          <div class="section-title reveal" style="margin-top: 40px">
+            <h2>DOKUMENTASI <span class="text-accent text-glow">AKSI NYATA DI SEKOLAH</span></h2>
+            <p>Rekam jejak keterlibatan aktif mahasiswa PPG dalam tiga pilar kegiatan non-mengajar utama selama masa PPL Mandiri.</p>
           </div>
 
-          <!-- Activity Cards Grid -->
-          <div class="activity-grid">
-            <!-- Card 1 -->
-            <div class="activity-card reveal">
-              <div class="activity-card-header">
-                <div class="activity-icon-box"><i class="fa-solid fa-door-open"></i></div>
-                <div>
-                  <div class="activity-cat">LAYANAN PESERTA DIDIK</div>
-                  <h4 class="activity-card-title">Piket Gerbang & Kedisiplinan 5S</h4>
+          <!-- Showcase List (Layout Horizontal Alternating yang Elegan) -->
+          <div class="showcase-wrapper">
+            
+            <!-- Item 1: Pendampingan SBO -->
+            <div class="showcase-item item-sbo reveal">
+              <div class="showcase-media" onclick="openModal('../IMG/PPL_2/Pendampingan SBO.jpeg', 'Pendampingan SBO (Sains, Budaya, dan Olahraga)')">
+                <img src="../IMG/PPL_2/Pendampingan SBO.jpeg" alt="Pendampingan SBO SMA N 1 Seyegan" loading="lazy" />
+                <div class="media-overlay-gradient"></div>
+                <span class="media-badge badge-sbo"><i class="fa-solid fa-trophy"></i> SBO 2026</span>
+                <span class="watermark-number">01</span>
+                <span class="zoom-hint"><i class="fa-solid fa-expand"></i> Klik Perbesar Foto</span>
+              </div>
+              <div class="showcase-content">
+                <div class="content-tag"><i class="fa-solid fa-medal"></i> PENGEMBANGAN MINAT & BAKAT SISWA</div>
+                <h3 class="content-title">1. Pendampingan SBO (Sains, Budaya dan Olahraga)</h3>
+                <div class="content-desc">
+                  <p>
+                    Kegiatan <strong>SBO (Sains, Budaya, dan Olahraga)</strong> merupakan ajang bergengsi tahunan di SMA Negeri 1 Seyegan yang dirancang sebagai wadah eksplorasi, unjuk kreativitas, serta kompetisi positif bagi seluruh peserta didik antarkelas.
+                  </p>
+                  <p>
+                    Sebagai mahasiswa PPL PJOK, peran yang dijalankan mencakup pendampingan teknis dan manajerial pada cabang-cabang olahraga dan dinamika tim: memandu penyusunan bagan turnamen, koordinasi perwasitan edukatif yang menjunjung <em>fair play</em>, supervisi pemanasan dinamis untuk mencegah risiko cedera, serta mendampingi koordinator kelas dalam menumbuhkan solidaritas antarteman.
+                  </p>
                 </div>
-              </div>
-              <div class="activity-desc">
-                Melaksanakan tugas piket pagi di gerbang utama sekolah untuk menyambut kehadiran siswa dengan budaya 5S (Senyum, Sapa, Salam, Sopan, Santun), memeriksa kerapian seragam atribut kejuruan, serta memonitor ketertiban presensi
-                kedatangan tepat waktu.
-              </div>
-              <div class="activity-meta">
-                <span><i class="fa-solid fa-clock"></i> Pukul 06.30 - 07.15 WIB (Rutin Harian)</span>
-                <span><i class="fa-solid fa-bullseye"></i> Pembinaan Karakter & Keteladanan Positif</span>
+
+                <div class="responsibilities-box">
+                  <div class="box-label"><i class="fa-solid fa-list-check"></i> Lingkup Tanggung Jawab & Kontribusi:</div>
+                  <ul class="box-list">
+                    <li>Supervisi teknis lapangan cabang pertandingan olahraga SBO.</li>
+                    <li>Edukasi pencegahan cedera melalui protokol pemanasan terstruktur.</li>
+                    <li>Penanaman nilai sportivitas, regulasi emosi, dan respek antarkelas.</li>
+                  </ul>
+                </div>
+
+                <div class="content-meta-bar">
+                  <span class="meta-chip"><i class="fa-solid fa-location-dot"></i> Lapangan & Aula SMA N 1 Seyegan</span>
+                  <span class="meta-chip"><i class="fa-solid fa-bullseye"></i> Pembinaan Karakter Sportif & Kepemimpinan</span>
+                </div>
               </div>
             </div>
 
-            <!-- Card 2 -->
-            <div class="activity-card reveal">
-              <div class="activity-card-header">
-                <div class="activity-icon-box"><i class="fa-solid fa-flag"></i></div>
-                <div>
-                  <div class="activity-cat">UPACARA & KEBANGSAAN</div>
-                  <h4 class="activity-card-title">Pendampingan Upacara Bendera</h4>
+            <!-- Item 2: Panitia Hari Kemerdekaan RI (Reverse Layout) -->
+            <div class="showcase-item item-ri reverse reveal" style="transition-delay: 0.1s">
+              <div class="showcase-media" onclick="openModal('../IMG/PPL_2/Panitia HUT RI.jpeg', 'Kepanitiaan Hari Ulang Tahun Kemerdekaan RI Ke-81')">
+                <img src="../IMG/PPL_2/Panitia HUT RI.jpeg" alt="Panitia Hari Kemerdekaan RI SMA N 1 Seyegan" loading="lazy" />
+                <div class="media-overlay-gradient"></div>
+                <span class="media-badge badge-ri"><i class="fa-solid fa-flag"></i> HUT RI Ke-81</span>
+                <span class="watermark-number">02</span>
+                <span class="zoom-hint"><i class="fa-solid fa-expand"></i> Klik Perbesar Foto</span>
+              </div>
+              <div class="showcase-content">
+                <div class="content-tag"><i class="fa-solid fa-landmark-flag"></i> KEBANGSAAN & KEPANITIAAN SEKOLAH</div>
+                <h3 class="content-title">2. Panitia Hari Kemerdekaan RI</h3>
+                <div class="content-desc">
+                  <p>
+                    Peringatan <strong>Hari Ulang Tahun Kemerdekaan Republik Indonesia</strong> di lingkungan sekolah diisi dengan serangkaian upacara bendera khidmat serta perlombaan ketangkasan tradisional dan modern guna memupuk rasa nasionalisme generasi muda.
+                  </p>
+                  <p>
+                    Terlibat langsung dalam kepanitiaan gabungan guru dan pengurus OSIS: merancang petunjuk teknis lomba kebugaran antarkelas, mengelola tata letak dan sarana perlombaan di lapangan, menjadi juri lapangan yang objektif, serta mengawal ketertiban dan keselamatan siswa selama rangkaian peringatan berlangsung meriah dan aman.
+                  </p>
                 </div>
-              </div>
-              <div class="activity-desc">
-                Berperan aktif dalam gladi resik persiapan upacara bendera hari Senin, mendampingi pleton barisan kelas binaan, membantu pengecekan kerapian protokol baris-berbaris (PBB), serta memfasilitasi penanganan siswa yang mengalami
-                kendala kesehatan saat upacara.
-              </div>
-              <div class="activity-meta">
-                <span><i class="fa-solid fa-calendar"></i> Setiap Hari Senin & Hari Besar Nasional</span>
-                <span><i class="fa-solid fa-bullseye"></i> Nilai Nasionalisme & Ketertiban Barisan</span>
+
+                <div class="responsibilities-box">
+                  <div class="box-label"><i class="fa-solid fa-list-check"></i> Lingkup Tanggung Jawab & Kontribusi:</div>
+                  <ul class="box-list">
+                    <li>Penyusunan juknis & manajemen jadwal lomba ketangkasan antarkelas.</li>
+                    <li>Pengelolaan sarana olahraga, keamanan arena, dan logistik lomba.</li>
+                    <li>Koordinasi keprotokolan upacara dan dewan juri lomba.</li>
+                  </ul>
+                </div>
+
+                <div class="content-meta-bar">
+                  <span class="meta-chip"><i class="fa-solid fa-calendar-days"></i> Bulan Kemerdekaan RI (Agustus)</span>
+                  <span class="meta-chip"><i class="fa-solid fa-bullseye"></i> Penguatan Nilai Kebangsaan, Gotong Royong & Kerja Sama</span>
+                </div>
               </div>
             </div>
 
-            <!-- Card 3 -->
-            <div class="activity-card reveal">
-              <div class="activity-card-header">
-                <div class="activity-icon-box"><i class="fa-solid fa-dumbbell"></i></div>
-                <div>
-                  <div class="activity-cat">PENGEMBANGAN BAKAT</div>
-                  <h4 class="activity-card-title">Pembinaan Ekstrakurikuler Olahraga</h4>
+            <!-- Item 3: Piket MBG -->
+            <div class="showcase-item item-mbg reveal" style="transition-delay: 0.2s">
+              <div class="showcase-media" onclick="openModal('../IMG/PPL_2/Piket MBG.jpeg', 'Piket MBG (Makan Bergizi Gratis) Sekolah')">
+                <img src="../IMG/PPL_2/Piket MBG.jpeg" alt="Piket Program MBG SMA N 1 Seyegan" loading="lazy" />
+                <div class="media-overlay-gradient"></div>
+                <span class="media-badge badge-mbg"><i class="fa-solid fa-utensils"></i> MBG PROGRAM</span>
+                <span class="watermark-number">03</span>
+                <span class="zoom-hint"><i class="fa-solid fa-expand"></i> Klik Perbesar Foto</span>
+              </div>
+              <div class="showcase-content">
+                <div class="content-tag"><i class="fa-solid fa-heart-pulse"></i> LAYANAN KESEJAHTERAAN & GIZI SISWA</div>
+                <h3 class="content-title">3. Piket MBG (Makan Bergizi Gratis)</h3>
+                <div class="content-desc">
+                  <p>
+                    Program <strong>MBG (Makan Bergizi Gratis)</strong> merupakan inisiatif strategis pemerintah dan sekolah dalam menjamin pemenuhan nutrisi seimbang bagi peserta didik guna menunjang stamina belajar, konsentrasi kognitif, dan kesehatan jasmani.
+                  </p>
+                  <p>
+                    Dalam penugasan piket MBG, mahasiswa PPL bertindak aktif dalam pengawasan logistik distribusi makanan ke setiap kelas tepat waktu, memverifikasi standar higienitas paket hidangan, mendampingi pembudayaan doa dan cuci tangan sebelum makan, serta memantau manajemen kebersihan dan pengelolaan sampah sisa makanan secara tertib di lingkungan sekolah.
+                  </p>
                 </div>
-              </div>
-              <div class="activity-desc">
-                Memberikan pendampingan teknis dan motivasi mental bagi tim ekstrakurikuler cabang olahraga (Basket, Gateball, dan Bulutangkis), merancang program pemanasan pencegahan cedera, serta mendampingi persiapan seleksi kejuaraan
-                antarsekolah.
-              </div>
-              <div class="activity-meta">
-                <span><i class="fa-solid fa-clock"></i> Sore Hari (15.30 - 17.00 WIB)</span>
-                <span><i class="fa-solid fa-bullseye"></i> Peningkatan Prestasi & Sportivitas Atletik</span>
+
+                <div class="responsibilities-box">
+                  <div class="box-label"><i class="fa-solid fa-list-check"></i> Lingkup Tanggung Jawab & Kontribusi:</div>
+                  <ul class="box-list">
+                    <li>Monitoring ketepatan alur distribusi paket makanan ke seluruh kelas.</li>
+                    <li>Edukasi pola hidup bersih sehat (PHBS) & etika makan bersama.</li>
+                    <li>Pengawasan sanitasi lingkungan dan pemilahan sampah sisa makanan.</li>
+                  </ul>
+                </div>
+
+                <div class="content-meta-bar">
+                  <span class="meta-chip"><i class="fa-solid fa-clock"></i> Jam Istirahat Sekolah (Jadwal Terjadwal)</span>
+                  <span class="meta-chip"><i class="fa-solid fa-bullseye"></i> Ketahanan Fisik Siswa, Sanitasi & Disiplin Lingkungan</span>
+                </div>
               </div>
             </div>
 
-            <!-- Card 4 -->
-            <div class="activity-card reveal">
-              <div class="activity-card-header">
-                <div class="activity-icon-box"><i class="fa-solid fa-boxes-stacked"></i></div>
-                <div>
-                  <div class="activity-cat">SARANA & PRASARANA</div>
-                  <h4 class="activity-card-title">Inventarisasi & Tata Kelola Gudang</h4>
-                </div>
-              </div>
-              <div class="activity-desc">
-                Melakukan penataan, pencatatan inventaris, pemilahan kelayakan pakai alat olahraga (bola, raket, net, stik gateball), perbaikan jaring gawang, serta pemeliharaan standar kebersihan dan sirkulasi udara di ruang penyimpanan
-                alat olahraga SMK N 3 Yogyakarta.
-              </div>
-              <div class="activity-meta">
-                <span><i class="fa-solid fa-clipboard-check"></i> Audit Kondisi Sarpras Bulanan</span>
-                <span><i class="fa-solid fa-bullseye"></i> Manajemen Keselamatan & Efisiensi Alat</span>
-              </div>
-            </div>
-
-            <!-- Card 5 -->
-            <div class="activity-card reveal">
-              <div class="activity-card-header">
-                <div class="activity-icon-box"><i class="fa-solid fa-heart-pulse"></i></div>
-                <div>
-                  <div class="activity-cat">KESEHATAN & KEBUGARAN</div>
-                  <h4 class="activity-card-title">Instruktur Senam Kebugaran Jasmani</h4>
-                </div>
-              </div>
-              <div class="activity-desc">
-                Bertindak sebagai instruktur pemandu senam aerobik dan Senam Kebugaran Jasmani (SKJ) massal yang diadakan setiap hari Jumat pagi di lapangan utama sekolah, menggerakkan seluruh dewan guru, karyawan, dan peserta didik untuk
-                aktif berolahraga bersama.
-              </div>
-              <div class="activity-meta">
-                <span><i class="fa-solid fa-calendar-days"></i> Kegiatan Jumat Krida Kebugaran</span>
-                <span><i class="fa-solid fa-bullseye"></i> Promosi Gaya Hidup Aktif & Sehat Komunitas</span>
-              </div>
-            </div>
-
-            <!-- Card 6 -->
-            <div class="activity-card reveal">
-              <div class="activity-card-header">
-                <div class="activity-icon-box"><i class="fa-solid fa-comments"></i></div>
-                <div>
-                  <div class="activity-cat">KOORDINASI PROFESIONAL</div>
-                  <h4 class="activity-card-title">Rapat Dewan Guru & MGMP Sekolah</h4>
-                </div>
-              </div>
-              <div class="activity-desc">
-                Menghadiri briefing koordinasi mingguan bersama kepala sekolah, guru pamong, dan dewan guru, berpartisipasi dalam diskusi kelompok kerja MGMP PJOK sekolah, serta berkontribusi dalam perencanaan pekan olahraga dan penilaian
-                akhir semester (PAS/SAS).
-              </div>
-              <div class="activity-meta">
-                <span><i class="fa-solid fa-handshake"></i> Koordinasi Periodik Sekolah</span>
-                <span><i class="fa-solid fa-bullseye"></i> Kolaborasi Profesional & Tata Kelola Kurikulum</span>
-              </div>
-            </div>
           </div>
 
           <!-- Summary Banner -->
           <div class="summary-banner reveal">
             <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px">
               <i class="fa-solid fa-quote-left text-accent" style="font-size: 1.5rem"></i>
-              <span style="color: var(--accent); font-weight: 600; font-size: 0.88rem; text-transform: uppercase; letter-spacing: 1px">Refleksi Pengalaman Manajerial</span>
+              <span style="color: var(--accent); font-weight: 600; font-size: 0.88rem; text-transform: uppercase; letter-spacing: 1px">Refleksi Keterlibatan Komprehensif</span>
             </div>
-            <h3>Keterpaduan Kompetensi Pedagogik, Kepribadian, dan Sosial Guru Profesional</h3>
+            <h3>Sinergi Tri Dharma Pengabdian Guru PJOK Profesional</h3>
             <p>
-              Keterlibatan dalam kegiatan non-mengajar membuktikan bahwa peran pendidik profesional tidak terbatas di dalam sekat-sekat ruang kelas atau lapangan olahraga saja. Melalui pengalaman memandu upacara, menjaga gerbang sekolah,
-              mengelola sarana prasarana, hingga memimpin senam kebugaran massal, mahasiswa PPG berkesempatan menyelami dinamika sosial sekolah secara utuh, membangun empati mendalam terhadap peserta didik, serta mematangkan kepemimpinan
-              keteladanan yang berintegritas tinggi.
+              Pelaksanaan ketiga pilar kegiatan non-mengajar—mulai dari <strong>Pendampingan SBO</strong>, <strong>Kepanitiaan Hari Kemerdekaan RI</strong>, hingga <strong>Piket Program MBG</strong> di SMA Negeri 1 Seyegan—menjadi wadah krusial dalam mengasah kompetensi kepribadian dan sosial calon guru. Guru pendidikan jasmani tidak hanya berperan sebagai pengajar gerak di lapangan, melainkan motor penggerak kebugaran komunitas, teladan kepemimpinan sosial, dan fasilitator kesejahteraan fisik peserta didik seutuhnya.
             </p>
           </div>
         </div>
       </section>
     </main>
+
+    <!-- Modal Lightbox -->
+    <div id="imageModal" class="image-modal" onclick="closeModal()">
+      <span class="modal-close">&times;</span>
+      <img class="modal-content-img" id="modalImg" alt="Detail Kegiatan" />
+      <div id="modalCaption" class="modal-caption"></div>
+    </div>
 
     <!-- Unified Footer -->
     <footer class="footer-premium">
@@ -476,6 +728,29 @@
 
     <!-- Interactive Script -->
     <script>
+      // Modal Lightbox Functionality
+      function openModal(imgSrc, captionText) {
+        const modal = document.getElementById("imageModal");
+        const modalImg = document.getElementById("modalImg");
+        const caption = document.getElementById("modalCaption");
+        modal.classList.add("active");
+        modalImg.src = imgSrc;
+        caption.textContent = captionText;
+      }
+
+      function closeModal() {
+        const modal = document.getElementById("imageModal");
+        modal.classList.remove("active");
+      }
+
+      // Close modal on escape key
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+          closeModal();
+        }
+      });
+
+      // Navbar scroll effect
       window.addEventListener("scroll", () => {
         const nav = document.getElementById("navbar");
         if (window.scrollY > 50) {
@@ -485,6 +760,7 @@
         }
       });
 
+      // Mobile Menu Toggle
       const mobileMenu = document.getElementById("mobile-menu");
       const navMenu = document.getElementById("nav-menu");
       mobileMenu.addEventListener("click", () => {
@@ -497,6 +773,7 @@
         }
       });
 
+      // Reveal on scroll
       function triggerReveal() {
         const reveals = document.querySelectorAll(".reveal");
         reveals.forEach((element) => {

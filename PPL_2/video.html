@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Video Pembelajaran (UTS & UAS) | PPL 2 - PPG Calon Guru</title>
+    <title>Video Pembelajaran (UAS - Bola Basket) | PPL 2 - PPG Calon Guru</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <link rel="stylesheet" href="../CSS/artefak.css" />
@@ -15,114 +15,26 @@
         background: radial-gradient(circle at 50% 20%, rgba(0, 212, 255, 0.08) 0%, rgba(13, 13, 13, 0) 70%);
         overflow: hidden;
       }
-      .exam-tag-uts {
-        display: inline-block;
-        padding: 4px 12px;
-        background: rgba(255, 170, 0, 0.15);
-        border: 1px solid rgba(255, 170, 0, 0.4);
-        color: #ffb833;
-        font-size: 0.75rem;
-        font-weight: 700;
-        letter-spacing: 1px;
-        border-radius: 4px;
-        margin-right: 8px;
-        text-transform: uppercase;
-      }
       .exam-tag-uas {
         display: inline-block;
-        padding: 4px 12px;
+        padding: 5px 14px;
         background: rgba(0, 212, 255, 0.15);
         border: 1px solid rgba(0, 212, 255, 0.4);
         color: var(--accent);
-        font-size: 0.75rem;
+        font-size: 0.8rem;
         font-weight: 700;
         letter-spacing: 1px;
-        border-radius: 4px;
+        border-radius: 6px;
         margin-right: 8px;
         text-transform: uppercase;
-      }
-      .cycle-tabs-container {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 12px;
-        margin-bottom: 40px;
-      }
-      .cycle-tab-btn {
-        background: rgba(22, 22, 22, 0.8);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        color: var(--text-muted);
-        padding: 16px 14px;
-        border-radius: 10px;
-        cursor: pointer;
-        transition: var(--transition-bounce);
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 6px;
-        text-align: left;
-        position: relative;
-        overflow: hidden;
-      }
-      .cycle-tab-btn::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 3px;
-        background: transparent;
-        transition: var(--transition);
-      }
-      .cycle-tab-btn:hover {
-        background: rgba(30, 30, 30, 0.9);
-        border-color: rgba(0, 212, 255, 0.3);
-        transform: translateY(-3px);
-        color: #fff;
-      }
-      .cycle-tab-btn.active {
-        background: rgba(0, 212, 255, 0.08);
-        border-color: var(--accent);
-        color: #ffffff;
-        box-shadow: 0 8px 25px rgba(0, 212, 255, 0.12);
-      }
-      .cycle-tab-btn.active::before {
-        background: var(--accent);
-      }
-      .cycle-tab-btn .tab-badge-row {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        margin-bottom: 2px;
-      }
-      .cycle-tab-btn .tab-title {
-        font-family: var(--font-heading);
-        font-size: 1.05rem;
-        letter-spacing: 0.5px;
-        line-height: 1.25;
-        color: #fff;
-      }
-      .cycle-tab-btn .tab-topic {
-        font-size: 0.85rem;
-        color: var(--text-muted);
-      }
-      .cycle-tab-btn.active .tab-topic {
-        color: var(--accent);
-      }
-      .cycle-panel {
-        display: none;
-        opacity: 0;
-        transition: opacity 0.4s ease;
-      }
-      .cycle-panel.active {
-        display: block;
-        opacity: 1;
       }
       .cycle-header-card {
         background: rgba(22, 22, 22, 0.6);
         border: 1px solid rgba(255, 255, 255, 0.08);
         border-left: 4px solid var(--accent);
-        border-radius: 10px;
-        padding: 24px 30px;
+        border-radius: 12px;
+        padding: 26px 32px;
+        margin-top: 30px;
         margin-bottom: 25px;
         display: flex;
         justify-content: space-between;
@@ -132,15 +44,15 @@
       }
       .cycle-header-text h3 {
         font-family: var(--font-heading);
-        font-size: 1.6rem;
+        font-size: 1.65rem;
         color: #fff;
-        margin-bottom: 6px;
+        margin-bottom: 8px;
       }
       .cycle-header-text p {
         color: var(--text-muted);
-        font-size: 0.95rem;
-        line-height: 1.5;
-        max-width: 750px;
+        font-size: 0.96rem;
+        line-height: 1.6;
+        max-width: 820px;
       }
       .meta-pills {
         display: flex;
@@ -164,25 +76,26 @@
 
       /* Video Player Styles */
       .video-showcase-container {
-        background: rgba(22, 22, 22, 0.5);
-        border: 1px solid rgba(255, 255, 255, 0.07);
-        border-radius: 14px;
-        padding: 25px;
+        background: rgba(22, 22, 26, 0.65);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 18px;
+        padding: 28px;
         margin-bottom: 40px;
+        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
       }
       .video-wrapper {
         position: relative;
         width: 100%;
         padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
         height: 0;
-        border-radius: 10px;
+        border-radius: 12px;
         overflow: hidden;
         background: #000;
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        box-shadow: 0 12px 35px rgba(0, 0, 0, 0.6);
-        margin-bottom: 20px;
+        border: 1px solid rgba(0, 212, 255, 0.25);
+        box-shadow: 0 12px 35px rgba(0, 0, 0, 0.75);
+        margin-bottom: 22px;
       }
-      .video-wrapper iframe, .video-wrapper video {
+      .video-wrapper iframe {
         position: absolute;
         top: 0;
         left: 0;
@@ -191,10 +104,10 @@
         border: none;
       }
       .video-timeline-card {
-        background: rgba(255, 255, 255, 0.03);
+        background: rgba(0, 0, 0, 0.35);
         border: 1px solid rgba(255, 255, 255, 0.06);
-        border-radius: 8px;
-        padding: 16px 20px;
+        border-radius: 10px;
+        padding: 18px 22px;
         margin-top: 15px;
       }
       .timeline-header {
@@ -204,7 +117,7 @@
         font-family: var(--font-heading);
         font-size: 0.95rem;
         color: #fff;
-        margin-bottom: 12px;
+        margin-bottom: 14px;
         letter-spacing: 0.5px;
         text-transform: uppercase;
       }
@@ -216,147 +129,27 @@
       .timeline-step {
         display: flex;
         flex-direction: column;
-        gap: 4px;
-        background: rgba(0, 0, 0, 0.3);
-        border: 1px solid rgba(255, 255, 255, 0.04);
-        padding: 10px 12px;
-        border-radius: 6px;
+        gap: 5px;
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        padding: 12px 14px;
+        border-radius: 8px;
       }
       .timeline-badge {
-        font-size: 0.78rem;
+        font-size: 0.8rem;
         font-weight: 700;
         color: var(--accent);
         display: flex;
         align-items: center;
-        gap: 5px;
+        gap: 6px;
       }
       .timeline-text {
-        font-size: 0.83rem;
+        font-size: 0.86rem;
         color: #bbb;
-        line-height: 1.4;
+        line-height: 1.5;
       }
 
-      /* Triad Analysis Cards */
-      .triad-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 24px;
-        margin-top: 35px;
-        margin-bottom: 70px;
-      }
-      .triad-card {
-        background: rgba(22, 22, 22, 0.7);
-        border: 1px solid rgba(255, 255, 255, 0.07);
-        border-radius: 12px;
-        padding: 30px 24px;
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        transition: var(--transition-bounce);
-      }
-      .triad-card:hover {
-        transform: translateY(-6px);
-        border-color: rgba(0, 212, 255, 0.35);
-        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
-      }
-      .triad-card-top {
-        display: flex;
-        align-items: center;
-        gap: 15px;
-        margin-bottom: 20px;
-        padding-bottom: 15px;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.07);
-      }
-      .triad-icon-box {
-        width: 48px;
-        height: 48px;
-        border-radius: 10px;
-        background: rgba(0, 212, 255, 0.08);
-        border: 1px solid rgba(0, 212, 255, 0.2);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 1.3rem;
-        color: var(--accent);
-        flex-shrink: 0;
-      }
-      .triad-card:hover .triad-icon-box {
-        background: var(--accent);
-        color: #0d0d0d;
-        transform: rotate(-6deg);
-      }
-      .triad-badge-num {
-        font-family: var(--font-heading);
-        font-size: 0.85rem;
-        letter-spacing: 1.5px;
-        color: var(--accent);
-        text-transform: uppercase;
-      }
-      .triad-title {
-        font-family: var(--font-heading);
-        font-size: 1.25rem;
-        color: #fff;
-        line-height: 1.2;
-      }
-      .triad-content {
-        color: #b5b5b5;
-        font-size: 0.93rem;
-        line-height: 1.68;
-        display: flex;
-        flex-direction: column;
-        gap: 14px;
-        flex-grow: 1;
-      }
-      .triad-content strong {
-        color: #f0f0f0;
-      }
-      .triad-content ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-      }
-      .triad-content ul li {
-        position: relative;
-        padding-left: 20px;
-      }
-      .triad-content ul li::before {
-        content: '▹';
-        position: absolute;
-        left: 0;
-        color: var(--accent);
-        font-size: 1.1rem;
-        line-height: 1;
-      }
-
-      @media (max-width: 1024px) {
-        .cycle-tabs-container {
-          grid-template-columns: repeat(2, 1fr);
-        }
-        .timeline-steps-grid {
-          grid-template-columns: 1fr;
-        }
-        .triad-grid {
-          grid-template-columns: 1fr;
-        }
-      }
-      @media (max-width: 600px) {
-        .cycle-tabs-container {
-          grid-template-columns: 1fr;
-        }
-        .cycle-header-card {
-          padding: 20px;
-        }
-        .video-showcase-container {
-          padding: 15px;
-        }
-      }
-    
-      /* ==========================================================================
-         ADVANCED CYBER-SPORT ANALYSIS DASHBOARD (V2 UPGRADE)
-         ========================================================================== */
+      /* Advanced Cyber-Sport Analysis Dashboard (V2) */
       .analysis-dashboard {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
@@ -455,18 +248,6 @@
       }
       .analysis-col-card:hover .card-icon-halo {
         transform: scale(1.1) rotate(-6deg);
-      }
-      .card-theme-tujuan:hover .card-icon-halo {
-        background: #00d4ff;
-        color: #0d0d0d;
-      }
-      .card-theme-kelebihan:hover .card-icon-halo {
-        background: #00e676;
-        color: #0d0d0d;
-      }
-      .card-theme-teori:hover .card-icon-halo {
-        background: #b388ff;
-        color: #0d0d0d;
       }
       .card-header-titles {
         display: flex;
@@ -609,12 +390,15 @@
         line-height: 1.6;
         margin: 0;
       }
+
       @media (max-width: 1024px) {
         .analysis-dashboard {
           grid-template-columns: 1fr;
         }
+        .timeline-steps-grid {
+          grid-template-columns: 1fr;
+        }
       }
-
     </style>
   </head>
   <body>
@@ -659,7 +443,7 @@
       </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Main Content -->
     <main class="artefak-main">
       <section class="hero-artefak rancangan-hero">
         <div class="hero-glow-blob blob-1"></div>
@@ -667,13 +451,13 @@
         <div class="hero-grid-overlay"></div>
 
         <div class="container text-center relative-z">
-          <div class="sport-badge reveal"><i class="fa-solid fa-circle-play"></i> REKAMAN PRAKTIK PEMBELAJARAN PPL 2</div>
+          <div class="sport-badge reveal"><i class="fa-solid fa-circle-play"></i> REKAMAN PRAKTIK PEMBELAJARAN PPL 2 (UAS)</div>
           <h1 class="hero-title reveal">
             VIDEO MENGAJAR <br />
-            <span class="text-accent text-glow">(UTS & UAS)</span>
+            <span class="text-accent text-glow">PERMAINAN BOLA BASKET</span>
           </h1>
           <p class="hero-desc mx-auto reveal">
-            Dokumentasi video rekaman pelaksanaan praktik pembelajaran tatap muka dan simulasi taktis PJOK Siklus 1 hingga 4, dilengkapi tinjauan reflektif mendalam mengenai interaksi guru-siswa, manajemen kelas, dan komunikasi instruksional.
+            Dokumentasi video rekaman pelaksanaan praktik pembelajaran tatap muka PJOK materi Permainan Bola Basket (Siklus 2) berbasis Teaching Games for Understanding (TGfU) di SMA Negeri 1 Seyegan.
           </p>
         </div>
       </section>
@@ -712,764 +496,182 @@
             </div>
           </div>
 
-          <!-- Tab Selection Grid -->
-          <div class="cycle-tabs-container reveal">
-            
-            <button class="cycle-tab-btn active" onclick="switchCycleTab(event, 'panel-siklus-1')">
-              <div class="tab-badge-row">
-                <span class="exam-tag-uts">UTS</span>
-                <span class="tab-badge-num">SIKLUS 1</span>
+          <!-- Video Header Card -->
+          <div class="cycle-header-card reveal">
+            <div class="cycle-header-text">
+              <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
+                <span class="exam-tag-uas">UJIAN AKHIR SEMESTER (UAS)</span>
+                <span style="color: var(--accent); font-weight: 600; font-size: 0.85rem;">PRAKTIK PEMBELAJARAN LAPANGAN 2</span>
               </div>
-              <div class="tab-title">RENANG GAYA BEBAS</div>
-              <div class="tab-topic"><i class="fa-solid fa-water"></i> Aktivitas Akuatik</div>
-            </button>
-            <button class="cycle-tab-btn" onclick="switchCycleTab(event, 'panel-siklus-2')">
-              <div class="tab-badge-row">
-                <span class="exam-tag-uas">UAS</span>
-                <span class="tab-badge-num">SIKLUS 2</span>
-              </div>
-              <div class="tab-title">BOLA BASKET</div>
-              <div class="tab-topic"><i class="fa-solid fa-basketball"></i> Permainan Bola Besar</div>
-            </button>
-            <button class="cycle-tab-btn" onclick="switchCycleTab(event, 'panel-siklus-3')">
-              <div class="tab-badge-row">
-                <span class="exam-tag-uas">UAS</span>
-                <span class="tab-badge-num">SIKLUS 3</span>
-              </div>
-              <div class="tab-title">BULUTANGKIS</div>
-              <div class="tab-topic"><i class="fa-solid fa-feather"></i> Permainan Net / Raket</div>
-            </button>
-            <button class="cycle-tab-btn" onclick="switchCycleTab(event, 'panel-siklus-4')">
-              <div class="tab-badge-row">
-                <span class="exam-tag-uas">UAS</span>
-                <span class="tab-badge-num">SIKLUS 4</span>
-              </div>
-              <div class="tab-title">GATEBALL</div>
-              <div class="tab-topic"><i class="fa-solid fa-bullseye"></i> Olahraga Presisi & Taktik</div>
-            </button>
+              <h3>VIDEO PRAKTIK PEMBELAJARAN SIKLUS: BOLA BASKET</h3>
+              <p>
+                Rekaman video pelaksanaan praktik pembelajaran bola basket berbasis Teaching Games for Understanding (TGfU). Menampilkan manajemen sirkuit latihan 3 stasiun pos, panduan visual cones irama lay-up shoot dua sisi, serta simulasi pertandingan taktis 3 vs 3.
+              </p>
+            </div>
+            <div class="meta-pills">
+              <span class="meta-pill"><i class="fa-solid fa-video"></i> Video Sesi Penuh</span>
+              <span class="meta-pill"><i class="fa-solid fa-location-dot"></i> Lapangan Basket SMA N 1 Seyegan</span>
+              <span class="meta-pill"><i class="fa-solid fa-basketball"></i> TGfU Model</span>
+            </div>
           </div>
 
-          <!-- Panels for Cycles 1-4 -->
-          
-          <!-- ========================================================
-               PANEL SIKLUS 1 : RENANG GAYA BEBAS (UTS)
-               ======================================================== -->
-          <div id="panel-siklus-1" class="cycle-panel active">
-            <div class="cycle-header-card reveal">
-              <div class="cycle-header-text">
-                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
-                  <span class="exam-tag-uts">UJIAN TENGAH SEMESTER (UTS)</span>
-                  <span style="color: var(--accent); font-weight: 600; font-size: 0.85rem;">PRAKTIK PEMBELAJARAN LAPANGAN 2</span>
-                </div>
-                <h3>VIDEO PEMBELAJARAN SIKLUS 1: RENANG GAYA BEBAS</h3>
-                <p>
-                  Rekaman video pelaksanaan praktik pembelajaran renang gaya bebas Fase F di kolam renang mitra. Menampilkan manajemen keselamatan air terpadu, demonstrasi postur streamlining horizontal, latihan ayunan tungkai berpelampung, dan pendampingan teknik bernapas bilateral.
-                </p>
+          <!-- Video Player Showcase Container -->
+          <div class="video-showcase-container reveal">
+            <div class="video-wrapper">
+              <!-- Google Drive Video Embed -->
+              <iframe 
+                src="https://drive.google.com/file/d/14uJOZokHhawf20vAVzPlnmTTSNBYbOnp/preview" 
+                title="Video Mengajar Praktik Bola Basket - Afeb Chesa Arianto" 
+                allow="autoplay; encrypted-media; fullscreen" 
+                allowfullscreen>
+              </iframe>
+            </div>
+
+            <!-- Video Timeline Box -->
+            <div class="video-timeline-card">
+              <div class="timeline-header">
+                <i class="fa-solid fa-list-check text-accent"></i>
+                <span>Alur Pelaksanaan Skenario Pembelajaran di Video</span>
               </div>
-              <div class="meta-pills">
-                <span class="meta-pill"><i class="fa-solid fa-video"></i> Durasi Video: 30 Menit (Full Session)</span>
-                <span class="meta-pill"><i class="fa-solid fa-location-dot"></i> Kolam Renang Mitra</span>
-                <span class="meta-pill"><i class="fa-solid fa-film"></i> Praktik Mengajar Akuatik</span>
+              <div class="timeline-steps-grid">
+                <div class="timeline-step">
+                  <span class="timeline-badge"><i class="fa-regular fa-clock"></i> Kegiatan Awal</span>
+                  <span class="timeline-text">Baris-Berbaris, Presensi & Apersepsi Konsep Taktis TGfU, Pemanasan Statis-Dinamis Berbasis Bola</span>
+                </div>
+                <div class="timeline-step">
+                  <span class="timeline-badge"><i class="fa-regular fa-clock"></i> Kegiatan Inti</span>
+                  <span class="timeline-text">Rotasi Sirkuit 3 Pos (Passing Berpasangan, Dribble Rintangan, Lay-Up Irama Warna) & Game 3v3</span>
+                </div>
+                <div class="timeline-step">
+                  <span class="timeline-badge"><i class="fa-regular fa-clock"></i> Kegiatan Penutup</span>
+                  <span class="timeline-text">Pendinginan (*Cooling Down*), Asesmen Peer-Review, Refleksi Pengambilan Keputusan Taktis Siswa</span>
+                </div>
               </div>
             </div>
 
-            <!-- Video Player Showcase Container -->
-            <div class="video-showcase-container reveal">
-              <div class="video-wrapper">
-                <!-- Video Embed (Dapat disesuaikan dengan ID video YouTube resmi) -->
-                <iframe 
-                  src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
-                  title="Video Mengajar Siklus 1 - RENANG GAYA BEBAS" 
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                  allowfullscreen>
-                </iframe>
-              </div>
+            <!-- Action Buttons -->
+            <div class="doc-actions" style="margin-top: 22px;">
+              <a href="https://drive.google.com/file/d/14uJOZokHhawf20vAVzPlnmTTSNBYbOnp/view?usp=drivesdk" target="_blank" class="btn-primary">
+                <i class="fa-brands fa-google-drive"></i> BUKA DI GOOGLE DRIVE (FULL HD)
+              </a>
+              <a href="https://www.youtube.com/@maingateball_afebchesaa" target="_blank" class="btn-secondary">
+                <i class="fa-brands fa-youtube"></i> SALURAN YOUTUBE PORTOFOLIO
+              </a>
+            </div>
+          </div>
 
-              <!-- Video Timeline Box -->
-              <div class="video-timeline-card">
-                <div class="timeline-header">
-                  <i class="fa-solid fa-list-check text-accent"></i>
-                  <span>Alur Pelaksanaan Skenario Pembelajaran di Video</span>
-                </div>
-                <div class="timeline-steps-grid">
-                  
-                  <div class="timeline-step">
-                    <span class="timeline-badge"><i class="fa-regular fa-clock"></i> 00:00 - 06:15</span>
-                    <span class="timeline-text">Kegiatan Awal: Presensi, SOP Keselamatan Air, Pemanasan Adaptif & Pengenalan Kedalaman</span>
-                  </div>
-                  <div class="timeline-step">
-                    <span class="timeline-badge"><i class="fa-regular fa-clock"></i> 06:16 - 22:40</span>
-                    <span class="timeline-text">Kegiatan Inti: Drill Meluncur Sejajar Air, Ayunan Kaki Kickboard, Koordinasi Lengan & Buddy Coaching</span>
-                  </div>
-                  <div class="timeline-step">
-                    <span class="timeline-badge"><i class="fa-regular fa-clock"></i> 22:41 - 30:00</span>
-                    <span class="timeline-text">Kegiatan Penutup: Uji Jarak Tempuh, Pendinginan Air, Refleksi Ketercapaian & Apresiasi Diri</span>
-                  </div>
+          <!-- Analisis Video Mengajar -->
+          <div class="section-title reveal" style="margin-top: 50px;">
+            <h2>
+              ANALISIS VIDEO MENGAJAR <span class="text-accent text-glow">PERMAINAN BOLA BASKET</span>
+            </h2>
+            <p>Tinjauan analitis komprehensif pelaksanaan mengajar dan rekaman video Siklus Bola Basket berdasarkan 3 pilar akademik.</p>
+          </div>
+
+          <div class="analysis-dashboard">
+            <!-- Pilar 1: Tujuan dan Konteks -->
+            <div class="analysis-col-card card-theme-tujuan reveal">
+              <i class="fa-solid fa-bullseye watermark-icon"></i>
+              <div class="analysis-card-header">
+                <div class="card-icon-halo"><i class="fa-solid fa-bullseye"></i></div>
+                <div class="card-header-titles">
+                  <span class="card-pillar-tag">PILAR ANALISIS 01</span>
+                  <h4 class="card-main-title">TUJUAN & KONTEKS</h4>
                 </div>
               </div>
+              <div class="analysis-sub-pod">
+                <div class="pod-header-pill pill-cyan">
+                  <i class="fa-solid fa-graduation-cap"></i> TUJUAN PEREKAMAN PEMBELAJARAN
+                </div>
+                <p class="pod-body-text">Mendokumentasikan penerapan model pembelajaran berbasis pemahaman bermain (*TGfU*), orkestrasi pergerakan kelas berjumlah 36 siswa, serta pemberian umpan balik langsung saat latihan lay-up shoot.</p>
+              </div>
 
-              <!-- Action Buttons -->
-              <div class="doc-actions" style="margin-top: 20px;">
-                <a href="https://www.youtube.com/@maingateball_afebchesaa" target="_blank" class="btn-primary">
-                  <i class="fa-brands fa-youtube"></i> TONTON DI YOUTUBE RESMI
-                </a>
-                <a href="https://www.youtube.com/@maingateball_afebchesaa" target="_blank" class="btn-secondary">
-                  <i class="fa-solid fa-arrow-up-right-from-square"></i> LIHAT SALURAN PORTOFOLIO
-                </a>
+              <div class="analysis-sub-pod">
+                <div class="pod-header-pill pill-cyan">
+                  <i class="fa-solid fa-circle-info"></i> KONTEKS SETTING LAPANGAN
+                </div>
+                <p class="pod-body-text">Dilaksanakan di lapangan semen terbuka SMA N 1 Seyegan dengan 2 ring basket utama. Penataan kamera sudut tinggi (*high-angle*) di sisi lapangan menangkap formasi sirkuit latihan secara utuh.</p>
+              </div>
+
+              <div class="analysis-sub-pod">
+                <div class="pod-header-pill pill-cyan">
+                  <i class="fa-solid fa-circle-info"></i> DINAMIKA PESERTA DIDIK
+                </div>
+                <p class="pod-body-text">Siswa menunjukkan intensitas gerak dan antusiasme kompetisi tinggi saat rotasi pos stasiun dan pertandingan mini 3 vs 3 setengah lapangan.</p>
               </div>
             </div>
 
-            <!-- Analisis Triad -->
-            <div class="section-title reveal" style="margin-top: 50px;">
-              <h2>
-                ANALISIS VIDEO MENGAJAR <span class="text-accent text-glow">SIKLUS 1: RENANG GAYA BEBAS</span>
-              </h2>
-              <p>Tinjauan analitis komprehensif pelaksanaan mengajar dan rekaman video Siklus 1 berdasarkan 3 pilar akademik.</p>
+            <!-- Pilar 2: Kelebihan dan Kekurangan -->
+            <div class="analysis-col-card card-theme-kelebihan reveal">
+              <i class="fa-solid fa-scale-balanced watermark-icon"></i>
+              <div class="analysis-card-header">
+                <div class="card-icon-halo"><i class="fa-solid fa-scale-balanced"></i></div>
+                <div class="card-header-titles">
+                  <span class="card-pillar-tag">PILAR ANALISIS 02</span>
+                  <h4 class="card-main-title">KELEBIHAN & KEKURANGAN</h4>
+                </div>
+              </div>
+              <div class="analysis-sub-pod">
+                <div class="pod-header-pill pill-emerald">
+                  <i class="fa-solid fa-circle-check"></i> KELEBIHAN & KEUNGGULAN
+                </div>
+                <ul class="pod-bullet-list list-green">
+                  <li><strong>Optimalisasi Active Learning Time (ALT-PE):</strong> Tidak terlihat antrean panjang siswa yang pasif; pembagian 3 stasiun pos berhasil menjaga 100% siswa aktif bergerak secara berkesinambungan.</li>
+                  <li><strong>Efektivitas Media Warna Penanda:</strong> Dalam rekaman terlihat jelas cones warna di lantai membantu siswa pemula melangkah 1-2 lay-up dengan ritme yang benar tanpa *traveling*.</li>
+                </ul>
+              </div>
+
+              <div class="analysis-sub-pod">
+                <div class="pod-header-pill pill-amber">
+                  <i class="fa-solid fa-triangle-exclamation"></i> KEKURANGAN & TANTANGAN
+                </div>
+                <ul class="pod-bullet-list list-amber">
+                  <li><strong>Gema Pantulan Bola:</strong> Suara pantulan bola basket di lantai semen terbuka mendominasi latar belakang audio saat seluruh stasiun aktif bersamaan.</li>
+                  <li><strong>Kecepatan Transisi Gerak:</strong> Kamera statis sesekali terlambat mengikuti arah operan cepat saat sesi simulasi bermain 3 vs 3.</li>
+                </ul>
+              </div>
+
+              <div class="solution-callout-pod">
+                <div class="solution-callout-header">
+                  <i class="fa-solid fa-lightbulb"></i> SOLUSI TAKTIS & MITIGASI
+                </div>
+                <p class="solution-callout-text">Pemanfaatan peluit berirama sebagai komando rotasi pos dan penambahan sudut kamera kedua untuk menangkap detail tembakan di ring.</p>
+              </div>
             </div>
 
-            <div class="analysis-dashboard">
-              <!-- Pilar 1: Tujuan dan Konteks -->
-              <div class="analysis-col-card card-theme-tujuan reveal">
-                <i class="fa-solid fa-bullseye watermark-icon"></i>
-                <div class="analysis-card-header">
-                  <div class="card-icon-halo"><i class="fa-solid fa-bullseye"></i></div>
-                  <div class="card-header-titles">
-                    <span class="card-pillar-tag">PILAR ANALISIS 01</span>
-                    <h4 class="card-main-title">TUJUAN & KONTEKS</h4>
-                  </div>
-                </div>
-                <div class="analysis-sub-pod">
-                  <div class="pod-header-pill pill-cyan">
-                    <i class="fa-solid fa-graduation-cap"></i> TUJUAN PEREKAMAN PEMBELAJARAN
-                  </div>
-                  <p class="pod-body-text">Mendokumentasikan secara autentik kompetensi mengajar guru dalam mengelola pembelajaran berisiko tinggi di lingkungan akuatik, menunjukkan kecakapan komunikasi instruksional, serta efektivitas penerapan sistem keselamatan berpasangan (*buddy system*).</p>
-                </div>
-
-                <div class="analysis-sub-pod">
-                  <div class="pod-header-pill pill-cyan">
-                    <i class="fa-solid fa-circle-info"></i> KONTEKS SETTING LAPANGAN
-                  </div>
-                  <p class="pod-body-text">Dilaksanakan di kolam renang terbuka dengan pembagian lintasan zona dangkal (1-1.2 m) dan zona dalam. Sudut perekaman difokuskan dari bibir kolam (*deck-side view*) sejajar permukaan air untuk menangkap posisi kepala dan kayuhan lengan siswa.</p>
-                </div>
-
-                <div class="analysis-sub-pod">
-                  <div class="pod-header-pill pill-cyan">
-                    <i class="fa-solid fa-circle-info"></i> DINAMIKA PESERTA DIDIK
-                  </div>
-                  <p class="pod-body-text">Rekaman memperlihatkan keberagaman respons siswa kelas XI/XII SMA N 1 Seyegan, mulai dari siswa yang membutuhkan afirmasi keberanian masuk air hingga siswa yang mahir melakukan luncuran cepat.</p>
+            <!-- Pilar 3: Teori -->
+            <div class="analysis-col-card card-theme-teori reveal">
+              <i class="fa-solid fa-brain watermark-icon"></i>
+              <div class="analysis-card-header">
+                <div class="card-icon-halo"><i class="fa-solid fa-brain"></i></div>
+                <div class="card-header-titles">
+                  <span class="card-pillar-tag">PILAR ANALISIS 03</span>
+                  <h4 class="card-main-title">LANDASAN TEORI</h4>
                 </div>
               </div>
-
-              <!-- Pilar 2: Kelebihan dan Kekurangan -->
-              <div class="analysis-col-card card-theme-kelebihan reveal">
-                <i class="fa-solid fa-scale-balanced watermark-icon"></i>
-                <div class="analysis-card-header">
-                  <div class="card-icon-halo"><i class="fa-solid fa-scale-balanced"></i></div>
-                  <div class="card-header-titles">
-                    <span class="card-pillar-tag">PILAR ANALISIS 02</span>
-                    <h4 class="card-main-title">KELEBIHAN & KEKURANGAN</h4>
-                  </div>
+              <div class="analysis-sub-pod">
+                <div class="pod-header-pill pill-purple">
+                  <i class="fa-solid fa-atom"></i> ALT-PE FRAMEWORK (DARYL SIEDENTOP)
                 </div>
-                <div class="analysis-sub-pod">
-                  <div class="pod-header-pill pill-emerald">
-                    <i class="fa-solid fa-circle-check"></i> KELEBIHAN & KEUNGGULAN
-                  </div>
-                  <ul class="pod-bullet-list list-green">
-                    <li><strong>Keteladanan Sikap & Pengawasan Ketat:</strong> Guru tampil tenang, berwibawa, dan terus memantau posisi seluruh siswa di kolam tanpa pernah membelakangi air.</li>
-                    <li><strong>Demonstrasi Visual Jelas:</strong> Peragaan teknik tarikan lengan (*catch & pull*) oleh guru di bibir kolam memberikan visualisasi biomekanika yang efektif sebelum siswa mencobanya di air.</li>
-                  </ul>
-                </div>
-
-                <div class="analysis-sub-pod">
-                  <div class="pod-header-pill pill-amber">
-                    <i class="fa-solid fa-triangle-exclamation"></i> KEKURANGAN & TANTANGAN
-                  </div>
-                  <ul class="pod-bullet-list list-amber">
-                    <li><strong>Akustik Bising Kolam:</strong> Suara percikan air dan gemuruh angin kolam terbuka terkadang mendistorsi kejelasan audio instruksi guru pada rekaman kamera jarak jauh.</li>
-                    <li><strong>Keterbatasan Sudut Bawah Air:</strong> Kamera dari darat tidak dapat menangkap ayunan kaki dan posisi panggul siswa di bawah permukaan air secara optimal.</li>
-                  </ul>
-                </div>
-
-                <div class="solution-callout-pod">
-                  <div class="solution-callout-header">
-                    <i class="fa-solid fa-lightbulb"></i> SOLUSI TAKTIS & MITIGASI
-                  </div>
-                  <p class="solution-callout-text">Pemanfaatan mikrofon clip-on kedap angin dan pengambilan rekaman transisi jarak dekat (*close-up shot*) saat sesi pengarahan teknik.</p>
-                </div>
+                <p class="pod-body-text">Video membuktikan pencapaian waktu belajar gerak aktif yang tinggi (*Active Learning Time > 65%*), di mana siswa terlibat dalam tugas gerak yang sesuai dengan tingkat kemampuannya.</p>
               </div>
 
-              <!-- Pilar 3: Teori -->
-              <div class="analysis-col-card card-theme-teori reveal">
-                <i class="fa-solid fa-brain watermark-icon"></i>
-                <div class="analysis-card-header">
-                  <div class="card-icon-halo"><i class="fa-solid fa-brain"></i></div>
-                  <div class="card-header-titles">
-                    <span class="card-pillar-tag">PILAR ANALISIS 03</span>
-                    <h4 class="card-main-title">LANDASAN TEORI</h4>
-                  </div>
+              <div class="analysis-sub-pod">
+                <div class="pod-header-pill pill-purple">
+                  <i class="fa-solid fa-chart-line"></i> TEACHING GAMES FOR UNDERSTANDING (TGFU)
                 </div>
-                <div class="analysis-sub-pod">
-                  <div class="pod-header-pill pill-purple">
-                    <i class="fa-solid fa-atom"></i> MICRO-TEACHING REFLECTION MODEL (WALLACE, 1991)
-                  </div>
-                  <p class="pod-body-text">Rekaman video berfungsi sebagai instrumen refleksi profesional guru (*reflective practitioner*) untuk mengevaluasi efisiensi alokasi waktu bicara guru (*Teacher Talk Time*) dibanding waktu aktif bergerak siswa.</p>
-                </div>
+                <p class="pod-body-text">Guru dalam video terlihat mengajukan pertanyaan pemantik taktis (*guided discovery*) kepada siswa sebelum memulai simulasi game 3 vs 3.</p>
+              </div>
 
-                <div class="analysis-sub-pod">
-                  <div class="pod-header-pill pill-purple">
-                    <i class="fa-solid fa-chart-line"></i> FLANDERS INTERACTION ANALYSIS CATEGORIES (FIAC)
-                  </div>
-                  <p class="pod-body-text">Video memperlihatkan kategori interaksi verbal positif: penerimaan kecemasan siswa (*accepting feelings*), penguatan motivasi (*praising/encouraging*), serta instruksi keselamatan terarah (*giving directions*).</p>
+              <div class="analysis-sub-pod">
+                <div class="pod-header-pill pill-purple">
+                  <i class="fa-solid fa-book-bookmark"></i> CHEFFERS' ADAPTATION OF FLANDERS INTERACTION (CAFIAS)
                 </div>
-
-                <div class="analysis-sub-pod">
-                  <div class="pod-header-pill pill-purple">
-                    <i class="fa-solid fa-book-bookmark"></i> SOCIAL LEARNING THEORY (ALBERT BANDURA)
-                  </div>
-                  <p class="pod-body-text">Demonstrasi langsung yang diperagakan guru dalam video menjadi model tingkah laku motorik (*observational modeling*) yang memicu imitasi gerak secara tepat oleh siswa.</p>
-                </div>
+                <p class="pod-body-text">Evaluasi keseimbangan antara komunikasi verbal instruksional dengan bahasa tubuh non-verbal guru (isyarat tangan, senyum apresiasi, tepukan tangan pendorong semangat).</p>
               </div>
             </div>
           </div>
-          <!-- ========================================================
-               PANEL SIKLUS 2 : BOLA BASKET (UAS)
-               ======================================================== -->
-          <div id="panel-siklus-2" class="cycle-panel">
-            <div class="cycle-header-card reveal">
-              <div class="cycle-header-text">
-                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
-                  <span class="exam-tag-uas">UJIAN AKHIR SEMESTER (UAS)</span>
-                  <span style="color: var(--accent); font-weight: 600; font-size: 0.85rem;">PRAKTIK PEMBELAJARAN LAPANGAN 2</span>
-                </div>
-                <h3>VIDEO PEMBELAJARAN SIKLUS 2: BOLA BASKET</h3>
-                <p>
-                  Rekaman video pelaksanaan praktik pembelajaran bola basket berbasis Teaching Games for Understanding (TGfU). Menampilkan manajemen sirkuit latihan 3 stasiun pos, panduan visual cones irama lay-up shoot dua sisi, serta simulasi pertandingan taktis 3 vs 3.
-                </p>
-              </div>
-              <div class="meta-pills">
-                <span class="meta-pill"><i class="fa-solid fa-video"></i> Durasi Video: 30 Menit (Full Session)</span>
-                <span class="meta-pill"><i class="fa-solid fa-location-dot"></i> Lapangan Basket SMA N 1 Seyegan</span>
-                <span class="meta-pill"><i class="fa-solid fa-film"></i> Praktik Mengajar TGfU</span>
-              </div>
-            </div>
 
-            <!-- Video Player Showcase Container -->
-            <div class="video-showcase-container reveal">
-              <div class="video-wrapper">
-                <!-- Video Embed (Dapat disesuaikan dengan ID video YouTube resmi) -->
-                <iframe 
-                  src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
-                  title="Video Mengajar Siklus 2 - BOLA BASKET" 
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                  allowfullscreen>
-                </iframe>
-              </div>
-
-              <!-- Video Timeline Box -->
-              <div class="video-timeline-card">
-                <div class="timeline-header">
-                  <i class="fa-solid fa-list-check text-accent"></i>
-                  <span>Alur Pelaksanaan Skenario Pembelajaran di Video</span>
-                </div>
-                <div class="timeline-steps-grid">
-                  
-                  <div class="timeline-step">
-                    <span class="timeline-badge"><i class="fa-regular fa-clock"></i> 00:00 - 05:45</span>
-                    <span class="timeline-text">Kegiatan Awal: Baris-Berbaris, Apersepsi TGfU, Pemanasan Statis-Dinamis Berbasis Bola</span>
-                  </div>
-                  <div class="timeline-step">
-                    <span class="timeline-badge"><i class="fa-regular fa-clock"></i> 05:46 - 23:10</span>
-                    <span class="timeline-text">Kegiatan Inti: Rotasi Sirkuit 3 Pos (Passing Berpasangan, Dribble Rintangan, Lay-Up Irama Warna) & Game 3v3</span>
-                  </div>
-                  <div class="timeline-step">
-                    <span class="timeline-badge"><i class="fa-regular fa-clock"></i> 23:11 - 30:00</span>
-                    <span class="timeline-text">Kegiatan Penutup: Pendinginan Kelompok, Asesmen Peer-Review, Refleksi Pengambilan Keputusan Taktis</span>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Action Buttons -->
-              <div class="doc-actions" style="margin-top: 20px;">
-                <a href="https://www.youtube.com/@maingateball_afebchesaa" target="_blank" class="btn-primary">
-                  <i class="fa-brands fa-youtube"></i> TONTON DI YOUTUBE RESMI
-                </a>
-                <a href="https://www.youtube.com/@maingateball_afebchesaa" target="_blank" class="btn-secondary">
-                  <i class="fa-solid fa-arrow-up-right-from-square"></i> LIHAT SALURAN PORTOFOLIO
-                </a>
-              </div>
-            </div>
-
-            <!-- Analisis Triad -->
-            <div class="section-title reveal" style="margin-top: 50px;">
-              <h2>
-                ANALISIS VIDEO MENGAJAR <span class="text-accent text-glow">SIKLUS 2: BOLA BASKET</span>
-              </h2>
-              <p>Tinjauan analitis komprehensif pelaksanaan mengajar dan rekaman video Siklus 2 berdasarkan 3 pilar akademik.</p>
-            </div>
-
-            <div class="analysis-dashboard">
-              <!-- Pilar 1: Tujuan dan Konteks -->
-              <div class="analysis-col-card card-theme-tujuan reveal">
-                <i class="fa-solid fa-bullseye watermark-icon"></i>
-                <div class="analysis-card-header">
-                  <div class="card-icon-halo"><i class="fa-solid fa-bullseye"></i></div>
-                  <div class="card-header-titles">
-                    <span class="card-pillar-tag">PILAR ANALISIS 01</span>
-                    <h4 class="card-main-title">TUJUAN & KONTEKS</h4>
-                  </div>
-                </div>
-                <div class="analysis-sub-pod">
-                  <div class="pod-header-pill pill-cyan">
-                    <i class="fa-solid fa-graduation-cap"></i> TUJUAN PEREKAMAN PEMBELAJARAN
-                  </div>
-                  <p class="pod-body-text">Mendokumentasikan penerapan model pembelajaran berbasis pemahaman bermain (*TGfU*), orkestrasi pergerakan kelas berjumlah 36 siswa, serta pemberian umpan balik langsung saat latihan lay-up shoot.</p>
-                </div>
-
-                <div class="analysis-sub-pod">
-                  <div class="pod-header-pill pill-cyan">
-                    <i class="fa-solid fa-circle-info"></i> KONTEKS SETTING LAPANGAN
-                  </div>
-                  <p class="pod-body-text">Dilaksanakan di lapangan semen terbuka SMA N 1 Seyegan dengan 2 ring basket utama. Penataan kamera sudut tinggi (*high-angle*) di sisi lapangan menangkap formasi sirkuit latihan secara utuh.</p>
-                </div>
-
-                <div class="analysis-sub-pod">
-                  <div class="pod-header-pill pill-cyan">
-                    <i class="fa-solid fa-circle-info"></i> DINAMIKA PESERTA DIDIK
-                  </div>
-                  <p class="pod-body-text">Siswa menunjukkan intensitas gerak dan antusiasme kompetisi tinggi saat rotasi pos stasiun dan pertandingan mini 3 vs 3 setengah lapangan.</p>
-                </div>
-              </div>
-
-              <!-- Pilar 2: Kelebihan dan Kekurangan -->
-              <div class="analysis-col-card card-theme-kelebihan reveal">
-                <i class="fa-solid fa-scale-balanced watermark-icon"></i>
-                <div class="analysis-card-header">
-                  <div class="card-icon-halo"><i class="fa-solid fa-scale-balanced"></i></div>
-                  <div class="card-header-titles">
-                    <span class="card-pillar-tag">PILAR ANALISIS 02</span>
-                    <h4 class="card-main-title">KELEBIHAN & KEKURANGAN</h4>
-                  </div>
-                </div>
-                <div class="analysis-sub-pod">
-                  <div class="pod-header-pill pill-emerald">
-                    <i class="fa-solid fa-circle-check"></i> KELEBIHAN & KEUNGGULAN
-                  </div>
-                  <ul class="pod-bullet-list list-green">
-                    <li><strong>Optimalisasi Active Learning Time (ALT-PE):</strong> Tidak terlihat antrean panjang siswa yang pasif; pembagian 3 stasiun pos berhasil menjaga 100% siswa aktif bergerak secara berkesinambungan.</li>
-                    <li><strong>Efektivitas Media Warna Penanda:</strong> Dalam rekaman terlihat jelas cones warna di lantai membantu siswa pemula melangkah 1-2 lay-up dengan ritme yang benar tanpa *traveling*.</li>
-                  </ul>
-                </div>
-
-                <div class="analysis-sub-pod">
-                  <div class="pod-header-pill pill-amber">
-                    <i class="fa-solid fa-triangle-exclamation"></i> KEKURANGAN & TANTANGAN
-                  </div>
-                  <ul class="pod-bullet-list list-amber">
-                    <li><strong>Gema Pantulan Bola:</strong> Suara pantulan bola basket di lantai semen terbuka mendominasi latar belakang audio saat seluruh stasiun aktif bersamaan.</li>
-                    <li><strong>Kecepatan Transisi Gerak:</strong> Kamera statis sesekali terlambat mengikuti arah operan cepat saat sesi simulasi bermain 3 vs 3.</li>
-                  </ul>
-                </div>
-
-                <div class="solution-callout-pod">
-                  <div class="solution-callout-header">
-                    <i class="fa-solid fa-lightbulb"></i> SOLUSI TAKTIS & MITIGASI
-                  </div>
-                  <p class="solution-callout-text">Pemanfaatan peluit berirama sebagai komando rotasi pos dan penambahan sudut kamera kedua untuk menangkap detail tembakan di ring.</p>
-                </div>
-              </div>
-
-              <!-- Pilar 3: Teori -->
-              <div class="analysis-col-card card-theme-teori reveal">
-                <i class="fa-solid fa-brain watermark-icon"></i>
-                <div class="analysis-card-header">
-                  <div class="card-icon-halo"><i class="fa-solid fa-brain"></i></div>
-                  <div class="card-header-titles">
-                    <span class="card-pillar-tag">PILAR ANALISIS 03</span>
-                    <h4 class="card-main-title">LANDASAN TEORI</h4>
-                  </div>
-                </div>
-                <div class="analysis-sub-pod">
-                  <div class="pod-header-pill pill-purple">
-                    <i class="fa-solid fa-atom"></i> ALT-PE FRAMEWORK (DARYL SIEDENTOP)
-                  </div>
-                  <p class="pod-body-text">Video membuktikan pencapaian waktu belajar gerak aktif yang tinggi (*Active Learning Time > 65%*), di mana siswa terlibat dalam tugas gerak yang sesuai dengan tingkat kemampuannya.</p>
-                </div>
-
-                <div class="analysis-sub-pod">
-                  <div class="pod-header-pill pill-purple">
-                    <i class="fa-solid fa-chart-line"></i> TEACHING GAMES FOR UNDERSTANDING (TGFU)
-                  </div>
-                  <p class="pod-body-text">Guru dalam video terlihat mengajukan pertanyaan pemantik taktis (*guided discovery*) kepada siswa sebelum memulai simulasi game 3 vs 3.</p>
-                </div>
-
-                <div class="analysis-sub-pod">
-                  <div class="pod-header-pill pill-purple">
-                    <i class="fa-solid fa-book-bookmark"></i> CHEFFERS' ADAPTATION OF FLANDERS INTERACTION (CAFIAS)
-                  </div>
-                  <p class="pod-body-text">Evaluasi keseimbangan antara komunikasi verbal instruksional dengan bahasa tubuh non-verbal guru (isyarat tangan, senyum apresiasi, tepukan tangan pendorong semangat).</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- ========================================================
-               PANEL SIKLUS 3 : BULUTANGKIS (UAS)
-               ======================================================== -->
-          <div id="panel-siklus-3" class="cycle-panel">
-            <div class="cycle-header-card reveal">
-              <div class="cycle-header-text">
-                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
-                  <span class="exam-tag-uas">UJIAN AKHIR SEMESTER (UAS)</span>
-                  <span style="color: var(--accent); font-weight: 600; font-size: 0.85rem;">PRAKTIK PEMBELAJARAN LAPANGAN 2</span>
-                </div>
-                <h3>VIDEO PEMBELAJARAN SIKLUS 3: BULUTANGKIS</h3>
-                <p>
-                  Rekaman video pelaksanaan praktik pembelajaran bulutangkis di aula serbaguna sekolah. Menampilkan dekonstruksi teknik pegangan handshake grip, latihan kelincahan shadow footwork 6 penjuru, uji akurasi servis zona target berangka, serta pertandingan reli bersyarat.
-                </p>
-              </div>
-              <div class="meta-pills">
-                <span class="meta-pill"><i class="fa-solid fa-video"></i> Durasi Video: 30 Menit (Full Session)</span>
-                <span class="meta-pill"><i class="fa-solid fa-location-dot"></i> Hall / Lapangan Badminton</span>
-                <span class="meta-pill"><i class="fa-solid fa-film"></i> Praktik Mengajar Raket</span>
-              </div>
-            </div>
-
-            <!-- Video Player Showcase Container -->
-            <div class="video-showcase-container reveal">
-              <div class="video-wrapper">
-                <!-- Video Embed (Dapat disesuaikan dengan ID video YouTube resmi) -->
-                <iframe 
-                  src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
-                  title="Video Mengajar Siklus 3 - BULUTANGKIS" 
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                  allowfullscreen>
-                </iframe>
-              </div>
-
-              <!-- Video Timeline Box -->
-              <div class="video-timeline-card">
-                <div class="timeline-header">
-                  <i class="fa-solid fa-list-check text-accent"></i>
-                  <span>Alur Pelaksanaan Skenario Pembelajaran di Video</span>
-                </div>
-                <div class="timeline-steps-grid">
-                  
-                  <div class="timeline-step">
-                    <span class="timeline-badge"><i class="fa-regular fa-clock"></i> 00:00 - 05:30</span>
-                    <span class="timeline-text">Kegiatan Awal: Pengecekan Kesiapan, Penjelasan Bevel Grip, Pemanasan Dinamis Pergelangan Tangan</span>
-                  </div>
-                  <div class="timeline-step">
-                    <span class="timeline-badge"><i class="fa-regular fa-clock"></i> 05:31 - 23:30</span>
-                    <span class="timeline-text">Kegiatan Inti: Koreksi Pegangan Raket Berpasangan, Shadow Footwork 6 Sudut, Drill Servis Target & Game Reli</span>
-                  </div>
-                  <div class="timeline-step">
-                    <span class="timeline-badge"><i class="fa-regular fa-clock"></i> 23:31 - 30:00</span>
-                    <span class="timeline-text">Kegiatan Penutup: Evaluasi Hasil Akurasi Target, Pendinginan Kelenturan Bahu, Refleksi & Doa</span>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Action Buttons -->
-              <div class="doc-actions" style="margin-top: 20px;">
-                <a href="https://www.youtube.com/@maingateball_afebchesaa" target="_blank" class="btn-primary">
-                  <i class="fa-brands fa-youtube"></i> TONTON DI YOUTUBE RESMI
-                </a>
-                <a href="https://www.youtube.com/@maingateball_afebchesaa" target="_blank" class="btn-secondary">
-                  <i class="fa-solid fa-arrow-up-right-from-square"></i> LIHAT SALURAN PORTOFOLIO
-                </a>
-              </div>
-            </div>
-
-            <!-- Analisis Triad -->
-            <div class="section-title reveal" style="margin-top: 50px;">
-              <h2>
-                ANALISIS VIDEO MENGAJAR <span class="text-accent text-glow">SIKLUS 3: BULUTANGKIS</span>
-              </h2>
-              <p>Tinjauan analitis komprehensif pelaksanaan mengajar dan rekaman video Siklus 3 berdasarkan 3 pilar akademik.</p>
-            </div>
-
-            <div class="analysis-dashboard">
-              <!-- Pilar 1: Tujuan dan Konteks -->
-              <div class="analysis-col-card card-theme-tujuan reveal">
-                <i class="fa-solid fa-bullseye watermark-icon"></i>
-                <div class="analysis-card-header">
-                  <div class="card-icon-halo"><i class="fa-solid fa-bullseye"></i></div>
-                  <div class="card-header-titles">
-                    <span class="card-pillar-tag">PILAR ANALISIS 01</span>
-                    <h4 class="card-main-title">TUJUAN & KONTEKS</h4>
-                  </div>
-                </div>
-                <div class="analysis-sub-pod">
-                  <div class="pod-header-pill pill-cyan">
-                    <i class="fa-solid fa-graduation-cap"></i> TUJUAN PEREKAMAN PEMBELAJARAN
-                  </div>
-                  <p class="pod-body-text">Mendokumentasikan kemampuan guru merehabilitasi kebiasaan memegang raket otodidak siswa menjadi *handshake grip*, memperlihatkan pengawasan latihan *footwork*, serta memfasilitasi evaluasi akurasi pukulan secara objektif.</p>
-                </div>
-
-                <div class="analysis-sub-pod">
-                  <div class="pod-header-pill pill-cyan">
-                    <i class="fa-solid fa-circle-info"></i> KONTEKS SETTING LAPANGAN
-                  </div>
-                  <p class="pod-body-text">Dilaksanakan di aula serbaguna sekolah dengan lantai kayu/semen bersih. Penataan kamera sejajar garis samping (*sideline*) menangkap ketinggian lambungan shuttlecock di atas net secara proporsional.</p>
-                </div>
-
-                <div class="analysis-sub-pod">
-                  <div class="pod-header-pill pill-cyan">
-                    <i class="fa-solid fa-circle-info"></i> DINAMIKA PESERTA DIDIK
-                  </div>
-                  <p class="pod-body-text">Siswa menunjukkan fokus tinggi saat membidik target berangka di lantai lapangan dan antusias saat mencoba mempertahankan reli panjang tanpa menjatuhkan kok.</p>
-                </div>
-              </div>
-
-              <!-- Pilar 2: Kelebihan dan Kekurangan -->
-              <div class="analysis-col-card card-theme-kelebihan reveal">
-                <i class="fa-solid fa-scale-balanced watermark-icon"></i>
-                <div class="analysis-card-header">
-                  <div class="card-icon-halo"><i class="fa-solid fa-scale-balanced"></i></div>
-                  <div class="card-header-titles">
-                    <span class="card-pillar-tag">PILAR ANALISIS 02</span>
-                    <h4 class="card-main-title">KELEBIHAN & KEKURANGAN</h4>
-                  </div>
-                </div>
-                <div class="analysis-sub-pod">
-                  <div class="pod-header-pill pill-emerald">
-                    <i class="fa-solid fa-circle-check"></i> KELEBIHAN & KEUNGGULAN
-                  </div>
-                  <ul class="pod-bullet-list list-green">
-                    <li><strong>Pendekatan Koreksi Individual:</strong> Guru terekam mendatangi siswa satu per satu di stasiun latihan untuk memperbaiki posisi jempol pada gagang raket secara kinestetik (*hands-on guidance*).</li>
-                    <li><strong>Gamifikasi Target Terlihat Jelas:</strong> Sorotan kamera memperlihatkan momen seru ketika kok jatuh tepat di target ban bernilai 10 poin, membangkitkan sorak semangat siswa.</li>
-                  </ul>
-                </div>
-
-                <div class="analysis-sub-pod">
-                  <div class="pod-header-pill pill-amber">
-                    <i class="fa-solid fa-triangle-exclamation"></i> KEKURANGAN & TANTANGAN
-                  </div>
-                  <ul class="pod-bullet-list list-amber">
-                    <li><strong>Kecepatan Laju Shuttlecock:</strong> Kecepatan pukulan kok sesekali tampak buram (*motion blur*) pada pemutaran video jika frame rate kamera di bawah 60 fps.</li>
-                    <li><strong>Gema Akustik Ruang Indoor:</strong> Suara instruksi guru sedikit bergema di dalam aula luas saat siswa bersorak.</li>
-                  </ul>
-                </div>
-
-                <div class="solution-callout-pod">
-                  <div class="solution-callout-header">
-                    <i class="fa-solid fa-lightbulb"></i> SOLUSI TAKTIS & MITIGASI
-                  </div>
-                  <p class="solution-callout-text">Perekaman dengan resolusi High-Definition 60 fps dan penggunaan peluit berirama tegas untuk menarik fokus kelas.</p>
-                </div>
-              </div>
-
-              <!-- Pilar 3: Teori -->
-              <div class="analysis-col-card card-theme-teori reveal">
-                <i class="fa-solid fa-brain watermark-icon"></i>
-                <div class="analysis-card-header">
-                  <div class="card-icon-halo"><i class="fa-solid fa-brain"></i></div>
-                  <div class="card-header-titles">
-                    <span class="card-pillar-tag">PILAR ANALISIS 03</span>
-                    <h4 class="card-main-title">LANDASAN TEORI</h4>
-                  </div>
-                </div>
-                <div class="analysis-sub-pod">
-                  <div class="pod-header-pill pill-purple">
-                    <i class="fa-solid fa-atom"></i> KNOWLEDGE OF RESULTS & KNOWLEDGE OF PERFORMANCE
-                  </div>
-                  <p class="pod-body-text">Video merekam bagaimana guru memberikan umpan balik ganda: mengapresiasi perolehan skor target (KR) dan mengoreksi sudut pronasi pergelangan tangan siswa (KP).</p>
-                </div>
-
-                <div class="analysis-sub-pod">
-                  <div class="pod-header-pill pill-purple">
-                    <i class="fa-solid fa-chart-line"></i> DYNAMIC SYSTEMS THEORY (THELEN & SMITH)
-                  </div>
-                  <p class="pod-body-text">Video memperlihatkan bagaimana interaksi antara batasan net, ruang aula, dan karakteristik raket memandu adaptasi kelincahan gerak kaki siswa.</p>
-                </div>
-
-                <div class="analysis-sub-pod">
-                  <div class="pod-header-pill pill-purple">
-                    <i class="fa-solid fa-book-bookmark"></i> POSITIVE REINFORCEMENT IN MOTOR LEARNING
-                  </div>
-                  <p class="pod-body-text">Pemberian penguatan positif verbal secara spontan oleh guru terekam efektif meningkatkan rasa percaya diri siswa saat memukul kok di depan net.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- ========================================================
-               PANEL SIKLUS 4 : GATEBALL (UAS)
-               ======================================================== -->
-          <div id="panel-siklus-4" class="cycle-panel">
-            <div class="cycle-header-card reveal">
-              <div class="cycle-header-text">
-                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
-                  <span class="exam-tag-uas">UJIAN AKHIR SEMESTER (UAS)</span>
-                  <span style="color: var(--accent); font-weight: 600; font-size: 0.85rem;">PRAKTIK PEMBELAJARAN LAPANGAN 2</span>
-                </div>
-                <h3>VIDEO PEMBELAJARAN SIKLUS 4: GATEBALL</h3>
-                <p>
-                  Rekaman video pelaksanaan praktik pembelajaran cabang olahraga presisi Gateball di lapangan rumput sekolah. Menampilkan teknik ayunan pendulum stik, pukulan meloloskan gawang Gate 1-2-3, manuver benturan touch dan sparking, serta simulasi strategi kapten regu.
-                </p>
-              </div>
-              <div class="meta-pills">
-                <span class="meta-pill"><i class="fa-solid fa-video"></i> Durasi Video: 30 Menit (Full Session)</span>
-                <span class="meta-pill"><i class="fa-solid fa-location-dot"></i> Lapangan Rumput SMA N 1 Seyegan</span>
-                <span class="meta-pill"><i class="fa-solid fa-film"></i> Praktik Mengajar Taktis WGU</span>
-              </div>
-            </div>
-
-            <!-- Video Player Showcase Container -->
-            <div class="video-showcase-container reveal">
-              <div class="video-wrapper">
-                <!-- Video Embed (Dapat disesuaikan dengan ID video YouTube resmi) -->
-                <iframe 
-                  src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
-                  title="Video Mengajar Siklus 4 - GATEBALL" 
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                  allowfullscreen>
-                </iframe>
-              </div>
-
-              <!-- Video Timeline Box -->
-              <div class="video-timeline-card">
-                <div class="timeline-header">
-                  <i class="fa-solid fa-list-check text-accent"></i>
-                  <span>Alur Pelaksanaan Skenario Pembelajaran di Video</span>
-                </div>
-                <div class="timeline-steps-grid">
-                  
-                  <div class="timeline-step">
-                    <span class="timeline-badge"><i class="fa-regular fa-clock"></i> 00:00 - 05:30</span>
-                    <span class="timeline-text">Kegiatan Awal: Orientasi Lapangan Gateball WGU, Penjelasan Aturan Ganjil-Genap, Pemanasan Koordinasi</span>
-                  </div>
-                  <div class="timeline-step">
-                    <span class="timeline-badge"><i class="fa-regular fa-clock"></i> 05:31 - 24:00</span>
-                    <span class="timeline-text">Kegiatan Inti: Drill Pukulan Stroking Lurus, Manuver Benturan Touch & Jepit Sparking, Simulasi Game Tim</span>
-                  </div>
-                  <div class="timeline-step">
-                    <span class="timeline-badge"><i class="fa-regular fa-clock"></i> 24:01 - 30:00</span>
-                    <span class="timeline-text">Kegiatan Penutup: Evaluasi Perhitungan Poin Skor WGU, Pendinginan, Refleksi Kepemimpinan & Doa</span>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Action Buttons -->
-              <div class="doc-actions" style="margin-top: 20px;">
-                <a href="https://www.youtube.com/@maingateball_afebchesaa" target="_blank" class="btn-primary">
-                  <i class="fa-brands fa-youtube"></i> TONTON DI YOUTUBE RESMI
-                </a>
-                <a href="https://www.youtube.com/@maingateball_afebchesaa" target="_blank" class="btn-secondary">
-                  <i class="fa-solid fa-arrow-up-right-from-square"></i> LIHAT SALURAN PORTOFOLIO
-                </a>
-              </div>
-            </div>
-
-            <!-- Analisis Triad -->
-            <div class="section-title reveal" style="margin-top: 50px;">
-              <h2>
-                ANALISIS VIDEO MENGAJAR <span class="text-accent text-glow">SIKLUS 4: GATEBALL</span>
-              </h2>
-              <p>Tinjauan analitis komprehensif pelaksanaan mengajar dan rekaman video Siklus 4 berdasarkan 3 pilar akademik.</p>
-            </div>
-
-            <div class="analysis-dashboard">
-              <!-- Pilar 1: Tujuan dan Konteks -->
-              <div class="analysis-col-card card-theme-tujuan reveal">
-                <i class="fa-solid fa-bullseye watermark-icon"></i>
-                <div class="analysis-card-header">
-                  <div class="card-icon-halo"><i class="fa-solid fa-bullseye"></i></div>
-                  <div class="card-header-titles">
-                    <span class="card-pillar-tag">PILAR ANALISIS 01</span>
-                    <h4 class="card-main-title">TUJUAN & KONTEKS</h4>
-                  </div>
-                </div>
-                <div class="analysis-sub-pod">
-                  <div class="pod-header-pill pill-cyan">
-                    <i class="fa-solid fa-graduation-cap"></i> TUJUAN PEREKAMAN PEMBELAJARAN
-                  </div>
-                  <p class="pod-body-text">Mendokumentasikan keberhasilan mengenalkan olahraga baru (Gateball) kepada siswa SMA, memperlihatkan transfer keterampilan berpikir strategis (*HOTS*), serta interaksi kepemimpinan kapten regu di lapangan.</p>
-                </div>
-
-                <div class="analysis-sub-pod">
-                  <div class="pod-header-pill pill-cyan">
-                    <i class="fa-solid fa-circle-info"></i> KONTEKS SETTING LAPANGAN
-                  </div>
-                  <p class="pod-body-text">Dilaksanakan di lapangan rumput hijau SMA N 1 Seyegan berdimensi 20 x 15 meter. Perekaman menggunakan perpaduan kamera statis sudut lebar (*wide-shot*) dan kamera bergerak (*roving camera*) mengikuti giliran pemukul bola nomor 1-10.</p>
-                </div>
-
-                <div class="analysis-sub-pod">
-                  <div class="pod-header-pill pill-cyan">
-                    <i class="fa-solid fa-circle-info"></i> DINAMIKA PESERTA DIDIK
-                  </div>
-                  <p class="pod-body-text">Siswa putra dan putri berkolaborasi aktif dalam tim campuran (*co-ed*), saling berdiskusi mengenai keputusan memukul bola lawan atau mengarahkan bola ke posisi aman di dekat gawang berikutnya.</p>
-                </div>
-              </div>
-
-              <!-- Pilar 2: Kelebihan dan Kekurangan -->
-              <div class="analysis-col-card card-theme-kelebihan reveal">
-                <i class="fa-solid fa-scale-balanced watermark-icon"></i>
-                <div class="analysis-card-header">
-                  <div class="card-icon-halo"><i class="fa-solid fa-scale-balanced"></i></div>
-                  <div class="card-header-titles">
-                    <span class="card-pillar-tag">PILAR ANALISIS 02</span>
-                    <h4 class="card-main-title">KELEBIHAN & KEKURANGAN</h4>
-                  </div>
-                </div>
-                <div class="analysis-sub-pod">
-                  <div class="pod-header-pill pill-emerald">
-                    <i class="fa-solid fa-circle-check"></i> KELEBIHAN & KEUNGGULAN
-                  </div>
-                  <ul class="pod-bullet-list list-green">
-                    <li><strong>Inklusivitas & Kesetaraan Gender Nyata:</strong> Video secara gamblang memperlihatkan bahwa setiap siswa memiliki peran krusial bergantian memukul tanpa ada siswa yang terpinggirkan.</li>
-                    <li><strong>Visualisasi Diskusi Papan Taktik:</strong> Rekaman menangkap momen interaksi kapten regu yang menggunakan papan magnetik taktis di pinggir lapangan sebelum mengarahkan eksekusi bola rekan satu timnya.</li>
-                  </ul>
-                </div>
-
-                <div class="analysis-sub-pod">
-                  <div class="pod-header-pill pill-amber">
-                    <i class="fa-solid fa-triangle-exclamation"></i> KEKURANGAN & TANTANGAN
-                  </div>
-                  <ul class="pod-bullet-list list-amber">
-                    <li><strong>Luasnya Area Lapangan:</strong> Pergerakan 10 bola yang tersebar di sudut-sudut lapangan menuntut kameramen terus sigap berpindah posisi agar momen *sparking* tidak terhalang tubuh pemain lain.</li>
-                  </ul>
-                </div>
-
-                <div class="solution-callout-pod">
-                  <div class="solution-callout-header">
-                    <i class="fa-solid fa-lightbulb"></i> SOLUSI TAKTIS & MITIGASI
-                  </div>
-                  <p class="solution-callout-text">Koordinasi sinyal tangan antara guru penilai dan operator kamera sesaat sebelum manuver pukulan penting dilakukan.</p>
-                </div>
-              </div>
-
-              <!-- Pilar 3: Teori -->
-              <div class="analysis-col-card card-theme-teori reveal">
-                <i class="fa-solid fa-brain watermark-icon"></i>
-                <div class="analysis-card-header">
-                  <div class="card-icon-halo"><i class="fa-solid fa-brain"></i></div>
-                  <div class="card-header-titles">
-                    <span class="card-pillar-tag">PILAR ANALISIS 03</span>
-                    <h4 class="card-main-title">LANDASAN TEORI</h4>
-                  </div>
-                </div>
-                <div class="analysis-sub-pod">
-                  <div class="pod-header-pill pill-purple">
-                    <i class="fa-solid fa-atom"></i> SPORT EDUCATION MODEL (DARYL SIEDENTOP)
-                  </div>
-                  <p class="pod-body-text">Video secara otentik memperlihatkan siswa yang menjalankan peran multidimensi: pemain pemukul stik, kapten perancang strategi, pencatat skor resmi, dan wasit garis (*line judge*).</p>
-                </div>
-
-                <div class="analysis-sub-pod">
-                  <div class="pod-header-pill pill-purple">
-                    <i class="fa-solid fa-chart-line"></i> SOCIAL INTERDEPENDENCE THEORY (JOHNSON & JOHNSON)
-                  </div>
-                  <p class="pod-body-text">Rekaman mendokumentasikan kerja sama saling ketergantungan positif (*positive interdependence*), di mana keberhasilan tim ditentukan oleh kontribusi akurasi setiap pemain nomor urut.</p>
-                </div>
-
-                <div class="analysis-sub-pod">
-                  <div class="pod-header-pill pill-purple">
-                    <i class="fa-solid fa-book-bookmark"></i> COGNITIVE APPRENTICESHIP IN PHYSICAL EDUCATION
-                  </div>
-                  <p class="pod-body-text">Guru bertindak sebagai mentor yang membimbing kapten regu menganalisis sudut pantulan bola sebelum menyerahkan wewenang keputusan penuh kepada siswa.</p>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </section>
     </main>
@@ -1568,32 +770,6 @@
 
     <!-- Interactive Script -->
     <script>
-      function switchCycleTab(evt, panelId) {
-        const panels = document.querySelectorAll(".cycle-panel");
-        panels.forEach((panel) => {
-          panel.classList.remove("active");
-          panel.style.display = "none";
-        });
-
-        const tabBtns = document.querySelectorAll(".cycle-tab-btn");
-        tabBtns.forEach((btn) => {
-          btn.classList.remove("active");
-        });
-
-        const selectedPanel = document.getElementById(panelId);
-        if (selectedPanel) {
-          selectedPanel.style.display = "block";
-          setTimeout(() => {
-            selectedPanel.classList.add("active");
-            triggerReveal();
-          }, 15);
-        }
-
-        if (evt && evt.currentTarget) {
-          evt.currentTarget.classList.add("active");
-        }
-      }
-
       window.addEventListener("scroll", () => {
         const nav = document.getElementById("navbar");
         if (window.scrollY > 50) {
