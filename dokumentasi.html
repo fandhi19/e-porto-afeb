@@ -79,7 +79,7 @@
         border: 1px solid rgba(255, 255, 255, 0.08);
         border-radius: 16px;
         padding: 24px 28px;
-        margin-bottom: 35px;
+        margin-bottom: 30px;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -129,6 +129,76 @@
       }
       .panel-terbimbing-card .stage-pill i { color: #00d4ff; }
       .panel-mandiri-card .stage-pill i { color: #00e676; }
+
+      /* Sub-filter Buttons */
+      .sub-filter-container {
+        display: flex;
+        justify-content: center;
+        gap: 12px;
+        margin-bottom: 35px;
+        flex-wrap: wrap;
+      }
+      .sub-filter-btn {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        color: #bbb;
+        font-family: var(--font-heading);
+        font-size: 0.92rem;
+        letter-spacing: 1px;
+        padding: 9px 22px;
+        border-radius: 20px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        backdrop-filter: blur(8px);
+      }
+      .sub-filter-btn:hover {
+        background: rgba(0, 212, 255, 0.08);
+        border-color: rgba(0, 212, 255, 0.3);
+        color: #fff;
+        transform: translateY(-2px);
+      }
+      .sub-filter-btn.active {
+        background: rgba(0, 212, 255, 0.15);
+        border-color: var(--accent);
+        color: var(--accent);
+        box-shadow: 0 0 15px rgba(0, 212, 255, 0.2);
+        font-weight: 600;
+      }
+
+      /* Card Badge Specific Themes */
+      .badge-siklus {
+        background: rgba(0, 212, 255, 0.18) !important;
+        border-color: #00d4ff !important;
+        color: #00d4ff !important;
+      }
+      .badge-nonmengajar {
+        background: rgba(0, 230, 118, 0.18) !important;
+        border-color: #00e676 !important;
+        color: #00e676 !important;
+      }
+      .badge-kepanitiaan {
+        background: rgba(255, 71, 87, 0.18) !important;
+        border-color: #ff6b81 !important;
+        color: #ff6b81 !important;
+      }
+      .badge-layanan {
+        background: rgba(255, 171, 0, 0.18) !important;
+        border-color: #ffab00 !important;
+        color: #ffab00 !important;
+      }
+      .badge-pembelajaran {
+        background: rgba(0, 212, 255, 0.15) !important;
+        border-color: var(--accent) !important;
+        color: var(--accent) !important;
+      }
+      .badge-kolaborasi {
+        background: rgba(179, 136, 255, 0.18) !important;
+        border-color: #b388ff !important;
+        color: #b388ff !important;
+      }
 
       /* Gallery Card Enhancements */
       .gallery-card {
@@ -219,7 +289,8 @@
         font-size: 0.9rem;
         margin-top: 5px;
         text-align: center;
-        max-width: 600px;
+        max-width: 650px;
+        line-height: 1.5;
       }
       .modal-close {
         position: absolute;
@@ -324,13 +395,26 @@
               </div>
             </div>
 
+            <!-- Sub Filter PPL 1 -->
+            <div class="sub-filter-container reveal">
+              <button class="sub-filter-btn active" onclick="filterCategory(event, 'all', 'panel-terbimbing')">
+                <i class="fa-solid fa-border-all"></i> SEMUA MOMEN (6)
+              </button>
+              <button class="sub-filter-btn" onclick="filterCategory(event, 'pembelajaran', 'panel-terbimbing')">
+                <i class="fa-solid fa-chalkboard"></i> PEMBELAJARAN (3)
+              </button>
+              <button class="sub-filter-btn" onclick="filterCategory(event, 'kolaborasi', 'panel-terbimbing')">
+                <i class="fa-solid fa-handshake"></i> KOLABORASI & EVALUASI (3)
+              </button>
+            </div>
+
             <!-- Gallery Grid PPL Terbimbing -->
             <div class="gallery-grid">
               <!-- Item 1 -->
-              <div class="gallery-card glassmorphism reveal" onclick="openModal('IMG/foto 1.jpeg', 'Foto Bersama DPL dan Guru Pamong', 'Momen foto bersama Dosen Pembimbing Lapangan (DPL) dan Guru Pamong saat penutupan PPL Terbimbing di SMKN 3 Yogyakarta.')">
+              <div class="gallery-card glassmorphism reveal" data-category="kolaborasi" onclick="openModal('IMG/foto 1.jpeg', 'Foto Bersama DPL dan Guru Pamong', 'Momen foto bersama Dosen Pembimbing Lapangan (DPL) dan Guru Pamong saat penutupan PPL Terbimbing di SMKN 3 Yogyakarta.')">
                 <div class="card-media">
                   <img src="IMG/foto 1.jpeg" alt="Foto Bersama DPL dan GP" loading="lazy" />
-                  <span class="card-badge">KOLABORASI</span>
+                  <span class="card-badge badge-kolaborasi">KOLABORASI</span>
                   <div class="zoom-overlay"><div class="zoom-icon-circle"><i class="fa-solid fa-expand"></i></div></div>
                 </div>
                 <div class="card-info">
@@ -340,10 +424,10 @@
               </div>
 
               <!-- Item 2 -->
-              <div class="gallery-card glassmorphism reveal" style="transition-delay: 0.1s" onclick="openModal('IMG/foto 2.jpeg', 'Kunjungan Monitoring dan Evaluasi (Monev)', 'Kunjungan Monev oleh dosen pembimbing untuk mengevaluasi pelaksanaan modul ajar dan asesmen di lapangan.')">
+              <div class="gallery-card glassmorphism reveal" data-category="kolaborasi" style="transition-delay: 0.1s" onclick="openModal('IMG/foto 2.jpeg', 'Kunjungan Monitoring dan Evaluasi (Monev)', 'Kunjungan Monev oleh dosen pembimbing untuk mengevaluasi pelaksanaan modul ajar dan asesmen di lapangan.')">
                 <div class="card-media">
                   <img src="IMG/foto 2.jpeg" alt="Kunjungan Monev" loading="lazy" />
-                  <span class="card-badge">EVALUASI</span>
+                  <span class="card-badge badge-kolaborasi">EVALUASI</span>
                   <div class="zoom-overlay"><div class="zoom-icon-circle"><i class="fa-solid fa-expand"></i></div></div>
                 </div>
                 <div class="card-info">
@@ -353,10 +437,10 @@
               </div>
 
               <!-- Item 3 -->
-              <div class="gallery-card glassmorphism reveal" style="transition-delay: 0.2s" onclick="openModal('IMG/foto 3.jpeg', 'Praktik Mengajar Pembelajaran Teori', 'Penyampaian materi konsep kebugaran jasmani dan pemahaman gerak taktis di ruang kelas bersama siswa.')">
+              <div class="gallery-card glassmorphism reveal" data-category="pembelajaran" style="transition-delay: 0.2s" onclick="openModal('IMG/foto 3.jpeg', 'Praktik Mengajar Pembelajaran Teori', 'Penyampaian materi konsep kebugaran jasmani dan pemahaman gerak taktis di ruang kelas bersama siswa.')">
                 <div class="card-media">
                   <img src="IMG/foto 3.jpeg" alt="Praktik Mengajar" loading="lazy" />
-                  <span class="card-badge">PEMBELAJARAN</span>
+                  <span class="card-badge badge-pembelajaran">PEMBELAJARAN</span>
                   <div class="zoom-overlay"><div class="zoom-icon-circle"><i class="fa-solid fa-expand"></i></div></div>
                 </div>
                 <div class="card-info">
@@ -366,10 +450,10 @@
               </div>
 
               <!-- Item 4 -->
-              <div class="gallery-card glassmorphism reveal" style="transition-delay: 0.3s" onclick="openModal('IMG/foto 4.jpeg', 'Pendampingan Kunjungan Edukasi Museum', 'Mendampingi peserta didik SMKN 3 Yogyakarta dalam outing class sejarah ke Benteng Vredeburg dan Gedung Agung.')">
+              <div class="gallery-card glassmorphism reveal" data-category="pembelajaran" style="transition-delay: 0.3s" onclick="openModal('IMG/foto 4.jpeg', 'Pendampingan Kunjungan Edukasi Museum', 'Mendampingi peserta didik SMKN 3 Yogyakarta dalam outing class sejarah ke Benteng Vredeburg dan Gedung Agung.')">
                 <div class="card-media">
                   <img src="IMG/foto 4.jpeg" alt="Kunjungan Museum" loading="lazy" />
-                  <span class="card-badge">OUTING CLASS</span>
+                  <span class="card-badge badge-pembelajaran">OUTING CLASS</span>
                   <div class="zoom-overlay"><div class="zoom-icon-circle"><i class="fa-solid fa-expand"></i></div></div>
                 </div>
                 <div class="card-info">
@@ -379,10 +463,10 @@
               </div>
 
               <!-- Item 5 -->
-              <div class="gallery-card glassmorphism reveal" style="transition-delay: 0.4s" onclick="openModal('IMG/rekan.jpeg', 'Kekompakan Rekan PPL Terbimbing', 'Solidaritas tim mahasiswa PPG Prajabatan rumpun PJOK dan kejuruan selama bertugas di SMK Negeri 3 Yogyakarta.')">
+              <div class="gallery-card glassmorphism reveal" data-category="kolaborasi" style="transition-delay: 0.4s" onclick="openModal('IMG/rekan.jpeg', 'Kekompakan Rekan PPL Terbimbing', 'Solidaritas tim mahasiswa PPG Prajabatan rumpun PJOK dan kejuruan selama bertugas di SMK Negeri 3 Yogyakarta.')">
                 <div class="card-media">
                   <img src="IMG/rekan.jpeg" alt="Rekan PPL Terbimbing" loading="lazy" />
-                  <span class="card-badge">SOLIDARITAS</span>
+                  <span class="card-badge badge-kolaborasi">SOLIDARITAS</span>
                   <div class="zoom-overlay"><div class="zoom-icon-circle"><i class="fa-solid fa-expand"></i></div></div>
                 </div>
                 <div class="card-info">
@@ -392,10 +476,10 @@
               </div>
 
               <!-- Item 6 -->
-              <div class="gallery-card glassmorphism reveal" style="transition-delay: 0.5s" onclick="openModal('IMG/foto 5.jpeg', 'Diskusi Refleksi Akhir Siklus', 'Sesi refleksi bersama Guru Pamong dan rekan mahasiswa untuk menganalisis hasil belajar dan ketercapaian CP.')">
+              <div class="gallery-card glassmorphism reveal" data-category="pembelajaran" style="transition-delay: 0.5s" onclick="openModal('IMG/foto 5.jpeg', 'Diskusi Refleksi Akhir Siklus', 'Sesi refleksi bersama Guru Pamong dan rekan mahasiswa untuk menganalisis hasil belajar dan ketercapaian CP.')">
                 <div class="card-media">
                   <img src="IMG/foto 5.jpeg" alt="Refleksi Akhir" loading="lazy" />
-                  <span class="card-badge">REFLEKSI</span>
+                  <span class="card-badge badge-pembelajaran">REFLEKSI</span>
                   <div class="zoom-overlay"><div class="zoom-icon-circle"><i class="fa-solid fa-expand"></i></div></div>
                 </div>
                 <div class="card-info">
@@ -414,94 +498,136 @@
             <div class="stage-identity-card panel-mandiri-card reveal">
               <div class="stage-info-text">
                 <h3>PRAKTIK PENGALAMAN LAPANGAN 2 (MANDIRI)</h3>
-                <p>Pengambilan peran penuh sebagai guru mandiri di lapangan, mencakup rancangan 4 siklus ajar, kepanitiaan sekolah, dan layanan MBG.</p>
+                <p>Pengambilan peran penuh sebagai guru PJOK mandiri di SMA Negeri 1 Seyegan, mendokumentasikan 4 siklus praktik mengajar inovatif serta 3 pilar kegiatan non-mengajar.</p>
               </div>
               <div class="stage-pills">
                 <span class="stage-pill"><i class="fa-solid fa-school"></i> SMA Negeri 1 Seyegan</span>
                 <span class="stage-pill"><i class="fa-solid fa-layer-group"></i> Fase F (Kelas XI/XII)</span>
-                <span class="stage-pill"><i class="fa-solid fa-calendar-check"></i> Semester Genap</span>
+                <span class="stage-pill"><i class="fa-solid fa-person-running"></i> 5 Praktik Siklus</span>
+                <span class="stage-pill"><i class="fa-solid fa-users-gear"></i> 3 Non-Mengajar</span>
               </div>
+            </div>
+
+            <!-- Sub Filter PPL 2 -->
+            <div class="sub-filter-container reveal">
+              <button class="sub-filter-btn active" onclick="filterCategory(event, 'all', 'panel-mandiri')">
+                <i class="fa-solid fa-border-all"></i> SEMUA DOKUMENTASI (8)
+              </button>
+              <button class="sub-filter-btn" onclick="filterCategory(event, 'siklus', 'panel-mandiri')">
+                <i class="fa-solid fa-person-running"></i> PRAKTIK SIKLUS MENGAJAR (5)
+              </button>
+              <button class="sub-filter-btn" onclick="filterCategory(event, 'non-mengajar', 'panel-mandiri')">
+                <i class="fa-solid fa-users-gear"></i> KEGIATAN NON-MENGAJAR (3)
+              </button>
             </div>
 
             <!-- Gallery Grid PPL Mandiri -->
             <div class="gallery-grid">
-              <!-- Item 1: Pendampingan SBO -->
-              <div class="gallery-card glassmorphism reveal" onclick="openModal('IMG/PPL_2/Pendampingan SBO.jpeg', 'Pendampingan Ajang SBO 2026', 'Mendampingi kepanitiaan dan pertandingan olahraga antarkelas dalam ajang Sains, Budaya, dan Olahraga (SBO) di SMA N 1 Seyegan.')">
+              
+              <!-- Item 1: Praktik Siklus 1.1 -->
+              <div class="gallery-card glassmorphism reveal" data-category="siklus" onclick="openModal('IMG/PPL_2/Praktik Siklus 1.1.jpeg', 'Praktik Siklus 1.1: Renang Gaya Bebas (Aktivitas Akuatik)', 'Pembelajaran Siklus 1 di kolam renang mitra SMA N 1 Seyegan berfokus pada adaptasi air, teknik pernapasan statis, dan posisi meluncur horizontal (*streamlining*).')">
                 <div class="card-media">
-                  <img src="IMG/PPL_2/Pendampingan SBO.jpeg" alt="Pendampingan SBO" loading="lazy" />
-                  <span class="card-badge" style="background: rgba(0, 212, 255, 0.2); color: #00d4ff; border-color: rgba(0, 212, 255, 0.4);">NON-MENGAJAR</span>
+                  <img src="IMG/PPL_2/Praktik Siklus 1.1.jpeg" alt="Praktik Siklus 1.1: Renang Gaya Bebas" loading="lazy" />
+                  <span class="card-badge badge-siklus">SIKLUS 1 (UTS)</span>
                   <div class="zoom-overlay"><div class="zoom-icon-circle"><i class="fa-solid fa-expand"></i></div></div>
                 </div>
                 <div class="card-info">
-                  <h3>Pendampingan SBO (Sains, Budaya & Olahraga)</h3>
-                  <p>Memandu jalannya turnamen olahraga antarkelas, supervisi pencegahan cedera, dan pembinaan karakter sportivitas peserta didik.</p>
+                  <h3>Praktik Siklus 1.1: Renang Gaya Bebas</h3>
+                  <p>Latihan adaptasi air, teknik pernapasan statis, dan posisi meluncur horizontal (*streamlining*) di kolam renang mitra.</p>
                 </div>
               </div>
 
-              <!-- Item 2: Panitia HUT RI -->
-              <div class="gallery-card glassmorphism reveal" style="transition-delay: 0.1s" onclick="openModal('IMG/PPL_2/Panitia HUT RI.jpeg', 'Panitia Hari Kemerdekaan RI Ke-81', 'Kolaborasi bersama dewan guru dan OSIS dalam menyukseskan perlombaan ketangkasan serta upacara peringatan HUT Kemerdekaan RI.')">
+              <!-- Item 2: Praktik Siklus 1.2 -->
+              <div class="gallery-card glassmorphism reveal" data-category="siklus" style="transition-delay: 0.05s" onclick="openModal('IMG/PPL_2/Praktik Siklus 1.2.jpeg', 'Praktik Siklus 1.2: Koordinasi Renang Gaya Bebas', 'Mempraktikkan keterampilan koordinasi tungkai-lengan-napas sejauh 15-25 meter dengan diferensiasi lintasan bagi pemula hingga mahir, serta penerapan buddy system.')">
+                <div class="card-media">
+                  <img src="IMG/PPL_2/Praktik Siklus 1.2.jpeg" alt="Praktik Siklus 1.2: Koordinasi Renang Gaya Bebas" loading="lazy" />
+                  <span class="card-badge badge-siklus">SIKLUS 1 (UTS)</span>
+                  <div class="zoom-overlay"><div class="zoom-icon-circle"><i class="fa-solid fa-expand"></i></div></div>
+                </div>
+                <div class="card-info">
+                  <h3>Praktik Siklus 1.2: Koordinasi Renang</h3>
+                  <p>Latihan koordinasi kayuhan lengan berkesinambungan (*catch & pull*), pernapasan ritmis bilateral, serta penerapan SOP *buddy system*.</p>
+                </div>
+              </div>
+
+              <!-- Item 3: Praktik Siklus 2 -->
+              <div class="gallery-card glassmorphism reveal" data-category="siklus" style="transition-delay: 0.1s" onclick="openModal('IMG/PPL_2/Praktik Siklus 2.jpeg', 'Praktik Siklus 2: Permainan Bola Basket (TGfU Model)', 'Pembelajaran di lapangan basket SMA N 1 Seyegan berbasis model TGfU dengan sirkuit 3 stasiun pos (*passing*, *dribble*, dan *lay-up shoot*) serta simulasi taktis 3 vs 3.')">
+                <div class="card-media">
+                  <img src="IMG/PPL_2/Praktik Siklus 2.jpeg" alt="Praktik Siklus 2: Permainan Bola Basket" loading="lazy" />
+                  <span class="card-badge badge-siklus">SIKLUS 2 (UAS)</span>
+                  <div class="zoom-overlay"><div class="zoom-icon-circle"><i class="fa-solid fa-expand"></i></div></div>
+                </div>
+                <div class="card-info">
+                  <h3>Praktik Siklus 2: Bola Basket</h3>
+                  <p>Penerapan model Teaching Games for Understanding (TGfU) melalui latihan sirkuit 3 stasiun pos dan simulasi taktis lay-up shoot dua sisi.</p>
+                </div>
+              </div>
+
+              <!-- Item 4: Praktik Siklus 3 -->
+              <div class="gallery-card glassmorphism reveal" data-category="siklus" style="transition-delay: 0.15s" onclick="openModal('IMG/PPL_2/Praktik Siklus 3.jpeg', 'Praktik Siklus 3: Bulutangkis (Net/Wall Sport)', 'Pelaksanaan praktik di aula sekolah dengan target presisi shuttlecock dan penguatan transfer of learning lecutan pergelangan tangan (*wrist snap*).')">
+                <div class="card-media">
+                  <img src="IMG/PPL_2/Praktik Siklus 3.jpeg" alt="Praktik Siklus 3: Bulutangkis" loading="lazy" />
+                  <span class="card-badge badge-siklus">SIKLUS 3 (UAS)</span>
+                  <div class="zoom-overlay"><div class="zoom-icon-circle"><i class="fa-solid fa-expand"></i></div></div>
+                </div>
+                <div class="card-info">
+                  <h3>Praktik Siklus 3: Bulutangkis</h3>
+                  <p>Koreksi teknik *shake-hand grip*, kelincahan langkah *footwork*, serta akurasi penempatan variasi pukulan servis dan lob serang berarah.</p>
+                </div>
+              </div>
+
+              <!-- Item 5: Praktik Siklus 4 -->
+              <div class="gallery-card glassmorphism reveal" data-category="siklus" style="transition-delay: 0.2s" onclick="openModal('IMG/PPL_2/Praktik Siklus 4.jpeg', 'Praktik Siklus 4: Olahraga Gateball (Sport Education Model)', 'Implementasi Sport Education Model (SEM) cabang gateball di lapangan rumput sekolah: melatih teknik center stance, akurasi benturan touch & sparking, serta strategi regu.')">
+                <div class="card-media">
+                  <img src="IMG/PPL_2/Praktik Siklus 4.jpeg" alt="Praktik Siklus 4: Olahraga Gateball" loading="lazy" />
+                  <span class="card-badge badge-siklus">SIKLUS 4 (UAS)</span>
+                  <div class="zoom-overlay"><div class="zoom-icon-circle"><i class="fa-solid fa-expand"></i></div></div>
+                </div>
+                <div class="card-info">
+                  <h3>Praktik Siklus 4: Olahraga Gateball</h3>
+                  <p>Penerapan Sport Education Model (SEM): teknik posisi seimbang (*center stance*), benturan stik (*touch & sparking*), dan kalkulasi taktik tim.</p>
+                </div>
+              </div>
+
+              <!-- Item 6: Pendampingan SBO -->
+              <div class="gallery-card glassmorphism reveal" data-category="non-mengajar" style="transition-delay: 0.25s" onclick="openModal('IMG/PPL_2/Pendampingan SBO.jpeg', 'Pendampingan SBO (Sains, Budaya, dan Olahraga)', 'Mendampingi kepanitiaan dan pertandingan olahraga antarkelas dalam ajang Sains, Budaya, dan Olahraga (SBO 2026) di SMA Negeri 1 Seyegan.')">
+                <div class="card-media">
+                  <img src="IMG/PPL_2/Pendampingan SBO.jpeg" alt="Pendampingan SBO" loading="lazy" />
+                  <span class="card-badge badge-nonmengajar">NON-MENGAJAR</span>
+                  <div class="zoom-overlay"><div class="zoom-icon-circle"><i class="fa-solid fa-expand"></i></div></div>
+                </div>
+                <div class="card-info">
+                  <h3>Pendampingan SBO (Sains & Olahraga)</h3>
+                  <p>Supervisi teknis jalannya turnamen olahraga antarkelas SBO 2026, koordinasi perwasitan edukatif *fair play*, dan edukasi pencegahan cedera.</p>
+                </div>
+              </div>
+
+              <!-- Item 7: Panitia HUT RI -->
+              <div class="gallery-card glassmorphism reveal" data-category="non-mengajar" style="transition-delay: 0.3s" onclick="openModal('IMG/PPL_2/Panitia HUT RI.jpeg', 'Panitia Hari Kemerdekaan RI Ke-81', 'Kolaborasi bersama dewan guru dan OSIS dalam menyukseskan perlombaan ketangkasan tradisional & modern serta upacara peringatan HUT Kemerdekaan RI.')">
                 <div class="card-media">
                   <img src="IMG/PPL_2/Panitia HUT RI.jpeg" alt="Panitia HUT RI" loading="lazy" />
-                  <span class="card-badge" style="background: rgba(255, 71, 87, 0.2); color: #ff6b81; border-color: rgba(255, 71, 87, 0.4);">KEPANITIAAN</span>
+                  <span class="card-badge badge-kepanitiaan">KEPANITIAAN</span>
                   <div class="zoom-overlay"><div class="zoom-icon-circle"><i class="fa-solid fa-expand"></i></div></div>
                 </div>
                 <div class="card-info">
                   <h3>Panitia Peringatan Hari Kemerdekaan RI</h3>
-                  <p>Mengelola teknis perlombaan kebugaran jasmani, keamanan arena lapangan, dan penilaian lomba hari kemerdekaan di sekolah.</p>
+                  <p>Mengelola teknis perlombaan kebugaran jasmani antarkelas, keamanan arena lapangan, protokol upacara bendera, dan penjurian objektif.</p>
                 </div>
               </div>
 
-              <!-- Item 3: Piket MBG -->
-              <div class="gallery-card glassmorphism reveal" style="transition-delay: 0.2s" onclick="openModal('IMG/PPL_2/Piket MBG.jpeg', 'Piket Program Makan Bergizi Gratis (MBG)', 'Pengawasan distribusi paket makanan bernutrisi, edukasi pola hidup bersih sehat (PHBS), dan pemeliharaan kebersihan lingkungan sekolah.')">
+              <!-- Item 8: Piket MBG -->
+              <div class="gallery-card glassmorphism reveal" data-category="non-mengajar" style="transition-delay: 0.35s" onclick="openModal('IMG/PPL_2/Piket MBG.jpeg', 'Piket Program Makan Bergizi Gratis (MBG)', 'Pengawasan distribusi logistik makanan bergizi ke setiap kelas, verifikasi higienitas hidangan, serta pembudayaan pola hidup bersih dan sehat (PHBS).')">
                 <div class="card-media">
                   <img src="IMG/PPL_2/Piket MBG.jpeg" alt="Piket MBG" loading="lazy" />
-                  <span class="card-badge" style="background: rgba(0, 230, 118, 0.2); color: #00e676; border-color: rgba(0, 230, 118, 0.4);">LAYANAN GIZI</span>
+                  <span class="card-badge badge-layanan">LAYANAN GIZI</span>
                   <div class="zoom-overlay"><div class="zoom-icon-circle"><i class="fa-solid fa-expand"></i></div></div>
                 </div>
                 <div class="card-info">
                   <h3>Piket Layanan Program MBG</h3>
-                  <p>Mengawal keteraturan distribusi gizi siswa, memastikan standar sanitasi hidangan, dan mendampingi pembudayaan hidup sehat.</p>
+                  <p>Mengawal keteraturan distribusi makanan bergizi siswa, memastikan standar sanitasi hidangan, dan mendampingi pembudayaan hidup sehat.</p>
                 </div>
               </div>
 
-              <!-- Item 4: Praktik Renang Gaya Bebas -->
-              <div class="gallery-card glassmorphism reveal" style="transition-delay: 0.3s" onclick="openModal('IMG/foto 6.jpeg', 'Praktik Pembelajaran Renang Gaya Bebas (Siklus 1)', 'Pengajaran teknik streamline, ayunan tungkai, dan pertukaran napas bilateral di kolam renang mitra SMA N 1 Seyegan.')">
-                <div class="card-media">
-                  <img src="IMG/foto 6.jpeg" alt="Praktik Renang Siklus 1" loading="lazy" />
-                  <span class="card-badge">SIKLUS 1 (UTS)</span>
-                  <div class="zoom-overlay"><div class="zoom-icon-circle"><i class="fa-solid fa-expand"></i></div></div>
-                </div>
-                <div class="card-info">
-                  <h3>Instruksi Pembelajaran Siklus 1: Renang</h3>
-                  <p>Penguasaan teknik renang gaya bebas dengan diferensiasi lintasan dan protokol keselamatan ketat (*zero accident*).</p>
-                </div>
-              </div>
-
-              <!-- Item 5: Praktik Olahraga Bola Besar / Taktis -->
-              <div class="gallery-card glassmorphism reveal" style="transition-delay: 0.4s" onclick="openModal('IMG/foto 7.jpeg', 'Simulasi Taktik Bola Basket & Permainan (Siklus 2)', 'Penerapan pendekatan TGfU dalam melatih alur passing dinamis, lay-up shoot dua sisi, dan permainan simulasi 3 vs 3.')">
-                <div class="card-media">
-                  <img src="IMG/foto 7.jpeg" alt="Praktik Bola Basket Siklus 2" loading="lazy" />
-                  <span class="card-badge">SIKLUS 2 (UAS)</span>
-                  <div class="zoom-overlay"><div class="zoom-icon-circle"><i class="fa-solid fa-expand"></i></div></div>
-                </div>
-                <div class="card-info">
-                  <h3>Instruksi Pembelajaran Siklus 2: Bola Basket</h3>
-                  <p>Pelaksanaan latihan berstasiun (*station circuit*) dan pemahaman taktis lay-up shoot pada siswa Fase F SMA N 1 Seyegan.</p>
-                </div>
-              </div>
-
-              <!-- Item 6: Pembinaan Keolahragaan & Gateball -->
-              <div class="gallery-card glassmorphism reveal" style="transition-delay: 0.5s" onclick="openModal('IMG/olahraga.jpeg', 'Pengembangan Cabang Olahraga Presisi & Kebugaran', 'Implementasi Sport Education Model pada cabang gateball dan peningkatan kebugaran jasmani terukur.')">
-                <div class="card-media">
-                  <img src="IMG/olahraga.jpeg" alt="Pembelajaran Gateball & Olahraga" loading="lazy" />
-                  <span class="card-badge">SIKLUS 3 & 4</span>
-                  <div class="zoom-overlay"><div class="zoom-icon-circle"><i class="fa-solid fa-expand"></i></div></div>
-                </div>
-                <div class="card-info">
-                  <h3>Pembinaan Olahraga Presisi & Bulutangkis</h3>
-                  <p>Menumbuhkan nilai kesetaraan peran gender, regulasi diri, dan kalkulasi sudut taktis dalam cabang gateball dan net sport.</p>
-                </div>
-              </div>
             </div>
           </div>
 
@@ -620,17 +746,32 @@
           p.style.display = "none";
         });
 
-        // Deactivate buttons
+        // Deactivate stage buttons
         const btns = document.querySelectorAll(".ppl-tab-btn");
         btns.forEach((b) => b.classList.remove("active"));
 
-        // Activate target
+        // Activate target panel
         const targetPanel = document.getElementById(panelId);
         if (targetPanel) {
           targetPanel.style.display = "block";
+          
+          // Reset sub-filters to 'all' in the active panel
+          const subBtns = targetPanel.querySelectorAll(".sub-filter-btn");
+          subBtns.forEach((sb, idx) => {
+            if (idx === 0) sb.classList.add("active");
+            else sb.classList.remove("active");
+          });
+
+          // Show all cards in target panel
+          const cards = targetPanel.querySelectorAll(".gallery-card");
+          cards.forEach((card) => {
+            card.style.display = "flex";
+            card.style.opacity = "1";
+            card.style.transform = "none";
+          });
+
           setTimeout(() => {
             targetPanel.classList.add("active");
-            // Auto trigger reveal for elements inside
             const reveals = targetPanel.querySelectorAll(".reveal");
             reveals.forEach((r) => r.classList.add("active"));
             scrollReveal();
@@ -642,7 +783,37 @@
         }
       }
 
-      // 2. Lightbox Modal
+      // 2. Category Sub-filtering inside panel
+      function filterCategory(evt, category, panelId) {
+        const panel = document.getElementById(panelId);
+        if (!panel) return;
+
+        const btns = panel.querySelectorAll(".sub-filter-btn");
+        btns.forEach((b) => b.classList.remove("active"));
+        if (evt && evt.currentTarget) {
+          evt.currentTarget.classList.add("active");
+        }
+
+        const cards = panel.querySelectorAll(".gallery-card");
+        cards.forEach((card) => {
+          const cat = card.getAttribute("data-category");
+          if (category === "all" || cat === category) {
+            card.style.display = "flex";
+            setTimeout(() => {
+              card.style.opacity = "1";
+              card.style.transform = "translateY(0) scale(1)";
+            }, 30);
+          } else {
+            card.style.opacity = "0";
+            card.style.transform = "scale(0.88)";
+            setTimeout(() => {
+              card.style.display = "none";
+            }, 250);
+          }
+        });
+      }
+
+      // 3. Lightbox Modal
       function openModal(imgSrc, captionText, subText) {
         const modal = document.getElementById("imageModal");
         const modalImg = document.getElementById("modalImg");
@@ -663,7 +834,7 @@
         if (e.key === "Escape") closeModal();
       });
 
-      // 3. Navbar Sticky Effect
+      // 4. Navbar Sticky Effect
       window.addEventListener("scroll", () => {
         const nav = document.getElementById("navbar");
         if (window.scrollY > 50) {
@@ -673,7 +844,7 @@
         }
       });
 
-      // 4. Mobile Menu Toggle
+      // 5. Mobile Menu Toggle
       const mobileMenu = document.getElementById("mobile-menu");
       const navMenu = document.getElementById("nav-menu");
       mobileMenu.addEventListener("click", () => {
@@ -686,7 +857,7 @@
         }
       });
 
-      // 5. Scroll Reveal
+      // 6. Scroll Reveal
       function scrollReveal() {
         const reveals = document.querySelectorAll(".reveal");
         reveals.forEach((element) => {
